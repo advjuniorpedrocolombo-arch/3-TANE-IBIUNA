@@ -1,1 +1,571 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Portal de Estudos — 3º TANE — Extensão Ibiúna"
+  >
+
+  <title>3º TANE — Extensão Ibiúna</title>
+
+  <style>
+    :root{
+      --etec-red:#b5121b;
+      --etec-red-dark:#8e0d14;
+      --etec-red-soft:#f9e9eb;
+      --text:#222831;
+      --muted:#667085;
+      --line:#e7e9ee;
+      --bg:#f6f7f9;
+      --white:#ffffff;
+      --shadow:0 12px 32px rgba(30,38,50,.08);
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      margin:0;
+      font-family:Arial,Helvetica,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .shell{
+      width:min(1160px,calc(100% - 32px));
+      margin:0 auto;
+    }
+
+    .topbar{
+      background:#fff;
+      border-bottom:1px solid var(--line);
+    }
+
+    .topbar-inner{
+      min-height:72px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .brand-mark{
+      width:50px;
+      height:40px;
+      border-radius:11px;
+      display:grid;
+      place-items:center;
+      background:var(--etec-red);
+      color:#fff;
+      font-weight:900;
+      font-size:.8rem;
+    }
+
+    .brand-text strong{
+      display:block;
+      font-size:.95rem;
+    }
+
+    .brand-text span{
+      display:block;
+      color:var(--muted);
+      font-size:.78rem;
+    }
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+      background:
+        linear-gradient(
+          135deg,
+          #ffffff 0%,
+          #fafafa 58%,
+          #f6e4e6 58%,
+          #ffffff 77%
+        );
+      border-bottom:1px solid var(--line);
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      width:520px;
+      height:520px;
+      right:-190px;
+      bottom:-280px;
+      background:var(--etec-red);
+      border-radius:50%;
+    }
+
+    .hero-inner{
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns:minmax(0,1fr) minmax(300px,420px);
+      gap:38px;
+      align-items:center;
+      padding:58px 0;
+    }
+
+    .eyebrow{
+      color:var(--etec-red);
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:.76rem;
+      font-weight:900;
+    }
+
+    .hero h1{
+      margin:9px 0 4px;
+      font-size:clamp(2.5rem,6vw,4.8rem);
+      line-height:1;
+    }
+
+    .hero h2{
+      margin:10px 0 18px;
+      font-size:clamp(1.35rem,3vw,2rem);
+      color:var(--etec-red);
+    }
+
+    .hero p{
+      max-width:700px;
+      margin:0;
+      color:#596273;
+    }
+
+    .profile-card{
+      background:#fff;
+      border:1px solid #eee;
+      box-shadow:0 18px 48px rgba(28,35,45,.14);
+      border-radius:22px;
+      padding:20px;
+      display:grid;
+      grid-template-columns:105px 1fr;
+      gap:17px;
+      align-items:center;
+    }
+
+    .portrait{
+      width:105px;
+      height:105px;
+      object-fit:cover;
+      border-radius:50%;
+      border:4px solid #fff;
+      outline:2px solid #f1c7cb;
+    }
+
+    .profile-card small{
+      display:block;
+      color:var(--muted);
+      font-weight:700;
+    }
+
+    .profile-card strong{
+      display:block;
+      margin-top:4px;
+      font-size:1.15rem;
+    }
+
+    .profile-card span{
+      display:block;
+      margin-top:7px;
+      color:var(--muted);
+      font-size:.86rem;
+    }
+
+    .section{
+      padding:44px 0;
+    }
+
+    .section-head{
+      margin-bottom:22px;
+    }
+
+    .section-head h3{
+      margin:5px 0 6px;
+      font-size:1.7rem;
+    }
+
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
+    }
+
+    .component-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:20px;
+      box-shadow:var(--shadow);
+      padding:24px;
+      display:flex;
+      flex-direction:column;
+      min-height:230px;
+    }
+
+    .component-icon{
+      width:50px;
+      height:50px;
+      display:grid;
+      place-items:center;
+      border-radius:14px;
+      background:var(--etec-red-soft);
+      font-size:1.25rem;
+      margin-bottom:17px;
+    }
+
+    .component-code{
+      display:inline-flex;
+      width:max-content;
+      padding:5px 9px;
+      border-radius:999px;
+      background:var(--etec-red-soft);
+      color:var(--etec-red);
+      font-size:.73rem;
+      font-weight:900;
+    }
+
+    .component-card h4{
+      margin:10px 0 8px;
+      font-size:1.22rem;
+    }
+
+    .component-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:.91rem;
+      flex:1;
+    }
+
+    .component-button{
+      margin-top:20px;
+      min-height:44px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:max-content;
+      padding:0 15px;
+      border-radius:12px;
+      background:var(--etec-red);
+      color:#fff;
+      font-weight:800;
+    }
+
+    .component-button:hover{
+      background:var(--etec-red-dark);
+    }
+
+    footer{
+      background:#fff;
+      border-top:1px solid var(--line);
+      margin-top:25px;
+    }
+
+    .footer-inner{
+      min-height:74px;
+      padding:16px 0;
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      align-items:center;
+      color:var(--muted);
+      font-size:.84rem;
+    }
+
+    @media(max-width:900px){
+      .hero-inner{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:760px){
+      .grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:520px){
+      .shell{
+        width:min(100% - 22px,1160px);
+      }
+
+      .hero-inner{
+        padding:38px 0;
+      }
+
+      .profile-card{
+        grid-template-columns:82px 1fr;
+      }
+
+      .portrait{
+        width:82px;
+        height:82px;
+      }
+
+      .profile-card span{
+        display:none;
+      }
+
+      .footer-inner{
+        flex-direction:column;
+        text-align:center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="shell topbar-inner">
+
+      <div class="brand">
+        <div class="brand-mark">
+          ETEC
+        </div>
+
+        <div class="brand-text">
+          <strong>Portal de Estudos</strong>
+          <span>Extensão Ibiúna</span>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="shell hero-inner">
+
+        <div>
+          <div class="eyebrow">
+            Técnico em Administração
+          </div>
+
+          <h1>
+            3º TANE
+          </h1>
+
+          <h2>
+            Extensão Ibiúna
+          </h2>
+
+          <p>
+            Portal destinado aos materiais, atividades,
+            avisos e orientações dos componentes curriculares
+            do 3º TANE.
+          </p>
+        </div>
+
+        <aside class="profile-card">
+
+          <img
+            src="foto-professor.png"
+            alt="Prof. Junior P. Colombo"
+            class="portrait"
+          >
+
+          <div>
+            <small>Professor</small>
+
+            <strong>
+              Prof. Junior P. Colombo
+            </strong>
+
+            <span>
+              Administração • Extensão Ibiúna
+            </span>
+          </div>
+
+        </aside>
+
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+
+        <div class="section-head">
+
+          <div class="eyebrow">
+            Componentes curriculares
+          </div>
+
+          <h3>
+            Acesse seu componente
+          </h3>
+
+          <p>
+            Selecione abaixo o componente curricular desejado.
+          </p>
+
+        </div>
+
+        <div class="grid">
+
+          <article class="component-card">
+
+            <div class="component-icon">
+              🏛️
+            </div>
+
+            <span class="component-code">
+              ADMP
+            </span>
+
+            <h4>
+              Administração Pública
+            </h4>
+
+            <p>
+              Materiais, atividades e orientações relacionadas
+              à Administração Pública e à atuação administrativa
+              no setor público.
+            </p>
+
+            <a
+              href="admp/index.html"
+              class="component-button"
+            >
+              Acessar componente
+            </a>
+
+          </article>
+
+          <article class="component-card">
+
+            <div class="component-icon">
+              🌎
+            </div>
+
+            <span class="component-code">
+              CI
+            </span>
+
+            <h4>
+              Comércio Internacional
+            </h4>
+
+            <p>
+              Conteúdos e atividades relacionados às operações
+              internacionais, comércio exterior, documentação
+              e logística internacional.
+            </p>
+
+            <a
+              href="ci/index.html"
+              class="component-button"
+            >
+              Acessar componente
+            </a>
+
+          </article>
+
+          <article class="component-card">
+
+            <div class="component-icon">
+              ⚙️
+            </div>
+
+            <span class="component-code">
+              PPBS
+            </span>
+
+            <h4>
+              Processos de Produção de Bens e Serviços
+            </h4>
+
+            <p>
+              Materiais e atividades sobre processos produtivos,
+              operações, produtividade, planejamento
+              e organização da produção.
+            </p>
+
+            <a
+              href="ppbs/index.html"
+              class="component-button"
+            >
+              Acessar componente
+            </a>
+
+          </article>
+
+          <article class="component-card">
+
+            <div class="component-icon">
+              💻
+            </div>
+
+            <span class="component-code">
+              TIAA
+            </span>
+
+            <h4>
+              Tecnologia da Informação Aplicada à Administração
+            </h4>
+
+            <p>
+              Conteúdos e atividades voltados à tecnologia,
+              ferramentas digitais e sistemas de informação
+              aplicados à Administração.
+            </p>
+
+            <a
+              href="tiaa/index.html"
+              class="component-button"
+            >
+              Acessar componente
+            </a>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="shell footer-inner">
+
+      <span>
+        3º TANE — Extensão Ibiúna
+      </span>
+
+      <span>
+        Prof. Junior P. Colombo
+      </span>
+
+    </div>
+  </footer>
+
+</body>
+</html>
