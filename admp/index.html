@@ -22,7 +22,11 @@
       --etec-red-soft:#f9e9eb;
 
       --blue:#1f4e79;
+      --blue-dark:#173b5d;
       --blue-soft:#edf4fb;
+
+      --green:#287647;
+      --green-soft:#edf8f1;
 
       --text:#263238;
       --muted:#667085;
@@ -160,7 +164,7 @@
       font-size:2.25rem;
     }
 
-    /* NAVEGAÇÃO RÁPIDA */
+    /* NAVEGAÇÃO */
 
     .quicknav{
       padding:20px 0 0;
@@ -208,7 +212,7 @@
       font-size:.8rem;
     }
 
-    /* CONTEÚDO */
+    /* PAINÉIS */
 
     .content{
       padding:28px 0 54px;
@@ -255,30 +259,55 @@
       font-weight:900;
     }
 
-    /* VAZIO */
+    /* ATIVIDADE */
 
-    .empty{
-      border:1px dashed #cfd5dd;
-      border-radius:15px;
-      background:#fafbfc;
-      padding:24px;
-      text-align:center;
+    .activity{
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:18px;
+      display:grid;
+      grid-template-columns:52px 1fr auto;
+      gap:15px;
+      align-items:center;
     }
 
-    .empty-icon{
-      font-size:1.7rem;
-      margin-bottom:7px;
+    .activity-icon{
+      width:52px;
+      height:52px;
+      border-radius:14px;
+      background:var(--etec-red-soft);
+      display:grid;
+      place-items:center;
+      font-size:1.25rem;
     }
 
-    .empty strong{
-      display:block;
-      margin-bottom:4px;
+    .activity h3{
+      margin:0 0 4px;
+      font-size:1rem;
     }
 
-    .empty p{
+    .activity p{
       margin:0;
       color:var(--muted);
-      font-size:.88rem;
+      font-size:.86rem;
+    }
+
+    .activity-button{
+      min-height:38px;
+      padding:0 13px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:10px;
+      background:var(--etec-red);
+      color:#fff;
+      font-size:.8rem;
+      font-weight:800;
+      white-space:nowrap;
+    }
+
+    .activity-button:hover{
+      background:var(--etec-red-dark);
     }
 
     /* AVISO */
@@ -306,32 +335,40 @@
 
     .materials{
       display:grid;
-      gap:13px;
+      gap:14px;
     }
 
     .material{
       border:1px solid var(--line);
-      border-radius:15px;
-      padding:17px;
+      border-radius:16px;
+      padding:18px;
       display:grid;
-      grid-template-columns:48px 1fr auto;
+      grid-template-columns:54px 1fr auto;
+      gap:15px;
       align-items:center;
-      gap:14px;
+      background:#fff;
+      transition:.18s ease;
+    }
+
+    .material:hover{
+      border-color:#ccd6df;
+      box-shadow:0 8px 22px rgba(28,35,45,.06);
     }
 
     .material-icon{
-      width:48px;
-      height:48px;
-      border-radius:13px;
+      width:54px;
+      height:54px;
+      border-radius:15px;
       background:var(--blue-soft);
       display:grid;
       place-items:center;
-      font-size:1.2rem;
+      font-size:1.3rem;
     }
 
     .material h3{
-      margin:0 0 3px;
+      margin:0 0 4px;
       font-size:1rem;
+      line-height:1.35;
     }
 
     .material p{
@@ -340,18 +377,99 @@
       font-size:.84rem;
     }
 
-    .status{
+    .lesson-badge{
+      display:inline-flex;
+      align-items:center;
+      width:max-content;
+      min-height:24px;
+      padding:0 8px;
+      margin-bottom:5px;
+      border-radius:999px;
+      background:var(--blue-soft);
+      color:var(--blue);
+      font-size:.67rem;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+    }
+
+    .drive-button{
+      min-height:38px;
+      padding:0 13px;
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      min-height:30px;
-      padding:0 10px;
-      border-radius:999px;
-      background:#f1f3f5;
-      color:#68707e;
-      font-size:.72rem;
-      font-weight:900;
+      border-radius:10px;
+      background:var(--blue);
+      color:#fff;
+      font-size:.8rem;
+      font-weight:800;
       white-space:nowrap;
+    }
+
+    .drive-button:hover{
+      background:var(--blue-dark);
+    }
+
+    .no-material{
+      min-height:38px;
+      padding:0 13px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:10px;
+      background:#f1f3f5;
+      color:#6b7280;
+      font-size:.78rem;
+      font-weight:800;
+      white-space:nowrap;
+    }
+
+    .atd-material{
+      border-color:#f0ced1;
+      background:#fffdfd;
+    }
+
+    .atd-material .material-icon{
+      background:var(--etec-red-soft);
+    }
+
+    .atd-material .lesson-badge{
+      background:var(--etec-red-soft);
+      color:var(--etec-red);
+    }
+
+    .drive-info{
+      margin-top:18px;
+      background:#f8fafc;
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:15px 17px;
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+    }
+
+    .drive-info-icon{
+      width:40px;
+      height:40px;
+      flex:0 0 auto;
+      display:grid;
+      place-items:center;
+      border-radius:11px;
+      background:var(--green-soft);
+      font-size:1.05rem;
+    }
+
+    .drive-info strong{
+      display:block;
+      font-size:.88rem;
+    }
+
+    .drive-info p{
+      margin:4px 0 0;
+      color:var(--muted);
+      font-size:.82rem;
     }
 
     /* RODAPÉ */
@@ -372,7 +490,7 @@
       font-size:.83rem;
     }
 
-    /* MOBILE */
+    /* RESPONSIVO */
 
     @media(max-width:760px){
 
@@ -384,11 +502,14 @@
         align-items:flex-start;
       }
 
-      .material{
-        grid-template-columns:44px 1fr;
+      .material,
+      .activity{
+        grid-template-columns:48px 1fr;
       }
 
-      .status{
+      .drive-button,
+      .no-material,
+      .activity-button{
         grid-column:2;
         width:max-content;
       }
@@ -555,61 +676,20 @@
 
       <!-- ATIVIDADES -->
 
-      <section
-        class="panel"
-        id="atividades"
-      >
+      <section class="panel" id="atividades">
 
         <div class="panel-head">
 
           <div>
-            <h2>Atividades</h2>
+
+            <h2>
+              Atividades
+            </h2>
 
             <p class="panel-subtitle">
               Atividades e trabalhos do componente.
             </p>
-          </div>
 
-          <span class="counter">
-            0
-          </span>
-
-        </div>
-
-        <div class="empty">
-
-          <div class="empty-icon">
-            📝
-          </div>
-
-          <strong>
-            Nenhuma atividade publicada no momento
-          </strong>
-
-          <p>
-            As atividades serão disponibilizadas nesta seção.
-          </p>
-
-        </div>
-
-      </section>
-
-
-      <!-- AVISOS -->
-
-      <section
-        class="panel"
-        id="avisos"
-      >
-
-        <div class="panel-head">
-
-          <div>
-            <h2>Avisos</h2>
-
-            <p class="panel-subtitle">
-              Comunicados importantes do componente.
-            </p>
           </div>
 
           <span class="counter">
@@ -618,15 +698,73 @@
 
         </div>
 
+
+        <div class="activity">
+
+          <div class="activity-icon">
+            📝
+          </div>
+
+          <div>
+
+            <h3>
+              ATD1 — Questionário Dissertativo
+            </h3>
+
+            <p>
+              Estudo de caso sobre princípios da Administração Pública.
+            </p>
+
+          </div>
+
+          <a
+            href="https://1drv.ms/w/c/050c9a98ff922c79/IQDnAnoB6pDgRY6p4cQWOymQAThnf5r5bh1cZ68GPmH3-J8"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="activity-button"
+          >
+            📝 Abrir atividade
+          </a>
+
+        </div>
+
+      </section>
+
+
+      <!-- AVISOS -->
+
+      <section class="panel" id="avisos">
+
+        <div class="panel-head">
+
+          <div>
+
+            <h2>
+              Avisos
+            </h2>
+
+            <p class="panel-subtitle">
+              Comunicados importantes do componente.
+            </p>
+
+          </div>
+
+          <span class="counter">
+            1
+          </span>
+
+        </div>
+
+
         <div class="notice">
 
           <strong>
-            Página do componente disponível
+            Materiais das aulas disponíveis
           </strong>
 
           <p>
-            Os materiais e atividades de Administração Pública
-            serão inseridos nesta página ao longo das aulas.
+            Os materiais utilizados nas aulas de Administração Pública
+            estão disponíveis para consulta por meio do OneDrive.
           </p>
 
         </div>
@@ -636,41 +774,268 @@
 
       <!-- MATERIAIS -->
 
-      <section
-        class="panel"
-        id="materiais"
-      >
+      <section class="panel" id="materiais">
 
         <div class="panel-head">
 
           <div>
-            <h2>Materiais</h2>
+
+            <h2>
+              Materiais
+            </h2>
 
             <p class="panel-subtitle">
-              Conteúdos organizados por aula.
+              Conteúdos organizados de acordo com a sequência das aulas.
             </p>
+
           </div>
 
           <span class="counter">
-            0
+            6
           </span>
 
         </div>
 
 
-        <div class="empty">
+        <div class="materials">
 
-          <div class="empty-icon">
-            📚
+
+          <!-- AULA 01 -->
+
+          <article class="material">
+
+            <div class="material-icon">
+              🎓
+            </div>
+
+            <div>
+
+              <span class="lesson-badge">
+                Aula 01
+              </span>
+
+              <h3>
+                Formatura em MK
+              </h3>
+
+              <p>
+                Aula realizada sem material de apoio disponibilizado.
+              </p>
+
+            </div>
+
+            <span class="no-material">
+              Sem material
+            </span>
+
+          </article>
+
+
+          <!-- AULA 02 -->
+
+          <article class="material">
+
+            <div class="material-icon">
+              🏛️
+            </div>
+
+            <div>
+
+              <span class="lesson-badge">
+                Aula 02
+              </span>
+
+              <h3>
+                Introdução à Administração Pública
+              </h3>
+
+              <p>
+                Conceitos introdutórios e fundamentos da Administração Pública.
+              </p>
+
+            </div>
+
+            <a
+              href="https://1drv.ms/b/c/050c9a98ff922c79/IQB5LJL_mJoMIIAFt5IAAAAAARFGkdT_dpx20HiMcUC9b28"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="drive-button"
+            >
+              📄 Abrir material
+            </a>
+
+          </article>
+
+
+          <!-- AULA 03 -->
+
+          <article class="material">
+
+            <div class="material-icon">
+              ⚖️
+            </div>
+
+            <div>
+
+              <span class="lesson-badge">
+                Aula 03
+              </span>
+
+              <h3>
+                Princípios Explícitos da Administração Pública (LIMPE)
+              </h3>
+
+              <p>
+                Legalidade, Impessoalidade, Moralidade,
+                Publicidade e Eficiência.
+              </p>
+
+            </div>
+
+            <a
+              href="https://1drv.ms/b/c/050c9a98ff922c79/IQB5LJL_mJoMIIAFuZIAAAAAAaCq9Cee_noELVkNBKQyKC4"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="drive-button"
+            >
+              📄 Abrir material
+            </a>
+
+          </article>
+
+
+          <!-- AULA 04 -->
+
+          <article class="material">
+
+            <div class="material-icon">
+              📖
+            </div>
+
+            <div>
+
+              <span class="lesson-badge">
+                Aula 04
+              </span>
+
+              <h3>
+                Continuação — Princípios Explícitos da Administração Pública
+              </h3>
+
+              <p>
+                Continuação e aprofundamento dos princípios
+                constitucionais da Administração Pública.
+              </p>
+
+            </div>
+
+            <a
+              href="https://1drv.ms/b/c/050c9a98ff922c79/IQB5LJL_mJoMIIAFuZIAAAAAAaCq9Cee_noELVkNBKQyKC4"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="drive-button"
+            >
+              📄 Abrir material
+            </a>
+
+          </article>
+
+
+          <!-- AULA 05 -->
+
+          <article class="material">
+
+            <div class="material-icon">
+              🏢
+            </div>
+
+            <div>
+
+              <span class="lesson-badge">
+                Aula 05
+              </span>
+
+              <h3>
+                Serviços Públicos e seus Princípios Específicos
+              </h3>
+
+              <p>
+                Estudo dos serviços públicos e dos princípios
+                aplicáveis à sua prestação.
+              </p>
+
+            </div>
+
+            <a
+              href="https://1drv.ms/b/c/050c9a98ff922c79/IQB5LJL_mJoMIIAFupIAAAAAATGdNrpjk8q6SmxQJrsSdmg"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="drive-button"
+            >
+              📄 Abrir material
+            </a>
+
+          </article>
+
+
+          <!-- AULA 06 -->
+
+          <article class="material atd-material">
+
+            <div class="material-icon">
+              📝
+            </div>
+
+            <div>
+
+              <span class="lesson-badge">
+                Aula 06 • ATD1
+              </span>
+
+              <h3>
+                Questionário Dissertativo — Estudo de Caso
+              </h3>
+
+              <p>
+                Atividade aplicada aos princípios da Administração Pública.
+              </p>
+
+            </div>
+
+            <a
+              href="https://1drv.ms/w/c/050c9a98ff922c79/IQDnAnoB6pDgRY6p4cQWOymQAThnf5r5bh1cZ68GPmH3-J8"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="activity-button"
+            >
+              📝 Abrir atividade
+            </a>
+
+          </article>
+
+
+        </div>
+
+
+        <div class="drive-info">
+
+          <div class="drive-info-icon">
+            ☁️
           </div>
 
-          <strong>
-            Nenhum material publicado no momento
-          </strong>
+          <div>
 
-          <p>
-            As aulas e os arquivos de apoio serão disponibilizados aqui.
-          </p>
+            <strong>
+              Materiais armazenados no OneDrive
+            </strong>
+
+            <p>
+              Os arquivos estão compartilhados somente para visualização.
+              Os alunos podem acessar os materiais pelo navegador e realizar
+              o download quando necessário.
+            </p>
+
+          </div>
 
         </div>
 
