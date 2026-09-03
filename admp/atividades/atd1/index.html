@@ -1,1 +1,2521 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
 
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="ATD1 - Administração Pública - Estudo de Caso - Art. 37 da Constituição Federal"
+  >
+
+  <title>
+    ATD1 - Administração Pública
+  </title>
+
+
+  <style>
+
+    :root {
+
+      --etec-red: #b5121b;
+      --etec-red-dark: #8e0d14;
+      --etec-red-soft: #fcebed;
+
+      --blue: #1f4e79;
+      --blue-dark: #173b5d;
+      --blue-soft: #edf4fb;
+
+      --green: #287647;
+      --green-soft: #edf8f1;
+
+      --yellow: #986900;
+      --yellow-soft: #fff8df;
+
+      --text: #263238;
+      --muted: #667085;
+      --line: #e4e7ec;
+
+      --bg: #f4f6f8;
+      --white: #ffffff;
+
+      --shadow:
+        0 12px 32px rgba(28, 35, 45, .08);
+
+    }
+
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+
+      margin: 0;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      background:
+        var(--bg);
+
+      color:
+        var(--text);
+
+      line-height: 1.6;
+
+    }
+
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+
+    .container {
+
+      width:
+        min(
+          960px,
+          calc(100% - 30px)
+        );
+
+      margin:
+        0 auto;
+
+    }
+
+
+    /* ==========================================
+       TOPO
+    ========================================== */
+
+
+    .topbar {
+
+      background:
+        var(--white);
+
+      border-bottom:
+        1px solid var(--line);
+
+    }
+
+
+    .topbar-inner {
+
+      min-height:
+        68px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+
+      gap:
+        20px;
+
+    }
+
+
+    .brand {
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        12px;
+
+    }
+
+
+    .brand-logo {
+
+      width:
+        48px;
+
+      height:
+        38px;
+
+      display:
+        grid;
+
+      place-items:
+        center;
+
+      border-radius:
+        10px;
+
+      background:
+        var(--etec-red);
+
+      color:
+        white;
+
+      font-size:
+        .78rem;
+
+      font-weight:
+        900;
+
+    }
+
+
+    .brand-text strong {
+
+      display:
+        block;
+
+      font-size:
+        .9rem;
+
+    }
+
+
+    .brand-text span {
+
+      display:
+        block;
+
+      color:
+        var(--muted);
+
+      font-size:
+        .76rem;
+
+    }
+
+
+    .back-link {
+
+      color:
+        var(--blue);
+
+      font-weight:
+        800;
+
+      font-size:
+        .84rem;
+
+    }
+
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+
+    /* ==========================================
+       HERO
+    ========================================== */
+
+
+    .hero {
+
+      background:
+        linear-gradient(
+          135deg,
+          #ffffff,
+          #f7f9fc
+        );
+
+      border-bottom:
+        1px solid var(--line);
+
+    }
+
+
+    .hero-inner {
+
+      padding:
+        42px 0;
+
+    }
+
+
+    .eyebrow {
+
+      display:
+        inline-block;
+
+      padding:
+        5px 10px;
+
+      border-radius:
+        999px;
+
+      background:
+        var(--etec-red-soft);
+
+      color:
+        var(--etec-red);
+
+      font-size:
+        .72rem;
+
+      font-weight:
+        900;
+
+      letter-spacing:
+        .06em;
+
+      text-transform:
+        uppercase;
+
+      margin-bottom:
+        10px;
+
+    }
+
+
+    .hero h1 {
+
+      margin:
+        0 0 8px;
+
+      font-size:
+        clamp(
+          1.9rem,
+          5vw,
+          3rem
+        );
+
+      line-height:
+        1.08;
+
+    }
+
+
+    .hero p {
+
+      margin:
+        0;
+
+      max-width:
+        760px;
+
+      color:
+        var(--muted);
+
+    }
+
+
+    .professor {
+
+      margin-top:
+        12px;
+
+      font-size:
+        .88rem;
+
+      font-weight:
+        800;
+
+      color:
+        var(--blue);
+
+    }
+
+
+    /* ==========================================
+       PRAZO
+    ========================================== */
+
+
+    .deadline {
+
+      margin-top:
+        22px;
+
+      display:
+        grid;
+
+      grid-template-columns:
+        48px 1fr;
+
+      gap:
+        14px;
+
+      align-items:
+        start;
+
+      padding:
+        17px;
+
+      border:
+        1px solid #ecdca5;
+
+      border-radius:
+        15px;
+
+      background:
+        var(--yellow-soft);
+
+    }
+
+
+    .deadline-icon {
+
+      width:
+        48px;
+
+      height:
+        48px;
+
+      display:
+        grid;
+
+      place-items:
+        center;
+
+      border-radius:
+        13px;
+
+      background:
+        white;
+
+      font-size:
+        1.25rem;
+
+    }
+
+
+    .deadline strong {
+
+      display:
+        block;
+
+      color:
+        #765200;
+
+    }
+
+
+    .deadline p {
+
+      margin:
+        3px 0 0;
+
+      color:
+        #6f6040;
+
+      font-size:
+        .86rem;
+
+    }
+
+
+    /* ==========================================
+       CONTEÚDO
+    ========================================== */
+
+
+    main {
+
+      padding:
+        28px 0 55px;
+
+    }
+
+
+    .card {
+
+      background:
+        white;
+
+      border:
+        1px solid var(--line);
+
+      border-radius:
+        20px;
+
+      padding:
+        25px;
+
+      box-shadow:
+        var(--shadow);
+
+      margin-bottom:
+        20px;
+
+    }
+
+
+    .card-title {
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        10px;
+
+      margin-bottom:
+        15px;
+
+    }
+
+
+    .card-title-icon {
+
+      width:
+        42px;
+
+      height:
+        42px;
+
+      border-radius:
+        12px;
+
+      display:
+        grid;
+
+      place-items:
+        center;
+
+      background:
+        var(--blue-soft);
+
+    }
+
+
+    .card h2 {
+
+      margin:
+        0;
+
+      font-size:
+        1.25rem;
+
+    }
+
+
+    .card h3 {
+
+      margin:
+        22px 0 8px;
+
+      font-size:
+        1rem;
+
+      color:
+        var(--blue);
+
+    }
+
+
+    .card p {
+
+      margin:
+        0 0 13px;
+
+    }
+
+
+    /* ==========================================
+       CASO
+    ========================================== */
+
+
+    .case-box {
+
+      background:
+        #fafbfc;
+
+      border:
+        1px solid var(--line);
+
+      border-radius:
+        15px;
+
+      padding:
+        20px;
+
+    }
+
+
+    .case-box p {
+
+      text-align:
+        justify;
+
+    }
+
+
+    /* ==========================================
+       REGRA DE MENÇÃO
+    ========================================== */
+
+
+    .rules {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap:
+        12px;
+
+      margin-top:
+        16px;
+
+    }
+
+
+    .rule {
+
+      border:
+        1px solid var(--line);
+
+      border-radius:
+        14px;
+
+      padding:
+        15px;
+
+      text-align:
+        center;
+
+      background:
+        #fafafa;
+
+    }
+
+
+    .rule strong {
+
+      display:
+        block;
+
+      color:
+        var(--blue);
+
+      font-size:
+        1.1rem;
+
+      margin-bottom:
+        2px;
+
+    }
+
+
+    .rule span {
+
+      font-size:
+        .78rem;
+
+      color:
+        var(--muted);
+
+    }
+
+
+    .rule-note {
+
+      margin-top:
+        13px;
+
+      padding:
+        13px;
+
+      border-left:
+        4px solid var(--etec-red);
+
+      background:
+        var(--etec-red-soft);
+
+      border-radius:
+        9px;
+
+      color:
+        #6c3538;
+
+      font-size:
+        .82rem;
+
+    }
+
+
+    /* ==========================================
+       FORMULÁRIO
+    ========================================== */
+
+
+    .form-grid {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap:
+        17px;
+
+    }
+
+
+    .field {
+
+      margin-bottom:
+        19px;
+
+    }
+
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+
+    label {
+
+      display:
+        block;
+
+      margin-bottom:
+        7px;
+
+      font-size:
+        .84rem;
+
+      font-weight:
+        800;
+
+    }
+
+
+    .required {
+
+      color:
+        var(--etec-red);
+
+    }
+
+
+    input,
+    textarea {
+
+      width:
+        100%;
+
+      border:
+        1px solid #cfd4dc;
+
+      border-radius:
+        11px;
+
+      background:
+        white;
+
+      padding:
+        12px 13px;
+
+      color:
+        var(--text);
+
+      outline:
+        none;
+
+      transition:
+        border .15s ease,
+        box-shadow .15s ease;
+
+    }
+
+
+    input:focus,
+    textarea:focus {
+
+      border-color:
+        var(--blue);
+
+      box-shadow:
+        0 0 0 3px rgba(31, 78, 121, .10);
+
+    }
+
+
+    input[readonly] {
+
+      background:
+        #f5f6f7;
+
+      color:
+        #555;
+
+    }
+
+
+    textarea {
+
+      min-height:
+        190px;
+
+      resize:
+        vertical;
+
+      line-height:
+        1.55;
+
+    }
+
+
+    .question {
+
+      margin-top:
+        20px;
+
+      padding:
+        20px;
+
+      border:
+        1px solid var(--line);
+
+      border-radius:
+        16px;
+
+      background:
+        #fcfcfd;
+
+    }
+
+
+    .question-number {
+
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      min-width:
+        34px;
+
+      height:
+        28px;
+
+      padding:
+        0 9px;
+
+      border-radius:
+        999px;
+
+      background:
+        var(--blue);
+
+      color:
+        white;
+
+      font-size:
+        .72rem;
+
+      font-weight:
+        900;
+
+      margin-bottom:
+        9px;
+
+    }
+
+
+    .question h3 {
+
+      margin:
+        0 0 13px;
+
+      color:
+        var(--text);
+
+      line-height:
+        1.45;
+
+    }
+
+
+    .helper {
+
+      margin-top:
+        6px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        .75rem;
+
+    }
+
+
+    .counter {
+
+      text-align:
+        right;
+
+      margin-top:
+        4px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        .72rem;
+
+    }
+
+
+    /* ==========================================
+       JUSTIFICATIVA
+    ========================================== */
+
+
+    .justification {
+
+      margin-top:
+        20px;
+
+      padding:
+        17px;
+
+      background:
+        #fafbfc;
+
+      border:
+        1px dashed #cbd2da;
+
+      border-radius:
+        14px;
+
+    }
+
+
+    .justification textarea {
+
+      min-height:
+        100px;
+
+    }
+
+
+    /* ==========================================
+       CONFIRMAÇÃO
+    ========================================== */
+
+
+    .confirmation {
+
+      display:
+        flex;
+
+      align-items:
+        flex-start;
+
+      gap:
+        10px;
+
+      margin:
+        22px 0;
+
+      padding:
+        15px;
+
+      border-radius:
+        12px;
+
+      background:
+        var(--blue-soft);
+
+    }
+
+
+    .confirmation input {
+
+      width:
+        auto;
+
+      margin-top:
+        5px;
+
+    }
+
+
+    .confirmation label {
+
+      margin:
+        0;
+
+      font-weight:
+        400;
+
+      font-size:
+        .84rem;
+
+    }
+
+
+    /* ==========================================
+       BOTÃO
+    ========================================== */
+
+
+    .send-button {
+
+      width:
+        100%;
+
+      min-height:
+        52px;
+
+      border:
+        0;
+
+      border-radius:
+        13px;
+
+      background:
+        var(--etec-red);
+
+      color:
+        white;
+
+      cursor:
+        pointer;
+
+      font-size:
+        .95rem;
+
+      font-weight:
+        900;
+
+      transition:
+        .18s ease;
+
+    }
+
+
+    .send-button:hover {
+
+      background:
+        var(--etec-red-dark);
+
+      transform:
+        translateY(-1px);
+
+    }
+
+
+    .send-button:disabled {
+
+      background:
+        #aeb4bc;
+
+      cursor:
+        not-allowed;
+
+      transform:
+        none;
+
+    }
+
+
+    /* ==========================================
+       STATUS
+    ========================================== */
+
+
+    .status-box {
+
+      display:
+        none;
+
+      margin-top:
+        18px;
+
+      padding:
+        16px;
+
+      border-radius:
+        12px;
+
+      font-size:
+        .87rem;
+
+    }
+
+
+    .status-box.success {
+
+      display:
+        block;
+
+      background:
+        var(--green-soft);
+
+      border:
+        1px solid #badbc7;
+
+      color:
+        #1e6139;
+
+    }
+
+
+    .status-box.error {
+
+      display:
+        block;
+
+      background:
+        var(--etec-red-soft);
+
+      border:
+        1px solid #efc5c9;
+
+      color:
+        #8e1e25;
+
+    }
+
+
+    /* ==========================================
+       PROGRESS
+    ========================================== */
+
+
+    .progress-container {
+
+      position:
+        sticky;
+
+      top:
+        0;
+
+      z-index:
+        100;
+
+      height:
+        4px;
+
+      background:
+        #eee;
+
+    }
+
+
+    .progress-bar {
+
+      height:
+        100%;
+
+      width:
+        0%;
+
+      background:
+        var(--etec-red);
+
+      transition:
+        width .2s;
+
+    }
+
+
+    /* ==========================================
+       RODAPÉ
+    ========================================== */
+
+
+    footer {
+
+      background:
+        white;
+
+      border-top:
+        1px solid var(--line);
+
+    }
+
+
+    .footer-inner {
+
+      min-height:
+        74px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+
+      gap:
+        20px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        .8rem;
+
+    }
+
+
+    /* ==========================================
+       MOBILE
+    ========================================== */
+
+
+    @media(max-width: 720px) {
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .field.full {
+        grid-column: auto;
+      }
+
+
+      .rules {
+        grid-template-columns: 1fr;
+      }
+
+
+      .topbar-inner {
+
+        flex-direction:
+          column;
+
+        align-items:
+          flex-start;
+
+        padding:
+          12px 0;
+
+      }
+
+
+      .footer-inner {
+
+        flex-direction:
+          column;
+
+        justify-content:
+          center;
+
+        text-align:
+          center;
+
+        padding:
+          15px 0;
+
+        gap:
+          3px;
+
+      }
+
+    }
+
+
+    @media(max-width: 480px) {
+
+      .container {
+
+        width:
+          calc(100% - 20px);
+
+      }
+
+
+      .card {
+
+        padding:
+          18px;
+
+        border-radius:
+          16px;
+
+      }
+
+
+      .hero-inner {
+
+        padding:
+          31px 0;
+
+      }
+
+
+      .question {
+
+        padding:
+          16px;
+
+      }
+
+
+      textarea {
+
+        min-height:
+          170px;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- PROGRESSO -->
+
+  <div class="progress-container">
+
+    <div
+      class="progress-bar"
+      id="progressBar"
+    ></div>
+
+  </div>
+
+
+  <!-- TOPO -->
+
+  <header class="topbar">
+
+    <div class="container topbar-inner">
+
+
+      <div class="brand">
+
+        <div class="brand-logo">
+          ETEC
+        </div>
+
+        <div class="brand-text">
+
+          <strong>
+            3º TANE — Extensão Ibiúna
+          </strong>
+
+          <span>
+            Administração Pública
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <a
+        href="../../index.html"
+        class="back-link"
+      >
+        ← Voltar para ADMP
+      </a>
+
+
+    </div>
+
+  </header>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="container hero-inner">
+
+
+      <span class="eyebrow">
+        Aula 06 • ATD1
+      </span>
+
+
+      <h1>
+        Estudo de Caso — Art. 37 da CF/88
+      </h1>
+
+
+      <p>
+
+        Atividade dissertativa destinada à análise dos
+        princípios constitucionais da Administração Pública
+        e sua aplicação a uma situação concreta.
+
+      </p>
+
+
+      <div class="professor">
+        Prof. Dr. Júnior Pedro Colombo
+      </div>
+
+
+      <div class="deadline">
+
+        <div class="deadline-icon">
+          ⏰
+        </div>
+
+        <div>
+
+          <strong>
+            Prazo de entrega:
+            04/09/2026 às 23h59
+          </strong>
+
+          <p>
+
+            A data e o horário da entrega serão
+            registrados automaticamente pelo sistema.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <main>
+
+    <div class="container">
+
+
+      <!-- ESTUDO DE CASO -->
+
+      <section class="card">
+
+        <div class="card-title">
+
+          <div class="card-title-icon">
+            🏛️
+          </div>
+
+          <div>
+
+            <h2>
+              Município de Boa Esperança
+            </h2>
+
+          </div>
+
+        </div>
+
+
+        <div class="case-box">
+
+          <p>
+
+            O município de Boa Esperança enfrenta uma grave
+            carência de médicos em sua rede municipal de saúde.
+            A população tem reclamado de filas de espera e da
+            falta de atendimento em postos de saúde e hospitais.
+
+          </p>
+
+
+          <p>
+
+            Diante dessa situação, o Prefeito, pressionado pela
+            Câmara de Vereadores e por lideranças locais,
+            decidiu autorizar a contratação emergencial de
+            novos médicos para suprir a demanda.
+
+          </p>
+
+
+          <p>
+
+            Essas contratações foram realizadas sem licitação
+            e sem a edição de lei específica, apenas com base
+            em um decreto municipal.
+
+          </p>
+
+
+          <p>
+
+            Além disso, entre os profissionais escolhidos,
+            alguns possuem vínculos de parentesco com o
+            Secretário de Saúde, como sobrinhos e primos.
+
+          </p>
+
+
+          <p>
+
+            Outro ponto que gerou questionamento foi a
+            remuneração atribuída aos médicos contratados,
+            que ficou bem acima da média da região e maior
+            até do que a paga a servidores concursados que
+            desempenham a mesma função.
+
+          </p>
+
+
+          <p>
+
+            Os contratos firmados não foram divulgados em
+            Diário Oficial ou em jornal de grande circulação,
+            mas apenas afixados em um mural dentro da
+            Secretaria de Saúde.
+
+          </p>
+
+
+          <p>
+
+            Apesar do esforço inicial, a contratação não trouxe
+            a melhoria esperada, pois não houve planejamento
+            adequado para a distribuição dos profissionais.
+
+          </p>
+
+
+          <p>
+
+            Algumas unidades de saúde ficaram superlotadas,
+            enquanto outras continuaram sem médicos.
+
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <!-- PRAZO E MENÇÃO -->
+
+      <section class="card">
+
+        <div class="card-title">
+
+          <div class="card-title-icon">
+            📅
+          </div>
+
+          <div>
+
+            <h2>
+              Prazo e critério de entrega
+            </h2>
+
+          </div>
+
+        </div>
+
+
+        <p>
+
+          O conteúdo da atividade será avaliado normalmente.
+          Entretanto, a entrega fora do prazo limita a menção
+          máxima que poderá ser atribuída.
+
+        </p>
+
+
+        <div class="rules">
+
+
+          <div class="rule">
+
+            <strong>
+              MB
+            </strong>
+
+            <span>
+              Entrega dentro do prazo
+            </span>
+
+          </div>
+
+
+          <div class="rule">
+
+            <strong>
+              B
+            </strong>
+
+            <span>
+              Até 1 dia de atraso
+            </span>
+
+          </div>
+
+
+          <div class="rule">
+
+            <strong>
+              R
+            </strong>
+
+            <span>
+              2 dias ou mais de atraso
+            </span>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="rule-note">
+
+          <strong>
+            Importante:
+          </strong>
+
+          situações excepcionais e justificativas plausíveis
+          poderão ser analisadas individualmente pelo professor.
+
+        </div>
+
+      </section>
+
+
+      <!-- FORMULÁRIO -->
+
+      <section class="card">
+
+        <div class="card-title">
+
+          <div class="card-title-icon">
+            ✍️
+          </div>
+
+          <div>
+
+            <h2>
+              Responda à atividade
+            </h2>
+
+          </div>
+
+        </div>
+
+
+        <form
+          id="atividadeForm"
+          autocomplete="on"
+        >
+
+
+          <!-- IDENTIFICAÇÃO -->
+
+          <div class="form-grid">
+
+
+            <div class="field">
+
+              <label for="nome">
+
+                Nome completo
+                <span class="required">*</span>
+
+              </label>
+
+              <input
+                type="text"
+                id="nome"
+                name="nome"
+                maxlength="150"
+                required
+                autocomplete="name"
+                placeholder="Digite seu nome completo"
+              >
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="email">
+
+                E-mail para devolutiva
+                <span class="required">*</span>
+
+              </label>
+
+              <input
+                type="email"
+                id="email"
+                name="email"
+                maxlength="180"
+                required
+                autocomplete="email"
+                placeholder="exemplo@email.com"
+              >
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="cidade">
+
+                Cidade
+                <span class="required">*</span>
+
+              </label>
+
+              <input
+                type="text"
+                id="cidade"
+                name="cidade"
+                maxlength="100"
+                required
+                placeholder="Ex.: Ibiúna"
+              >
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="turma">
+                Turma
+              </label>
+
+              <input
+                type="text"
+                id="turma"
+                value="3º TANE - Extensão Ibiúna"
+                readonly
+              >
+
+            </div>
+
+
+          </div>
+
+
+          <!-- QUESTÃO 1 -->
+
+          <div class="question">
+
+            <span class="question-number">
+              Questão 01
+            </span>
+
+
+            <h3>
+
+              Identifique, dentro da narrativa, quais
+              princípios constitucionais da Administração
+              Pública foram respeitados ou violados.
+
+            </h3>
+
+
+            <textarea
+              id="resposta1"
+              name="resposta1"
+              required
+              minlength="20"
+              maxlength="12000"
+              placeholder="Digite sua resposta..."
+            ></textarea>
+
+
+            <div
+              class="counter"
+              id="contador1"
+            >
+              0 caracteres
+            </div>
+
+          </div>
+
+
+          <!-- QUESTÃO 2 -->
+
+          <div class="question">
+
+            <span class="question-number">
+              Questão 02
+            </span>
+
+
+            <h3>
+
+              Explique, de forma fundamentada, cada princípio
+              que você identificar, relacionando-o aos fatos
+              narrados.
+
+            </h3>
+
+
+            <textarea
+              id="resposta2"
+              name="resposta2"
+              required
+              minlength="20"
+              maxlength="12000"
+              placeholder="Desenvolva sua resposta relacionando os conceitos ao caso apresentado..."
+            ></textarea>
+
+
+            <div
+              class="counter"
+              id="contador2"
+            >
+              0 caracteres
+            </div>
+
+          </div>
+
+
+          <!-- QUESTÃO 3 -->
+
+          <div class="question">
+
+            <span class="question-number">
+              Questão 03
+            </span>
+
+
+            <h3>
+
+              Proponha medidas que poderiam ter sido adotadas
+              para evitar as irregularidades.
+
+            </h3>
+
+
+            <textarea
+              id="resposta3"
+              name="resposta3"
+              required
+              minlength="20"
+              maxlength="12000"
+              placeholder="Apresente as medidas que considera adequadas..."
+            ></textarea>
+
+
+            <div
+              class="counter"
+              id="contador3"
+            >
+              0 caracteres
+            </div>
+
+          </div>
+
+
+          <!-- JUSTIFICATIVA -->
+
+          <div class="justification">
+
+            <label for="justificativa">
+
+              Justificativa de atraso
+              <span
+                style="
+                  color:#667085;
+                  font-weight:400;
+                "
+              >
+                (opcional)
+              </span>
+
+            </label>
+
+
+            <textarea
+              id="justificativa"
+              name="justificativa"
+              maxlength="3000"
+              placeholder="Preencha somente se sua atividade estiver sendo entregue fora do prazo e houver uma situação que você considere importante informar ao professor."
+            ></textarea>
+
+
+            <div class="helper">
+
+              O preenchimento deste campo não altera
+              automaticamente a menção. A justificativa será
+              analisada pelo professor.
+
+            </div>
+
+          </div>
+
+
+          <!-- CONFIRMAÇÃO -->
+
+          <div class="confirmation">
+
+            <input
+              type="checkbox"
+              id="confirmacao"
+              required
+            >
+
+
+            <label for="confirmacao">
+
+              Declaro que revisei minhas respostas e estou
+              ciente de que, após clicar em
+              <strong>Enviar atividade</strong>, a data e o
+              horário da entrega serão registrados pelo
+              sistema.
+
+            </label>
+
+          </div>
+
+
+          <!-- BOTÃO -->
+
+          <button
+            type="submit"
+            class="send-button"
+            id="btnEnviar"
+          >
+            📤 Enviar atividade
+          </button>
+
+
+          <div
+            id="statusBox"
+            class="status-box"
+          ></div>
+
+
+        </form>
+
+      </section>
+
+
+    </div>
+
+  </main>
+
+
+  <!-- RODAPÉ -->
+
+  <footer>
+
+    <div class="container footer-inner">
+
+      <span>
+        ATD1 — Administração Pública
+      </span>
+
+      <span>
+        Prof. Dr. Júnior Pedro Colombo
+      </span>
+
+    </div>
+
+  </footer>
+
+
+  <script>
+
+    /*
+     * ========================================================
+     * IMPORTANTE
+     * ========================================================
+     *
+     * Depois que implantarmos o Apps Script como Web App,
+     * coloque aqui a URL terminada em /exec.
+     *
+     * EXEMPLO:
+     *
+     * const WEB_APP_URL =
+     * 'https://script.google.com/macros/s/XXXXXXXX/exec';
+     *
+     */
+
+    const WEB_APP_URL =
+      'COLE_AQUI_A_URL_DO_WEB_APP';
+
+
+    let enviado = false;
+
+
+    /*
+     * CONTADORES
+     */
+
+    function configurarContador(
+      textareaId,
+      contadorId
+    ) {
+
+      const textarea =
+        document.getElementById(
+          textareaId
+        );
+
+      const contador =
+        document.getElementById(
+          contadorId
+        );
+
+
+      function atualizar() {
+
+        contador.textContent =
+          textarea.value.length +
+          ' caracteres';
+
+      }
+
+
+      textarea.addEventListener(
+        'input',
+        atualizar
+      );
+
+
+      atualizar();
+
+    }
+
+
+    configurarContador(
+      'resposta1',
+      'contador1'
+    );
+
+
+    configurarContador(
+      'resposta2',
+      'contador2'
+    );
+
+
+    configurarContador(
+      'resposta3',
+      'contador3'
+    );
+
+
+    /*
+     * BARRA DE PROGRESSO
+     */
+
+    function atualizarProgresso() {
+
+      const campos = [
+
+        document.getElementById('nome'),
+        document.getElementById('email'),
+        document.getElementById('cidade'),
+        document.getElementById('resposta1'),
+        document.getElementById('resposta2'),
+        document.getElementById('resposta3')
+
+      ];
+
+
+      let preenchidos = 0;
+
+
+      campos.forEach(
+        campo => {
+
+          if (
+            campo.value.trim().length > 0
+          ) {
+
+            preenchidos++;
+
+          }
+
+        }
+      );
+
+
+      const percentual =
+        (
+          preenchidos /
+          campos.length
+        ) * 100;
+
+
+      document
+        .getElementById(
+          'progressBar'
+        )
+        .style.width =
+          percentual + '%';
+
+    }
+
+
+    document
+      .querySelectorAll(
+        'input, textarea'
+      )
+      .forEach(
+        campo => {
+
+          campo.addEventListener(
+            'input',
+            atualizarProgresso
+          );
+
+        }
+      );
+
+
+    /*
+     * STATUS
+     */
+
+    function mostrarStatus(
+      tipo,
+      mensagem
+    ) {
+
+      const box =
+        document.getElementById(
+          'statusBox'
+        );
+
+
+      box.className =
+        'status-box ' +
+        tipo;
+
+
+      box.innerHTML =
+        mensagem;
+
+    }
+
+
+    /*
+     * ENVIO
+     */
+
+    document
+      .getElementById(
+        'atividadeForm'
+      )
+      .addEventListener(
+        'submit',
+        async function(event) {
+
+          event.preventDefault();
+
+
+          if (enviado) {
+
+            return;
+
+          }
+
+
+          /*
+           * Verifica se a URL foi configurada.
+           */
+
+          if (
+            !WEB_APP_URL ||
+            WEB_APP_URL.includes(
+              'COLE_AQUI'
+            )
+          ) {
+
+            mostrarStatus(
+              'error',
+              '⚠️ A atividade ainda não está conectada ao servidor. Informe o professor.'
+            );
+
+            return;
+
+          }
+
+
+          const form =
+            event.currentTarget;
+
+
+          if (
+            !form.checkValidity()
+          ) {
+
+            form.reportValidity();
+
+            return;
+
+          }
+
+
+          const nome =
+            document
+              .getElementById(
+                'nome'
+              )
+              .value
+              .trim();
+
+
+          const email =
+            document
+              .getElementById(
+                'email'
+              )
+              .value
+              .trim();
+
+
+          const cidade =
+            document
+              .getElementById(
+                'cidade'
+              )
+              .value
+              .trim();
+
+
+          const resposta1 =
+            document
+              .getElementById(
+                'resposta1'
+              )
+              .value
+              .trim();
+
+
+          const resposta2 =
+            document
+              .getElementById(
+                'resposta2'
+              )
+              .value
+              .trim();
+
+
+          const resposta3 =
+            document
+              .getElementById(
+                'resposta3'
+              )
+              .value
+              .trim();
+
+
+          const justificativa =
+            document
+              .getElementById(
+                'justificativa'
+              )
+              .value
+              .trim();
+
+
+          /*
+           * Validação extra.
+           */
+
+          const respostas = [
+            resposta1,
+            resposta2,
+            resposta3
+          ];
+
+
+          for (
+            let i = 0;
+            i < respostas.length;
+            i++
+          ) {
+
+            if (
+              respostas[i].length < 20
+            ) {
+
+              mostrarStatus(
+                'error',
+                '⚠️ Desenvolva melhor a resposta da Questão ' +
+                (i + 1) +
+                ' antes de enviar.'
+              );
+
+              return;
+
+            }
+
+          }
+
+
+          const payload = {
+
+            nome:
+              nome,
+
+            turma:
+              '3º TANE - Extensão Ibiúna',
+
+            email:
+              email,
+
+            cidade:
+              cidade,
+
+            componente:
+              'Administração Pública',
+
+            respostas: [
+              resposta1,
+              resposta2,
+              resposta3
+            ],
+
+            justificativaAtraso:
+              justificativa
+
+          };
+
+
+          const botao =
+            document.getElementById(
+              'btnEnviar'
+            );
+
+
+          botao.disabled =
+            true;
+
+
+          botao.textContent =
+            '⏳ Enviando atividade...';
+
+
+          mostrarStatus(
+            'success',
+            '⏳ Enviando suas respostas. Não feche esta página...'
+          );
+
+
+          try {
+
+            /*
+             * Apps Script Web App.
+             *
+             * O modo no-cors evita bloqueio do navegador
+             * entre GitHub Pages e Apps Script.
+             */
+
+            await fetch(
+              WEB_APP_URL,
+              {
+
+                method:
+                  'POST',
+
+                mode:
+                  'no-cors',
+
+                headers: {
+
+                  'Content-Type':
+                    'text/plain;charset=utf-8'
+
+                },
+
+                body:
+                  JSON.stringify(
+                    payload
+                  )
+
+              }
+            );
+
+
+            enviado =
+              true;
+
+
+            botao.textContent =
+              '✓ Atividade enviada';
+
+
+            mostrarStatus(
+              'success',
+
+              '<strong>✅ Atividade encaminhada com sucesso.</strong><br><br>' +
+
+              'Aluno: ' +
+              escaparHtml(nome) +
+              '<br>' +
+
+              'E-mail para devolutiva: ' +
+              escaparHtml(email) +
+              '<br><br>' +
+
+              'Suas respostas foram encaminhadas ao sistema de correção. ' +
+
+              'A atividade será analisada e, após a revisão e aprovação do professor, ' +
+
+              'a devolutiva será enviada ao e-mail informado.'
+            );
+
+
+            document
+              .getElementById(
+                'progressBar'
+              )
+              .style.width =
+                '100%';
+
+
+            /*
+             * Bloqueia os campos depois do envio.
+             */
+
+            form
+              .querySelectorAll(
+                'input, textarea'
+              )
+              .forEach(
+                elemento => {
+
+                  elemento.disabled =
+                    true;
+
+                }
+              );
+
+
+            /*
+             * Rola para a mensagem.
+             */
+
+            document
+              .getElementById(
+                'statusBox'
+              )
+              .scrollIntoView({
+
+                behavior:
+                  'smooth',
+
+                block:
+                  'center'
+
+              });
+
+
+          } catch (erro) {
+
+            console.error(
+              erro
+            );
+
+
+            enviado =
+              false;
+
+
+            botao.disabled =
+              false;
+
+
+            botao.textContent =
+              '📤 Enviar atividade';
+
+
+            mostrarStatus(
+              'error',
+
+              '<strong>❌ Não foi possível encaminhar a atividade.</strong><br>' +
+
+              'Verifique sua conexão com a internet e tente novamente.'
+            );
+
+          }
+
+        }
+      );
+
+
+    /*
+     * SEGURANÇA BÁSICA PARA EXIBIÇÃO
+     */
+
+    function escaparHtml(texto) {
+
+      return String(
+        texto || ''
+      )
+      .replace(
+        /&/g,
+        '&amp;'
+      )
+      .replace(
+        /</g,
+        '&lt;'
+      )
+      .replace(
+        />/g,
+        '&gt;'
+      )
+      .replace(
+        /"/g,
+        '&quot;'
+      )
+      .replace(
+        /'/g,
+        '&#039;'
+      );
+
+    }
+
+  </script>
+
+
+</body>
+
+</html>
