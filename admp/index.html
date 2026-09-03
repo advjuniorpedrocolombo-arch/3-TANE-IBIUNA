@@ -292,22 +292,21 @@
       font-size:.86rem;
     }
 
-    .activity-button{
+    /* BOTÃO DESABILITADO */
+
+    .disabled-button{
       min-height:38px;
       padding:0 13px;
       display:inline-flex;
       align-items:center;
       justify-content:center;
       border-radius:10px;
-      background:var(--etec-red);
-      color:#fff;
-      font-size:.8rem;
+      background:#f1f3f5;
+      color:#6b7280;
+      font-size:.78rem;
       font-weight:800;
       white-space:nowrap;
-    }
-
-    .activity-button:hover{
-      background:var(--etec-red-dark);
+      cursor:not-allowed;
     }
 
     /* AVISO */
@@ -439,6 +438,8 @@
       color:var(--etec-red);
     }
 
+    /* INFORMAÇÃO */
+
     .drive-info{
       margin-top:18px;
       background:#f8fafc;
@@ -490,7 +491,7 @@
       font-size:.83rem;
     }
 
-    /* RESPONSIVO */
+    /* MOBILE */
 
     @media(max-width:760px){
 
@@ -509,7 +510,7 @@
 
       .drive-button,
       .no-material,
-      .activity-button{
+      .disabled-button{
         grid-column:2;
         width:max-content;
       }
@@ -676,7 +677,10 @@
 
       <!-- ATIVIDADES -->
 
-      <section class="panel" id="atividades">
+      <section
+        class="panel"
+        id="atividades"
+      >
 
         <div class="panel-head">
 
@@ -713,18 +717,14 @@
 
             <p>
               Estudo de caso sobre princípios da Administração Pública.
+              A atividade será disponibilizada por uma interface específica.
             </p>
 
           </div>
 
-          <a
-            href="https://1drv.ms/w/c/050c9a98ff922c79/IQDnAnoB6pDgRY6p4cQWOymQAThnf5r5bh1cZ68GPmH3-J8"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="activity-button"
-          >
-            📝 Abrir atividade
-          </a>
+          <span class="disabled-button">
+            Em breve
+          </span>
 
         </div>
 
@@ -733,7 +733,10 @@
 
       <!-- AVISOS -->
 
-      <section class="panel" id="avisos">
+      <section
+        class="panel"
+        id="avisos"
+      >
 
         <div class="panel-head">
 
@@ -765,6 +768,8 @@
           <p>
             Os materiais utilizados nas aulas de Administração Pública
             estão disponíveis para consulta por meio do OneDrive.
+            A ATD1 será disponibilizada posteriormente em uma
+            interface própria.
           </p>
 
         </div>
@@ -774,7 +779,10 @@
 
       <!-- MATERIAIS -->
 
-      <section class="panel" id="materiais">
+      <section
+        class="panel"
+        id="materiais"
+      >
 
         <div class="panel-head">
 
@@ -998,24 +1006,22 @@
 
               <p>
                 Atividade aplicada aos princípios da Administração Pública.
+                O envio será realizado por uma interface específica.
               </p>
 
             </div>
 
-            <a
-              href="https://1drv.ms/w/c/050c9a98ff922c79/IQDnAnoB6pDgRY6p4cQWOymQAThnf5r5bh1cZ68GPmH3-J8"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="activity-button"
-            >
-              📝 Abrir atividade
-            </a>
+            <span class="disabled-button">
+              Atividade em breve
+            </span>
 
           </article>
 
 
         </div>
 
+
+        <!-- INFORMAÇÃO -->
 
         <div class="drive-info">
 
@@ -1030,9 +1036,9 @@
             </strong>
 
             <p>
-              Os arquivos estão compartilhados somente para visualização.
-              Os alunos podem acessar os materiais pelo navegador e realizar
-              o download quando necessário.
+              Os materiais das aulas estão compartilhados somente para
+              visualização. A atividade da Aula 06 será disponibilizada
+              separadamente.
             </p>
 
           </div>
