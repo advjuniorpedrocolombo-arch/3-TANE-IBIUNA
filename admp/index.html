@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -10,536 +12,1321 @@
 
   <meta
     name="description"
-    content="Administração Pública — 3º TANE — Extensão Ibiúna"
+    content="ATD1 - Administração Pública - Estudo de Caso - Art. 37 da Constituição Federal"
   >
 
-  <title>ADMP — Administração Pública</title>
+  <title>
+    ATD1 - Administração Pública
+  </title>
+
 
   <style>
-    :root{
-      --etec-red:#b5121b;
-      --etec-red-dark:#8e0d14;
-      --etec-red-soft:#f9e9eb;
 
-      --blue:#1f4e79;
-      --blue-dark:#173b5d;
-      --blue-soft:#edf4fb;
+    :root {
 
-      --green:#287647;
-      --green-soft:#edf8f1;
+      --etec-red: #b5121b;
+      --etec-red-dark: #8e0d14;
+      --etec-red-soft: #fcebed;
 
-      --text:#263238;
-      --muted:#667085;
-      --line:#e7e9ee;
+      --blue: #1f4e79;
+      --blue-dark: #173b5d;
+      --blue-soft: #edf4fb;
 
-      --bg:#f5f6f8;
-      --white:#ffffff;
+      --green: #287647;
+      --green-soft: #edf8f1;
 
-      --shadow:0 12px 30px rgba(28,35,45,.08);
+      --yellow: #986900;
+      --yellow-soft: #fff8df;
+
+      --text: #263238;
+      --muted: #667085;
+      --line: #e4e7ec;
+
+      --bg: #f4f6f8;
+      --white: #ffffff;
+
+      --shadow:
+        0 12px 32px rgba(28, 35, 45, .08);
+
     }
 
-    *{
-      box-sizing:border-box;
+
+    * {
+      box-sizing: border-box;
     }
 
-    html{
-      scroll-behavior:smooth;
+
+    html {
+      scroll-behavior: smooth;
     }
 
-    body{
-      margin:0;
-      font-family:Arial,Helvetica,sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.5;
+
+    body {
+
+      margin: 0;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      background:
+        var(--bg);
+
+      color:
+        var(--text);
+
+      line-height: 1.6;
+
     }
 
-    a{
-      color:inherit;
-      text-decoration:none;
+
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
-    .container{
-      width:min(1120px,calc(100% - 32px));
-      margin:0 auto;
+
+    button,
+    input,
+    textarea {
+      font: inherit;
     }
 
-    /* TOPO */
 
-    .topbar{
-      background:#fff;
-      border-bottom:1px solid var(--line);
+    .container {
+
+      width:
+        min(
+          960px,
+          calc(100% - 30px)
+        );
+
+      margin:
+        0 auto;
+
     }
 
-    .topbar-inner{
-      min-height:68px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
+
+    /* ==========================================
+       TOPO
+    ========================================== */
+
+
+    .topbar {
+
+      background:
+        var(--white);
+
+      border-bottom:
+        1px solid var(--line);
+
     }
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
+
+    .topbar-inner {
+
+      min-height:
+        68px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+
+      gap:
+        20px;
+
     }
 
-    .brand-logo{
-      width:48px;
-      height:38px;
-      border-radius:10px;
-      background:var(--etec-red);
-      color:#fff;
-      display:grid;
-      place-items:center;
-      font-weight:900;
-      font-size:.8rem;
+
+    .brand {
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        12px;
+
     }
 
-    .brand-text strong{
-      display:block;
-      font-size:.92rem;
+
+    .brand-logo {
+
+      width:
+        48px;
+
+      height:
+        38px;
+
+      display:
+        grid;
+
+      place-items:
+        center;
+
+      border-radius:
+        10px;
+
+      background:
+        var(--etec-red);
+
+      color:
+        white;
+
+      font-size:
+        .78rem;
+
+      font-weight:
+        900;
+
     }
 
-    .brand-text span{
-      display:block;
-      color:var(--muted);
-      font-size:.78rem;
+
+    .brand-text strong {
+
+      display:
+        block;
+
+      font-size:
+        .9rem;
+
     }
 
-    .back-link{
-      color:var(--blue);
-      font-weight:800;
-      font-size:.88rem;
+
+    .brand-text span {
+
+      display:
+        block;
+
+      color:
+        var(--muted);
+
+      font-size:
+        .76rem;
+
     }
 
-    .back-link:hover{
-      text-decoration:underline;
+
+    .back-link {
+
+      color:
+        var(--blue);
+
+      font-weight:
+        800;
+
+      font-size:
+        .84rem;
+
     }
 
-    /* HERO */
 
-    .hero{
-      background:#fff;
-      border-bottom:1px solid var(--line);
+    .back-link:hover {
+      text-decoration: underline;
     }
 
-    .hero-inner{
-      padding:42px 0;
-      display:flex;
-      justify-content:space-between;
-      gap:28px;
-      align-items:center;
+
+    /* ==========================================
+       HERO
+    ========================================== */
+
+
+    .hero {
+
+      background:
+        linear-gradient(
+          135deg,
+          #ffffff,
+          #f7f9fc
+        );
+
+      border-bottom:
+        1px solid var(--line);
+
     }
 
-    .eyebrow{
-      color:var(--blue);
-      font-size:.76rem;
-      font-weight:900;
-      text-transform:uppercase;
-      letter-spacing:.1em;
+
+    .hero-inner {
+
+      padding:
+        42px 0;
+
     }
 
-    .hero h1{
-      margin:7px 0 7px;
-      font-size:clamp(2rem,5vw,3.4rem);
-      line-height:1.05;
+
+    .eyebrow {
+
+      display:
+        inline-block;
+
+      padding:
+        5px 10px;
+
+      border-radius:
+        999px;
+
+      background:
+        var(--etec-red-soft);
+
+      color:
+        var(--etec-red);
+
+      font-size:
+        .72rem;
+
+      font-weight:
+        900;
+
+      letter-spacing:
+        .06em;
+
+      text-transform:
+        uppercase;
+
+      margin-bottom:
+        10px;
+
     }
 
-    .hero p{
-      margin:0;
-      max-width:760px;
-      color:var(--muted);
+
+    .hero h1 {
+
+      margin:
+        0 0 8px;
+
+      font-size:
+        clamp(
+          1.9rem,
+          5vw,
+          3rem
+        );
+
+      line-height:
+        1.08;
+
     }
 
-    .hero-icon{
-      width:86px;
-      height:86px;
-      flex:0 0 auto;
-      border-radius:22px;
-      background:var(--blue-soft);
-      display:grid;
-      place-items:center;
-      font-size:2.25rem;
+
+    .hero p {
+
+      margin:
+        0;
+
+      max-width:
+        760px;
+
+      color:
+        var(--muted);
+
     }
 
-    /* NAVEGAÇÃO */
 
-    .quicknav{
-      padding:20px 0 0;
+    .professor {
+
+      margin-top:
+        12px;
+
+      font-size:
+        .88rem;
+
+      font-weight:
+        800;
+
+      color:
+        var(--blue);
+
     }
 
-    .quicknav-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
+
+    /* ==========================================
+       PRAZO
+    ========================================== */
+
+
+    .deadline {
+
+      margin-top:
+        22px;
+
+      display:
+        grid;
+
+      grid-template-columns:
+        48px 1fr;
+
+      gap:
+        14px;
+
+      align-items:
+        start;
+
+      padding:
+        17px;
+
+      border:
+        1px solid #ecdca5;
+
+      border-radius:
+        15px;
+
+      background:
+        var(--yellow-soft);
+
     }
 
-    .quick-card{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:17px 18px;
-      box-shadow:var(--shadow);
-      display:flex;
-      align-items:center;
-      gap:12px;
-      transition:.18s ease;
+
+    .deadline-icon {
+
+      width:
+        48px;
+
+      height:
+        48px;
+
+      display:
+        grid;
+
+      place-items:
+        center;
+
+      border-radius:
+        13px;
+
+      background:
+        white;
+
+      font-size:
+        1.25rem;
+
     }
 
-    .quick-card:hover{
-      transform:translateY(-2px);
+
+    .deadline strong {
+
+      display:
+        block;
+
+      color:
+        #765200;
+
     }
 
-    .quick-icon{
-      width:42px;
-      height:42px;
-      border-radius:12px;
-      display:grid;
-      place-items:center;
-      background:var(--blue-soft);
-      font-size:1.1rem;
+
+    .deadline p {
+
+      margin:
+        3px 0 0;
+
+      color:
+        #6f6040;
+
+      font-size:
+        .86rem;
+
     }
 
-    .quick-card strong{
-      display:block;
+
+    /* ==========================================
+       CONTEÚDO
+    ========================================== */
+
+
+    main {
+
+      padding:
+        28px 0 55px;
+
     }
 
-    .quick-card span{
-      display:block;
-      color:var(--muted);
-      font-size:.8rem;
+
+    .card {
+
+      background:
+        white;
+
+      border:
+        1px solid var(--line);
+
+      border-radius:
+        20px;
+
+      padding:
+        25px;
+
+      box-shadow:
+        var(--shadow);
+
+      margin-bottom:
+        20px;
+
     }
 
-    /* PAINÉIS */
 
-    .content{
-      padding:28px 0 54px;
+    .card-title {
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        10px;
+
+      margin-bottom:
+        15px;
+
     }
 
-    .panel{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:20px;
-      box-shadow:var(--shadow);
-      padding:24px;
-      margin-top:20px;
+
+    .card-title-icon {
+
+      width:
+        42px;
+
+      height:
+        42px;
+
+      border-radius:
+        12px;
+
+      display:
+        grid;
+
+      place-items:
+        center;
+
+      background:
+        var(--blue-soft);
+
     }
 
-    .panel-head{
-      display:flex;
-      justify-content:space-between;
-      gap:20px;
-      align-items:flex-start;
-      margin-bottom:20px;
+
+    .card h2 {
+
+      margin:
+        0;
+
+      font-size:
+        1.25rem;
+
     }
 
-    .panel h2{
-      margin:0 0 5px;
-      font-size:1.45rem;
+
+    .card h3 {
+
+      margin:
+        22px 0 8px;
+
+      font-size:
+        1rem;
+
+      color:
+        var(--blue);
+
     }
 
-    .panel-subtitle{
-      margin:0;
-      color:var(--muted);
-      font-size:.9rem;
+
+    .card p {
+
+      margin:
+        0 0 13px;
+
     }
 
-    .counter{
-      min-width:38px;
-      height:30px;
-      display:grid;
-      place-items:center;
-      padding:0 10px;
-      border-radius:999px;
-      background:var(--blue-soft);
-      color:var(--blue);
-      font-size:.8rem;
-      font-weight:900;
+
+    /* ==========================================
+       CASO
+    ========================================== */
+
+
+    .case-box {
+
+      background:
+        #fafbfc;
+
+      border:
+        1px solid var(--line);
+
+      border-radius:
+        15px;
+
+      padding:
+        20px;
+
     }
 
-    /* ATIVIDADE */
 
-    .activity{
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:18px;
-      display:grid;
-      grid-template-columns:52px 1fr auto;
-      gap:15px;
-      align-items:center;
+    .case-box p {
+
+      text-align:
+        justify;
+
     }
 
-    .activity-icon{
-      width:52px;
-      height:52px;
-      border-radius:14px;
-      background:var(--etec-red-soft);
-      display:grid;
-      place-items:center;
-      font-size:1.25rem;
+
+    /* ==========================================
+       REGRA DE MENÇÃO
+    ========================================== */
+
+
+    .rules {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap:
+        12px;
+
+      margin-top:
+        16px;
+
     }
 
-    .activity h3{
-      margin:0 0 4px;
-      font-size:1rem;
+
+    .rule {
+
+      border:
+        1px solid var(--line);
+
+      border-radius:
+        14px;
+
+      padding:
+        15px;
+
+      text-align:
+        center;
+
+      background:
+        #fafafa;
+
     }
 
-    .activity p{
-      margin:0;
-      color:var(--muted);
-      font-size:.86rem;
+
+    .rule strong {
+
+      display:
+        block;
+
+      color:
+        var(--blue);
+
+      font-size:
+        1.1rem;
+
+      margin-bottom:
+        2px;
+
     }
 
-    /* AVISO */
 
-    .notice{
-      border-left:4px solid var(--etec-red);
-      background:#fff9f9;
-      border-radius:12px;
-      padding:16px 17px;
+    .rule span {
+
+      font-size:
+        .78rem;
+
+      color:
+        var(--muted);
+
     }
 
-    .notice strong{
-      display:block;
-      color:var(--etec-red-dark);
-      margin-bottom:4px;
+
+    .rule-note {
+
+      margin-top:
+        13px;
+
+      padding:
+        13px;
+
+      border-left:
+        4px solid var(--etec-red);
+
+      background:
+        var(--etec-red-soft);
+
+      border-radius:
+        9px;
+
+      color:
+        #6c3538;
+
+      font-size:
+        .82rem;
+
     }
 
-    .notice p{
-      margin:0;
-      color:#646b77;
-      font-size:.9rem;
+
+    /* ==========================================
+       FORMULÁRIO
+    ========================================== */
+
+
+    .form-grid {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap:
+        17px;
+
     }
 
-    /* MATERIAIS */
 
-    .materials{
-      display:grid;
-      gap:14px;
+    .field {
+
+      margin-bottom:
+        19px;
+
     }
 
-    .material{
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:18px;
-      display:grid;
-      grid-template-columns:54px 1fr auto;
-      gap:15px;
-      align-items:center;
-      background:#fff;
-      transition:.18s ease;
+
+    .field.full {
+      grid-column: 1 / -1;
     }
 
-    .material:hover{
-      border-color:#ccd6df;
-      box-shadow:0 8px 22px rgba(28,35,45,.06);
+
+    label {
+
+      display:
+        block;
+
+      margin-bottom:
+        7px;
+
+      font-size:
+        .84rem;
+
+      font-weight:
+        800;
+
     }
 
-    .material-icon{
-      width:54px;
-      height:54px;
-      border-radius:15px;
-      background:var(--blue-soft);
-      display:grid;
-      place-items:center;
-      font-size:1.3rem;
+
+    .required {
+
+      color:
+        var(--etec-red);
+
     }
 
-    .material h3{
-      margin:0 0 4px;
-      font-size:1rem;
-      line-height:1.35;
+
+    input,
+    textarea {
+
+      width:
+        100%;
+
+      border:
+        1px solid #cfd4dc;
+
+      border-radius:
+        11px;
+
+      background:
+        white;
+
+      padding:
+        12px 13px;
+
+      color:
+        var(--text);
+
+      outline:
+        none;
+
+      transition:
+        border .15s ease,
+        box-shadow .15s ease;
+
     }
 
-    .material p{
-      margin:0;
-      color:var(--muted);
-      font-size:.84rem;
+
+    input:focus,
+    textarea:focus {
+
+      border-color:
+        var(--blue);
+
+      box-shadow:
+        0 0 0 3px rgba(31, 78, 121, .10);
+
     }
 
-    .lesson-badge{
-      display:inline-flex;
-      align-items:center;
-      width:max-content;
-      min-height:24px;
-      padding:0 8px;
-      margin-bottom:5px;
-      border-radius:999px;
-      background:var(--blue-soft);
-      color:var(--blue);
-      font-size:.67rem;
-      font-weight:900;
-      text-transform:uppercase;
-      letter-spacing:.04em;
+
+    input[readonly] {
+
+      background:
+        #f5f6f7;
+
+      color:
+        #555;
+
     }
 
-    .drive-button{
-      min-height:38px;
-      padding:0 13px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      border-radius:10px;
-      background:var(--blue);
-      color:#fff;
-      font-size:.8rem;
-      font-weight:800;
-      white-space:nowrap;
+
+    textarea {
+
+      min-height:
+        190px;
+
+      resize:
+        vertical;
+
+      line-height:
+        1.55;
+
     }
 
-    .drive-button:hover{
-      background:var(--blue-dark);
+
+    .question {
+
+      margin-top:
+        20px;
+
+      padding:
+        20px;
+
+      border:
+        1px solid var(--line);
+
+      border-radius:
+        16px;
+
+      background:
+        #fcfcfd;
+
     }
 
-    .no-material{
-      min-height:38px;
-      padding:0 13px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      border-radius:10px;
-      background:#f1f3f5;
-      color:#6b7280;
-      font-size:.78rem;
-      font-weight:800;
-      white-space:nowrap;
+
+    .question-number {
+
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      min-width:
+        34px;
+
+      height:
+        28px;
+
+      padding:
+        0 9px;
+
+      border-radius:
+        999px;
+
+      background:
+        var(--blue);
+
+      color:
+        white;
+
+      font-size:
+        .72rem;
+
+      font-weight:
+        900;
+
+      margin-bottom:
+        9px;
+
     }
 
-    .atd-material{
-      border-color:#f0ced1;
-      background:#fffdfd;
+
+    .question h3 {
+
+      margin:
+        0 0 13px;
+
+      color:
+        var(--text);
+
+      line-height:
+        1.45;
+
     }
 
-    .atd-material .material-icon{
-      background:var(--etec-red-soft);
+
+    .helper {
+
+      margin-top:
+        6px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        .75rem;
+
     }
 
-    .atd-material .lesson-badge{
-      background:var(--etec-red-soft);
-      color:var(--etec-red);
+
+    .counter {
+
+      text-align:
+        right;
+
+      margin-top:
+        4px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        .72rem;
+
     }
 
-    /* INFORMAÇÃO */
 
-    .drive-info{
-      margin-top:18px;
-      background:#f8fafc;
-      border:1px solid var(--line);
-      border-radius:14px;
-      padding:15px 17px;
-      display:flex;
-      gap:12px;
-      align-items:flex-start;
+    /* ==========================================
+       JUSTIFICATIVA
+    ========================================== */
+
+
+    .justification {
+
+      margin-top:
+        20px;
+
+      padding:
+        17px;
+
+      background:
+        #fafbfc;
+
+      border:
+        1px dashed #cbd2da;
+
+      border-radius:
+        14px;
+
     }
 
-    .drive-info-icon{
-      width:40px;
-      height:40px;
-      flex:0 0 auto;
-      display:grid;
-      place-items:center;
-      border-radius:11px;
-      background:var(--green-soft);
-      font-size:1.05rem;
+
+    .justification textarea {
+
+      min-height:
+        100px;
+
     }
 
-    .drive-info strong{
-      display:block;
-      font-size:.88rem;
+
+    /* ==========================================
+       CONFIRMAÇÃO
+    ========================================== */
+
+
+    .confirmation {
+
+      display:
+        flex;
+
+      align-items:
+        flex-start;
+
+      gap:
+        10px;
+
+      margin:
+        22px 0;
+
+      padding:
+        15px;
+
+      border-radius:
+        12px;
+
+      background:
+        var(--blue-soft);
+
     }
 
-    .drive-info p{
-      margin:4px 0 0;
-      color:var(--muted);
-      font-size:.82rem;
+
+    .confirmation input {
+
+      width:
+        auto;
+
+      margin-top:
+        5px;
+
     }
 
-    /* RODAPÉ */
 
-    footer{
-      background:#fff;
-      border-top:1px solid var(--line);
+    .confirmation label {
+
+      margin:
+        0;
+
+      font-weight:
+        400;
+
+      font-size:
+        .84rem;
+
     }
 
-    .footer-inner{
-      min-height:72px;
-      padding:15px 0;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:20px;
-      color:var(--muted);
-      font-size:.83rem;
+
+    /* ==========================================
+       BOTÃO
+    ========================================== */
+
+
+    .send-button {
+
+      width:
+        100%;
+
+      min-height:
+        52px;
+
+      border:
+        0;
+
+      border-radius:
+        13px;
+
+      background:
+        var(--etec-red);
+
+      color:
+        white;
+
+      cursor:
+        pointer;
+
+      font-size:
+        .95rem;
+
+      font-weight:
+        900;
+
+      transition:
+        .18s ease;
+
     }
 
-    /* MOBILE */
 
-    @media(max-width:760px){
+    .send-button:hover {
 
-      .quicknav-grid{
-        grid-template-columns:1fr;
+      background:
+        var(--etec-red-dark);
+
+      transform:
+        translateY(-1px);
+
+    }
+
+
+    .send-button:disabled {
+
+      background:
+        #aeb4bc;
+
+      cursor:
+        not-allowed;
+
+      transform:
+        none;
+
+    }
+
+
+    /* ==========================================
+       STATUS
+    ========================================== */
+
+
+    .status-box {
+
+      display:
+        none;
+
+      margin-top:
+        18px;
+
+      padding:
+        16px;
+
+      border-radius:
+        12px;
+
+      font-size:
+        .87rem;
+
+    }
+
+
+    .status-box.success {
+
+      display:
+        block;
+
+      background:
+        var(--green-soft);
+
+      border:
+        1px solid #badbc7;
+
+      color:
+        #1e6139;
+
+    }
+
+
+    .status-box.error {
+
+      display:
+        block;
+
+      background:
+        var(--etec-red-soft);
+
+      border:
+        1px solid #efc5c9;
+
+      color:
+        #8e1e25;
+
+    }
+
+
+    /* ==========================================
+       PROGRESS
+    ========================================== */
+
+
+    .progress-container {
+
+      position:
+        sticky;
+
+      top:
+        0;
+
+      z-index:
+        100;
+
+      height:
+        4px;
+
+      background:
+        #eee;
+
+    }
+
+
+    .progress-bar {
+
+      height:
+        100%;
+
+      width:
+        0%;
+
+      background:
+        var(--etec-red);
+
+      transition:
+        width .2s;
+
+    }
+
+
+    /* ==========================================
+       RODAPÉ
+    ========================================== */
+
+
+    footer {
+
+      background:
+        white;
+
+      border-top:
+        1px solid var(--line);
+
+    }
+
+
+    .footer-inner {
+
+      min-height:
+        74px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+
+      gap:
+        20px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        .8rem;
+
+    }
+
+
+    /* ==========================================
+       MOBILE
+    ========================================== */
+
+
+    @media(max-width: 720px) {
+
+      .form-grid {
+        grid-template-columns: 1fr;
       }
 
-      .hero-inner{
-        align-items:flex-start;
+
+      .field.full {
+        grid-column: auto;
       }
 
-      .material,
-      .activity{
-        grid-template-columns:48px 1fr;
+
+      .rules {
+        grid-template-columns: 1fr;
       }
 
-      .drive-button,
-      .no-material{
-        grid-column:2;
-        width:max-content;
+
+      .topbar-inner {
+
+        flex-direction:
+          column;
+
+        align-items:
+          flex-start;
+
+        padding:
+          12px 0;
+
       }
+
+
+      .footer-inner {
+
+        flex-direction:
+          column;
+
+        justify-content:
+          center;
+
+        text-align:
+          center;
+
+        padding:
+          15px 0;
+
+        gap:
+          3px;
+
+      }
+
     }
 
-    @media(max-width:480px){
 
-      .container{
-        width:min(100% - 20px,1120px);
+    @media(max-width: 480px) {
+
+      .container {
+
+        width:
+          calc(100% - 20px);
+
       }
 
-      .topbar-inner{
-        align-items:flex-start;
-        flex-direction:column;
-        padding:12px 0;
+
+      .card {
+
+        padding:
+          18px;
+
+        border-radius:
+          16px;
+
       }
 
-      .hero-inner{
-        padding:30px 0;
+
+      .hero-inner {
+
+        padding:
+          31px 0;
+
       }
 
-      .hero-icon{
-        width:64px;
-        height:64px;
-        font-size:1.7rem;
+
+      .question {
+
+        padding:
+          16px;
+
       }
 
-      .panel{
-        padding:19px 16px;
+
+      textarea {
+
+        min-height:
+          170px;
+
       }
 
-      .footer-inner{
-        flex-direction:column;
-        text-align:center;
-        gap:5px;
-      }
     }
+
   </style>
+
 </head>
 
+
 <body>
+
+
+  <!-- PROGRESSO -->
+
+  <div class="progress-container">
+
+    <div
+      class="progress-bar"
+      id="progressBar"
+    ></div>
+
+  </div>
+
 
   <!-- TOPO -->
 
   <header class="topbar">
 
     <div class="container topbar-inner">
+
 
       <div class="brand">
 
@@ -548,18 +1335,27 @@
         </div>
 
         <div class="brand-text">
-          <strong>3º TANE — Extensão Ibiúna</strong>
-          <span>Portal de Estudos</span>
+
+          <strong>
+            3º TANE — Extensão Ibiúna
+          </strong>
+
+          <span>
+            Administração Pública
+          </span>
+
         </div>
 
       </div>
 
+
       <a
-        href="../index.html"
+        href="../../index.html"
         class="back-link"
       >
-        ← Voltar ao 3º TANE
+        ← Voltar para ADMP
       </a>
+
 
     </div>
 
@@ -572,188 +1368,162 @@
 
     <div class="container hero-inner">
 
-      <div>
 
-        <div class="eyebrow">
-          ADMP
+      <span class="eyebrow">
+        Aula 06 • ATD1
+      </span>
+
+
+      <h1>
+        Estudo de Caso — Art. 37 da CF/88
+      </h1>
+
+
+      <p>
+
+        Atividade dissertativa destinada à análise dos
+        princípios constitucionais da Administração Pública
+        e sua aplicação a uma situação concreta.
+
+      </p>
+
+
+      <div class="professor">
+        Prof. Dr. Júnior Pedro Colombo
+      </div>
+
+
+      <div class="deadline">
+
+        <div class="deadline-icon">
+          ⏰
         </div>
 
-        <h1>
-          Administração Pública
-        </h1>
+        <div>
 
-        <p>
-          Área destinada aos materiais, atividades, avisos e
-          orientações do componente Administração Pública.
-        </p>
+          <strong>
+            Prazo de entrega:
+            04/09/2026 às 23h59
+          </strong>
+
+          <p>
+
+            A data e o horário da entrega serão
+            registrados automaticamente pelo sistema.
+
+          </p>
+
+        </div>
 
       </div>
 
-      <div class="hero-icon">
-        🏛️
-      </div>
 
     </div>
 
   </section>
 
 
-  <!-- NAVEGAÇÃO -->
-
-  <section class="quicknav">
-
-    <div class="container quicknav-grid">
-
-      <a href="#atividades" class="quick-card">
-
-        <div class="quick-icon">
-          📝
-        </div>
-
-        <div>
-          <strong>Atividades</strong>
-          <span>Trabalhos e exercícios</span>
-        </div>
-
-      </a>
-
-
-      <a href="#avisos" class="quick-card">
-
-        <div class="quick-icon">
-          📢
-        </div>
-
-        <div>
-          <strong>Avisos</strong>
-          <span>Informações importantes</span>
-        </div>
-
-      </a>
-
-
-      <a href="#materiais" class="quick-card">
-
-        <div class="quick-icon">
-          📚
-        </div>
-
-        <div>
-          <strong>Materiais</strong>
-          <span>Aulas e conteúdos</span>
-        </div>
-
-      </a>
-
-    </div>
-
-  </section>
-
-
-  <!-- CONTEÚDO -->
-
-  <main class="content">
+  <main>
 
     <div class="container">
 
 
-      <!-- ATIVIDADES -->
+      <!-- ESTUDO DE CASO -->
 
-      <section
-        class="panel"
-        id="atividades"
-      >
+      <section class="card">
 
-        <div class="panel-head">
+        <div class="card-title">
+
+          <div class="card-title-icon">
+            🏛️
+          </div>
 
           <div>
 
             <h2>
-              Atividades
+              Município de Boa Esperança
             </h2>
 
-            <p class="panel-subtitle">
-              Atividades e trabalhos do componente.
-            </p>
-
           </div>
-
-          <span class="counter">
-            1
-          </span>
 
         </div>
 
 
-        <div class="activity">
-
-          <div class="activity-icon">
-            📝
-          </div>
-
-          <div>
-
-            <h3>
-              ATD1 — Questionário Dissertativo
-            </h3>
-
-            <p>
-              Estudo de caso sobre os princípios constitucionais
-              da Administração Pública — Art. 37 da CF/88.
-            </p>
-
-          </div>
-
-          <a
-            href="atividades/atd1/index.html"
-            class="drive-button"
-          >
-            📝 Acessar atividade
-          </a>
-
-        </div>
-
-      </section>
-
-
-      <!-- AVISOS -->
-
-      <section
-        class="panel"
-        id="avisos"
-      >
-
-        <div class="panel-head">
-
-          <div>
-
-            <h2>
-              Avisos
-            </h2>
-
-            <p class="panel-subtitle">
-              Comunicados importantes do componente.
-            </p>
-
-          </div>
-
-          <span class="counter">
-            1
-          </span>
-
-        </div>
-
-
-        <div class="notice">
-
-          <strong>
-            ATD1 disponível — prazo 04/09/2026
-          </strong>
+        <div class="case-box">
 
           <p>
-            A ATD1 — Estudo de Caso sobre o Art. 37 da Constituição
-            Federal já está disponível. O prazo regular de entrega
-            é até 04/09/2026 às 23h59.
+
+            O município de Boa Esperança enfrenta uma grave
+            carência de médicos em sua rede municipal de saúde.
+            A população tem reclamado de filas de espera e da
+            falta de atendimento em postos de saúde e hospitais.
+
+          </p>
+
+
+          <p>
+
+            Diante dessa situação, o Prefeito, pressionado pela
+            Câmara de Vereadores e por lideranças locais,
+            decidiu autorizar a contratação emergencial de
+            novos médicos para suprir a demanda.
+
+          </p>
+
+
+          <p>
+
+            Essas contratações foram realizadas sem licitação
+            e sem a edição de lei específica, apenas com base
+            em um decreto municipal.
+
+          </p>
+
+
+          <p>
+
+            Além disso, entre os profissionais escolhidos,
+            alguns possuem vínculos de parentesco com o
+            Secretário de Saúde, como sobrinhos e primos.
+
+          </p>
+
+
+          <p>
+
+            Outro ponto que gerou questionamento foi a
+            remuneração atribuída aos médicos contratados,
+            que ficou bem acima da média da região e maior
+            até do que a paga a servidores concursados que
+            desempenham a mesma função.
+
+          </p>
+
+
+          <p>
+
+            Os contratos firmados não foram divulgados em
+            Diário Oficial ou em jornal de grande circulação,
+            mas apenas afixados em um mural dentro da
+            Secretaria de Saúde.
+
+          </p>
+
+
+          <p>
+
+            Apesar do esforço inicial, a contratação não trouxe
+            a melhoria esperada, pois não houve planejamento
+            adequado para a distribuição dos profissionais.
+
+          </p>
+
+
+          <p>
+
+            Algumas unidades de saúde ficaram superlotadas,
+            enquanto outras continuaram sem médicos.
+
           </p>
 
         </div>
@@ -761,276 +1531,404 @@
       </section>
 
 
-      <!-- MATERIAIS -->
+      <!-- PRAZO E MENÇÃO -->
 
-      <section
-        class="panel"
-        id="materiais"
-      >
+      <section class="card">
 
-        <div class="panel-head">
+        <div class="card-title">
+
+          <div class="card-title-icon">
+            📅
+          </div>
 
           <div>
 
             <h2>
-              Materiais
+              Prazo e critério de entrega
             </h2>
-
-            <p class="panel-subtitle">
-              Conteúdos organizados de acordo com a sequência das aulas.
-            </p>
 
           </div>
 
-          <span class="counter">
-            6
-          </span>
-
         </div>
 
 
-        <div class="materials">
+        <p>
+
+          O conteúdo da atividade será avaliado normalmente.
+          Entretanto, a entrega fora do prazo limita a menção
+          máxima que poderá ser atribuída.
+
+        </p>
 
 
-          <!-- AULA 01 -->
+        <div class="rules">
 
-          <article class="material">
 
-            <div class="material-icon">
-              🎓
-            </div>
+          <div class="rule">
 
-            <div>
+            <strong>
+              MB
+            </strong>
 
-              <span class="lesson-badge">
-                Aula 01
-              </span>
-
-              <h3>
-                Formatura em MK
-              </h3>
-
-              <p>
-                Aula realizada sem material de apoio disponibilizado.
-              </p>
-
-            </div>
-
-            <span class="no-material">
-              Sem material
+            <span>
+              Entrega dentro do prazo
             </span>
 
-          </article>
+          </div>
 
 
-          <!-- AULA 02 -->
+          <div class="rule">
 
-          <article class="material">
+            <strong>
+              B
+            </strong>
 
-            <div class="material-icon">
-              🏛️
-            </div>
+            <span>
+              Até 1 dia de atraso
+            </span>
 
-            <div>
-
-              <span class="lesson-badge">
-                Aula 02
-              </span>
-
-              <h3>
-                Introdução à Administração Pública
-              </h3>
-
-              <p>
-                Conceitos introdutórios e fundamentos da Administração Pública.
-              </p>
-
-            </div>
-
-            <a
-              href="https://1drv.ms/b/c/050c9a98ff922c79/IQB5LJL_mJoMIIAFt5IAAAAAARFGkdT_dpx20HiMcUC9b28"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="drive-button"
-            >
-              📄 Abrir material
-            </a>
-
-          </article>
+          </div>
 
 
-          <!-- AULA 03 -->
+          <div class="rule">
 
-          <article class="material">
+            <strong>
+              R
+            </strong>
 
-            <div class="material-icon">
-              ⚖️
-            </div>
+            <span>
+              2 dias ou mais de atraso
+            </span>
 
-            <div>
-
-              <span class="lesson-badge">
-                Aula 03
-              </span>
-
-              <h3>
-                Princípios Explícitos da Administração Pública (LIMPE)
-              </h3>
-
-              <p>
-                Legalidade, Impessoalidade, Moralidade,
-                Publicidade e Eficiência.
-              </p>
-
-            </div>
-
-            <a
-              href="https://1drv.ms/b/c/050c9a98ff922c79/IQB5LJL_mJoMIIAFuZIAAAAAAaCq9Cee_noELVkNBKQyKC4"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="drive-button"
-            >
-              📄 Abrir material
-            </a>
-
-          </article>
-
-
-          <!-- AULA 04 -->
-
-          <article class="material">
-
-            <div class="material-icon">
-              📖
-            </div>
-
-            <div>
-
-              <span class="lesson-badge">
-                Aula 04
-              </span>
-
-              <h3>
-                Continuação — Princípios Explícitos da Administração Pública
-              </h3>
-
-              <p>
-                Continuação e aprofundamento dos princípios
-                constitucionais da Administração Pública.
-              </p>
-
-            </div>
-
-            <a
-              href="https://1drv.ms/b/c/050c9a98ff922c79/IQB5LJL_mJoMIIAFuZIAAAAAAaCq9Cee_noELVkNBKQyKC4"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="drive-button"
-            >
-              📄 Abrir material
-            </a>
-
-          </article>
-
-
-          <!-- AULA 05 -->
-
-          <article class="material">
-
-            <div class="material-icon">
-              🏢
-            </div>
-
-            <div>
-
-              <span class="lesson-badge">
-                Aula 05
-              </span>
-
-              <h3>
-                Serviços Públicos e seus Princípios Específicos
-              </h3>
-
-              <p>
-                Estudo dos serviços públicos e dos princípios
-                aplicáveis à sua prestação.
-              </p>
-
-            </div>
-
-            <a
-              href="https://1drv.ms/b/c/050c9a98ff922c79/IQB5LJL_mJoMIIAFupIAAAAAATGdNrpjk8q6SmxQJrsSdmg"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="drive-button"
-            >
-              📄 Abrir material
-            </a>
-
-          </article>
-
-
-          <!-- AULA 06 -->
-
-          <article class="material atd-material">
-
-            <div class="material-icon">
-              📝
-            </div>
-
-            <div>
-
-              <span class="lesson-badge">
-                Aula 06 • ATD1
-              </span>
-
-              <h3>
-                Questionário Dissertativo — Estudo de Caso
-              </h3>
-
-              <p>
-                Atividade sobre os princípios da Administração Pública,
-                com base no Art. 37 da Constituição Federal.
-              </p>
-
-            </div>
-
-            <a
-              href="atividades/atd1/index.html"
-              class="drive-button"
-            >
-              📝 Acessar atividade
-            </a>
-
-          </article>
+          </div>
 
 
         </div>
 
 
-        <!-- INFORMAÇÃO -->
+        <div class="rule-note">
 
-        <div class="drive-info">
+          <strong>
+            Importante:
+          </strong>
 
-          <div class="drive-info-icon">
-            ☁️
+          situações excepcionais e justificativas plausíveis
+          poderão ser analisadas individualmente pelo professor.
+
+        </div>
+
+      </section>
+
+
+      <!-- FORMULÁRIO -->
+
+      <section class="card">
+
+        <div class="card-title">
+
+          <div class="card-title-icon">
+            ✍️
           </div>
 
           <div>
 
-            <strong>
-              Materiais no OneDrive e atividades no portal
-            </strong>
-
-            <p>
-              Os materiais das aulas estão compartilhados somente para
-              visualização no OneDrive. A ATD1 da Aula 06 é realizada
-              diretamente pelo portal de atividades.
-            </p>
+            <h2>
+              Responda à atividade
+            </h2>
 
           </div>
 
         </div>
+
+
+        <form
+          id="atividadeForm"
+          autocomplete="on"
+        >
+
+
+          <!-- IDENTIFICAÇÃO -->
+
+          <div class="form-grid">
+
+
+            <div class="field">
+
+              <label for="nome">
+
+                Nome completo
+                <span class="required">*</span>
+
+              </label>
+
+              <input
+                type="text"
+                id="nome"
+                name="nome"
+                maxlength="150"
+                required
+                autocomplete="name"
+                placeholder="Digite seu nome completo"
+              >
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="email">
+
+                E-mail para devolutiva
+                <span class="required">*</span>
+
+              </label>
+
+              <input
+                type="email"
+                id="email"
+                name="email"
+                maxlength="180"
+                required
+                autocomplete="email"
+                placeholder="exemplo@email.com"
+              >
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="cidade">
+
+                Cidade
+                <span class="required">*</span>
+
+              </label>
+
+              <input
+                type="text"
+                id="cidade"
+                name="cidade"
+                maxlength="100"
+                required
+                placeholder="Ex.: Ibiúna"
+              >
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="turma">
+                Turma
+              </label>
+
+              <input
+                type="text"
+                id="turma"
+                value="3º TANE - Extensão Ibiúna"
+                readonly
+              >
+
+            </div>
+
+
+          </div>
+
+
+          <!-- QUESTÃO 1 -->
+
+          <div class="question">
+
+            <span class="question-number">
+              Questão 01
+            </span>
+
+
+            <h3>
+
+              Identifique, dentro da narrativa, quais
+              princípios constitucionais da Administração
+              Pública foram respeitados ou violados.
+
+            </h3>
+
+
+            <textarea
+              id="resposta1"
+              name="resposta1"
+              required
+              minlength="20"
+              maxlength="12000"
+              placeholder="Digite sua resposta..."
+            ></textarea>
+
+
+            <div
+              class="counter"
+              id="contador1"
+            >
+              0 caracteres
+            </div>
+
+          </div>
+
+
+          <!-- QUESTÃO 2 -->
+
+          <div class="question">
+
+            <span class="question-number">
+              Questão 02
+            </span>
+
+
+            <h3>
+
+              Explique, de forma fundamentada, cada princípio
+              que você identificar, relacionando-o aos fatos
+              narrados.
+
+            </h3>
+
+
+            <textarea
+              id="resposta2"
+              name="resposta2"
+              required
+              minlength="20"
+              maxlength="12000"
+              placeholder="Desenvolva sua resposta relacionando os conceitos ao caso apresentado..."
+            ></textarea>
+
+
+            <div
+              class="counter"
+              id="contador2"
+            >
+              0 caracteres
+            </div>
+
+          </div>
+
+
+          <!-- QUESTÃO 3 -->
+
+          <div class="question">
+
+            <span class="question-number">
+              Questão 03
+            </span>
+
+
+            <h3>
+
+              Proponha medidas que poderiam ter sido adotadas
+              para evitar as irregularidades.
+
+            </h3>
+
+
+            <textarea
+              id="resposta3"
+              name="resposta3"
+              required
+              minlength="20"
+              maxlength="12000"
+              placeholder="Apresente as medidas que considera adequadas..."
+            ></textarea>
+
+
+            <div
+              class="counter"
+              id="contador3"
+            >
+              0 caracteres
+            </div>
+
+          </div>
+
+
+          <!-- JUSTIFICATIVA -->
+
+          <div class="justification">
+
+            <label for="justificativa">
+
+              Justificativa de atraso
+              <span
+                style="
+                  color:#667085;
+                  font-weight:400;
+                "
+              >
+                (opcional)
+              </span>
+
+            </label>
+
+
+            <textarea
+              id="justificativa"
+              name="justificativa"
+              maxlength="3000"
+              placeholder="Preencha somente se sua atividade estiver sendo entregue fora do prazo e houver uma situação que você considere importante informar ao professor."
+            ></textarea>
+
+
+            <div class="helper">
+
+              O preenchimento deste campo não altera
+              automaticamente a menção. A justificativa será
+              analisada pelo professor.
+
+            </div>
+
+          </div>
+
+
+          <!-- CONFIRMAÇÃO -->
+
+          <div class="confirmation">
+
+            <input
+              type="checkbox"
+              id="confirmacao"
+              required
+            >
+
+
+            <label for="confirmacao">
+
+              Declaro que revisei minhas respostas e estou
+              ciente de que, após clicar em
+              <strong>Enviar atividade</strong>, a data e o
+              horário da entrega serão registrados pelo
+              sistema.
+
+            </label>
+
+          </div>
+
+
+          <!-- BOTÃO -->
+
+          <button
+            type="submit"
+            class="send-button"
+            id="btnEnviar"
+          >
+            📤 Enviar atividade
+          </button>
+
+
+          <div
+            id="statusBox"
+            class="status-box"
+          ></div>
+
+
+        </form>
 
       </section>
 
@@ -1047,16 +1945,543 @@
     <div class="container footer-inner">
 
       <span>
-        ADMP — Administração Pública
+        ATD1 — Administração Pública
       </span>
 
       <span>
-        Prof. Junior P. Colombo
+        Prof. Dr. Júnior Pedro Colombo
       </span>
 
     </div>
 
   </footer>
 
+
+  <script>
+
+    /*
+     * URL DO WEB APP DO APPS SCRIPT
+     */
+
+    const WEB_APP_URL =
+      'https://script.google.com/macros/s/AKfycbwnP2VLVm6nkRqFpk2hTrrjOkKXHpi6HFNcDu3-qhzKVBeJUaBe4OUcvD2EzLRDeGz-uA/exec';
+
+
+    let enviado = false;
+
+
+    /*
+     * CONTADORES
+     */
+
+    function configurarContador(
+      textareaId,
+      contadorId
+    ) {
+
+      const textarea =
+        document.getElementById(
+          textareaId
+        );
+
+      const contador =
+        document.getElementById(
+          contadorId
+        );
+
+
+      function atualizar() {
+
+        contador.textContent =
+          textarea.value.length +
+          ' caracteres';
+
+      }
+
+
+      textarea.addEventListener(
+        'input',
+        atualizar
+      );
+
+
+      atualizar();
+
+    }
+
+
+    configurarContador(
+      'resposta1',
+      'contador1'
+    );
+
+
+    configurarContador(
+      'resposta2',
+      'contador2'
+    );
+
+
+    configurarContador(
+      'resposta3',
+      'contador3'
+    );
+
+
+    /*
+     * BARRA DE PROGRESSO
+     */
+
+    function atualizarProgresso() {
+
+      const campos = [
+
+        document.getElementById('nome'),
+        document.getElementById('email'),
+        document.getElementById('cidade'),
+        document.getElementById('resposta1'),
+        document.getElementById('resposta2'),
+        document.getElementById('resposta3')
+
+      ];
+
+
+      let preenchidos = 0;
+
+
+      campos.forEach(
+        campo => {
+
+          if (
+            campo.value.trim().length > 0
+          ) {
+
+            preenchidos++;
+
+          }
+
+        }
+      );
+
+
+      const percentual =
+        (
+          preenchidos /
+          campos.length
+        ) * 100;
+
+
+      document
+        .getElementById(
+          'progressBar'
+        )
+        .style.width =
+          percentual + '%';
+
+    }
+
+
+    document
+      .querySelectorAll(
+        'input, textarea'
+      )
+      .forEach(
+        campo => {
+
+          campo.addEventListener(
+            'input',
+            atualizarProgresso
+          );
+
+        }
+      );
+
+
+    /*
+     * STATUS
+     */
+
+    function mostrarStatus(
+      tipo,
+      mensagem
+    ) {
+
+      const box =
+        document.getElementById(
+          'statusBox'
+        );
+
+
+      box.className =
+        'status-box ' +
+        tipo;
+
+
+      box.innerHTML =
+        mensagem;
+
+    }
+
+
+    /*
+     * ENVIO
+     */
+
+    document
+      .getElementById(
+        'atividadeForm'
+      )
+      .addEventListener(
+        'submit',
+        async function(event) {
+
+          event.preventDefault();
+
+
+          if (enviado) {
+
+            return;
+
+          }
+
+
+          if (
+            !WEB_APP_URL ||
+            WEB_APP_URL.includes(
+              'COLE_AQUI'
+            )
+          ) {
+
+            mostrarStatus(
+              'error',
+              '⚠️ A atividade ainda não está conectada ao servidor. Informe o professor.'
+            );
+
+            return;
+
+          }
+
+
+          const form =
+            event.currentTarget;
+
+
+          if (
+            !form.checkValidity()
+          ) {
+
+            form.reportValidity();
+
+            return;
+
+          }
+
+
+          const nome =
+            document
+              .getElementById(
+                'nome'
+              )
+              .value
+              .trim();
+
+
+          const email =
+            document
+              .getElementById(
+                'email'
+              )
+              .value
+              .trim();
+
+
+          const cidade =
+            document
+              .getElementById(
+                'cidade'
+              )
+              .value
+              .trim();
+
+
+          const resposta1 =
+            document
+              .getElementById(
+                'resposta1'
+              )
+              .value
+              .trim();
+
+
+          const resposta2 =
+            document
+              .getElementById(
+                'resposta2'
+              )
+              .value
+              .trim();
+
+
+          const resposta3 =
+            document
+              .getElementById(
+                'resposta3'
+              )
+              .value
+              .trim();
+
+
+          const justificativa =
+            document
+              .getElementById(
+                'justificativa'
+              )
+              .value
+              .trim();
+
+
+          const respostas = [
+            resposta1,
+            resposta2,
+            resposta3
+          ];
+
+
+          for (
+            let i = 0;
+            i < respostas.length;
+            i++
+          ) {
+
+            if (
+              respostas[i].length < 20
+            ) {
+
+              mostrarStatus(
+                'error',
+                '⚠️ Desenvolva melhor a resposta da Questão ' +
+                (i + 1) +
+                ' antes de enviar.'
+              );
+
+              return;
+
+            }
+
+          }
+
+
+          const payload = {
+
+            nome:
+              nome,
+
+            turma:
+              '3º TANE - Extensão Ibiúna',
+
+            email:
+              email,
+
+            cidade:
+              cidade,
+
+            componente:
+              'Administração Pública',
+
+            respostas: [
+              resposta1,
+              resposta2,
+              resposta3
+            ],
+
+            justificativaAtraso:
+              justificativa
+
+          };
+
+
+          const botao =
+            document.getElementById(
+              'btnEnviar'
+            );
+
+
+          botao.disabled =
+            true;
+
+
+          botao.textContent =
+            '⏳ Enviando atividade...';
+
+
+          mostrarStatus(
+            'success',
+            '⏳ Enviando suas respostas. Não feche esta página...'
+          );
+
+
+          try {
+
+            await fetch(
+              WEB_APP_URL,
+              {
+
+                method:
+                  'POST',
+
+                mode:
+                  'no-cors',
+
+                headers: {
+
+                  'Content-Type':
+                    'text/plain;charset=utf-8'
+
+                },
+
+                body:
+                  JSON.stringify(
+                    payload
+                  )
+
+              }
+            );
+
+
+            enviado =
+              true;
+
+
+            botao.textContent =
+              '✓ Atividade enviada';
+
+
+            mostrarStatus(
+              'success',
+
+              '<strong>✅ Atividade encaminhada com sucesso.</strong><br><br>' +
+
+              'Aluno: ' +
+              escaparHtml(nome) +
+              '<br>' +
+
+              'E-mail para devolutiva: ' +
+              escaparHtml(email) +
+              '<br><br>' +
+
+              'Suas respostas foram encaminhadas ao sistema de correção. ' +
+
+              'A atividade será analisada e, após a revisão e aprovação do professor, ' +
+
+              'a devolutiva será enviada ao e-mail informado.'
+            );
+
+
+            document
+              .getElementById(
+                'progressBar'
+              )
+              .style.width =
+                '100%';
+
+
+            form
+              .querySelectorAll(
+                'input, textarea'
+              )
+              .forEach(
+                elemento => {
+
+                  elemento.disabled =
+                    true;
+
+                }
+              );
+
+
+            document
+              .getElementById(
+                'statusBox'
+              )
+              .scrollIntoView({
+
+                behavior:
+                  'smooth',
+
+                block:
+                  'center'
+
+              });
+
+
+          } catch (erro) {
+
+            console.error(
+              erro
+            );
+
+
+            enviado =
+              false;
+
+
+            botao.disabled =
+              false;
+
+
+            botao.textContent =
+              '📤 Enviar atividade';
+
+
+            mostrarStatus(
+              'error',
+
+              '<strong>❌ Não foi possível encaminhar a atividade.</strong><br>' +
+
+              'Verifique sua conexão com a internet e tente novamente.'
+            );
+
+          }
+
+        }
+      );
+
+
+    /*
+     * SEGURANÇA BÁSICA PARA EXIBIÇÃO
+     */
+
+    function escaparHtml(texto) {
+
+      return String(
+        texto || ''
+      )
+      .replace(
+        /&/g,
+        '&amp;'
+      )
+      .replace(
+        /</g,
+        '&lt;'
+      )
+      .replace(
+        />/g,
+        '&gt;'
+      )
+      .replace(
+        /"/g,
+        '&quot;'
+      )
+      .replace(
+        /'/g,
+        '&#039;'
+      );
+
+    }
+
+  </script>
+
+
 </body>
+
 </html>
