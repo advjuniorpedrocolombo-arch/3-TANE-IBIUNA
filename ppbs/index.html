@@ -1,1 +1,647 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
 
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Processos de Produção de Bens e Serviços — 3º TANE — Extensão Ibiúna"
+  >
+
+  <title>PPBS — Processos de Produção de Bens e Serviços</title>
+
+  <style>
+    :root{
+      --etec-red:#b5121b;
+      --etec-red-dark:#8e0d14;
+      --etec-red-soft:#f9e9eb;
+
+      --orange:#9a5b13;
+      --orange-soft:#fff4e5;
+
+      --text:#263238;
+      --muted:#667085;
+      --line:#e7e9ee;
+
+      --bg:#f5f6f8;
+      --white:#ffffff;
+
+      --shadow:0 12px 30px rgba(28,35,45,.08);
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      margin:0;
+      font-family:Arial,Helvetica,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .container{
+      width:min(1120px,calc(100% - 32px));
+      margin:0 auto;
+    }
+
+    /* TOPO */
+
+    .topbar{
+      background:#fff;
+      border-bottom:1px solid var(--line);
+    }
+
+    .topbar-inner{
+      min-height:68px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .brand-logo{
+      width:48px;
+      height:38px;
+      border-radius:10px;
+      background:var(--etec-red);
+      color:#fff;
+      display:grid;
+      place-items:center;
+      font-weight:900;
+      font-size:.8rem;
+    }
+
+    .brand-text strong{
+      display:block;
+      font-size:.92rem;
+    }
+
+    .brand-text span{
+      display:block;
+      color:var(--muted);
+      font-size:.78rem;
+    }
+
+    .back-link{
+      color:var(--orange);
+      font-weight:800;
+      font-size:.88rem;
+    }
+
+    .back-link:hover{
+      text-decoration:underline;
+    }
+
+    /* HERO */
+
+    .hero{
+      background:#fff;
+      border-bottom:1px solid var(--line);
+    }
+
+    .hero-inner{
+      padding:42px 0;
+      display:flex;
+      justify-content:space-between;
+      gap:28px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      color:var(--orange);
+      font-size:.76rem;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+    }
+
+    .hero h1{
+      margin:7px 0 7px;
+      font-size:clamp(2rem,5vw,3.4rem);
+      line-height:1.05;
+    }
+
+    .hero p{
+      margin:0;
+      max-width:760px;
+      color:var(--muted);
+    }
+
+    .hero-icon{
+      width:86px;
+      height:86px;
+      flex:0 0 auto;
+      border-radius:22px;
+      background:var(--orange-soft);
+      display:grid;
+      place-items:center;
+      font-size:2.25rem;
+    }
+
+    /* NAVEGAÇÃO */
+
+    .quicknav{
+      padding:20px 0 0;
+    }
+
+    .quicknav-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+    }
+
+    .quick-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:17px 18px;
+      box-shadow:var(--shadow);
+      display:flex;
+      align-items:center;
+      gap:12px;
+      transition:.18s ease;
+    }
+
+    .quick-card:hover{
+      transform:translateY(-2px);
+    }
+
+    .quick-icon{
+      width:42px;
+      height:42px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      background:var(--orange-soft);
+      font-size:1.1rem;
+    }
+
+    .quick-card strong{
+      display:block;
+    }
+
+    .quick-card span{
+      display:block;
+      color:var(--muted);
+      font-size:.8rem;
+    }
+
+    /* CONTEÚDO */
+
+    .content{
+      padding:28px 0 54px;
+    }
+
+    .panel{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:20px;
+      box-shadow:var(--shadow);
+      padding:24px;
+      margin-top:20px;
+    }
+
+    .panel-head{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      align-items:flex-start;
+      margin-bottom:20px;
+    }
+
+    .panel h2{
+      margin:0 0 5px;
+      font-size:1.45rem;
+    }
+
+    .panel-subtitle{
+      margin:0;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .counter{
+      min-width:38px;
+      height:30px;
+      display:grid;
+      place-items:center;
+      padding:0 10px;
+      border-radius:999px;
+      background:var(--orange-soft);
+      color:var(--orange);
+      font-size:.8rem;
+      font-weight:900;
+    }
+
+    /* VAZIO */
+
+    .empty{
+      border:1px dashed #cfd5dd;
+      border-radius:15px;
+      background:#fafbfc;
+      padding:24px;
+      text-align:center;
+    }
+
+    .empty-icon{
+      font-size:1.7rem;
+      margin-bottom:7px;
+    }
+
+    .empty strong{
+      display:block;
+      margin-bottom:4px;
+    }
+
+    .empty p{
+      margin:0;
+      color:var(--muted);
+      font-size:.88rem;
+    }
+
+    /* AVISO */
+
+    .notice{
+      border-left:4px solid var(--etec-red);
+      background:#fff9f9;
+      border-radius:12px;
+      padding:16px 17px;
+    }
+
+    .notice strong{
+      display:block;
+      color:var(--etec-red-dark);
+      margin-bottom:4px;
+    }
+
+    .notice p{
+      margin:0;
+      color:#646b77;
+      font-size:.9rem;
+    }
+
+    /* RODAPÉ */
+
+    footer{
+      background:#fff;
+      border-top:1px solid var(--line);
+    }
+
+    .footer-inner{
+      min-height:72px;
+      padding:15px 0;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      color:var(--muted);
+      font-size:.83rem;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:760px){
+
+      .quicknav-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero-inner{
+        align-items:flex-start;
+      }
+    }
+
+    @media(max-width:480px){
+
+      .container{
+        width:min(100% - 20px,1120px);
+      }
+
+      .topbar-inner{
+        align-items:flex-start;
+        flex-direction:column;
+        padding:12px 0;
+      }
+
+      .hero-inner{
+        padding:30px 0;
+      }
+
+      .hero-icon{
+        width:64px;
+        height:64px;
+        font-size:1.7rem;
+      }
+
+      .panel{
+        padding:19px 16px;
+      }
+
+      .footer-inner{
+        flex-direction:column;
+        text-align:center;
+        gap:5px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOPO -->
+
+  <header class="topbar">
+
+    <div class="container topbar-inner">
+
+      <div class="brand">
+
+        <div class="brand-logo">
+          ETEC
+        </div>
+
+        <div class="brand-text">
+          <strong>3º TANE — Extensão Ibiúna</strong>
+          <span>Portal de Estudos</span>
+        </div>
+
+      </div>
+
+      <a
+        href="../index.html"
+        class="back-link"
+      >
+        ← Voltar ao 3º TANE
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="container hero-inner">
+
+      <div>
+
+        <div class="eyebrow">
+          PPBS
+        </div>
+
+        <h1>
+          Processos de Produção de Bens e Serviços
+        </h1>
+
+        <p>
+          Área destinada aos materiais, atividades, avisos e
+          orientações do componente Processos de Produção de Bens e Serviços.
+        </p>
+
+      </div>
+
+      <div class="hero-icon">
+        ⚙️
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- NAVEGAÇÃO -->
+
+  <section class="quicknav">
+
+    <div class="container quicknav-grid">
+
+      <a href="#atividades" class="quick-card">
+
+        <div class="quick-icon">
+          📝
+        </div>
+
+        <div>
+          <strong>Atividades</strong>
+          <span>Trabalhos e exercícios</span>
+        </div>
+
+      </a>
+
+
+      <a href="#avisos" class="quick-card">
+
+        <div class="quick-icon">
+          📢
+        </div>
+
+        <div>
+          <strong>Avisos</strong>
+          <span>Informações importantes</span>
+        </div>
+
+      </a>
+
+
+      <a href="#materiais" class="quick-card">
+
+        <div class="quick-icon">
+          📚
+        </div>
+
+        <div>
+          <strong>Materiais</strong>
+          <span>Aulas e conteúdos</span>
+        </div>
+
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTEÚDO -->
+
+  <main class="content">
+
+    <div class="container">
+
+
+      <!-- ATIVIDADES -->
+
+      <section
+        class="panel"
+        id="atividades"
+      >
+
+        <div class="panel-head">
+
+          <div>
+            <h2>Atividades</h2>
+
+            <p class="panel-subtitle">
+              Atividades e trabalhos do componente.
+            </p>
+          </div>
+
+          <span class="counter">
+            0
+          </span>
+
+        </div>
+
+
+        <div class="empty">
+
+          <div class="empty-icon">
+            📝
+          </div>
+
+          <strong>
+            Nenhuma atividade publicada no momento
+          </strong>
+
+          <p>
+            As atividades serão disponibilizadas nesta seção.
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <!-- AVISOS -->
+
+      <section
+        class="panel"
+        id="avisos"
+      >
+
+        <div class="panel-head">
+
+          <div>
+            <h2>Avisos</h2>
+
+            <p class="panel-subtitle">
+              Comunicados importantes do componente.
+            </p>
+          </div>
+
+          <span class="counter">
+            1
+          </span>
+
+        </div>
+
+
+        <div class="notice">
+
+          <strong>
+            Página do componente disponível
+          </strong>
+
+          <p>
+            Os materiais e atividades de Processos de Produção
+            de Bens e Serviços serão organizados nesta página
+            ao longo das aulas.
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <!-- MATERIAIS -->
+
+      <section
+        class="panel"
+        id="materiais"
+      >
+
+        <div class="panel-head">
+
+          <div>
+            <h2>Materiais</h2>
+
+            <p class="panel-subtitle">
+              Conteúdos organizados por aula.
+            </p>
+          </div>
+
+          <span class="counter">
+            0
+          </span>
+
+        </div>
+
+
+        <div class="empty">
+
+          <div class="empty-icon">
+            📚
+          </div>
+
+          <strong>
+            Nenhum material publicado no momento
+          </strong>
+
+          <p>
+            As apostilas, apresentações e materiais de apoio
+            serão disponibilizados nesta seção.
+          </p>
+
+        </div>
+
+      </section>
+
+
+    </div>
+
+  </main>
+
+
+  <!-- RODAPÉ -->
+
+  <footer>
+
+    <div class="container footer-inner">
+
+      <span>
+        PPBS — Processos de Produção de Bens e Serviços
+      </span>
+
+      <span>
+        Prof. Junior P. Colombo
+      </span>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
