@@ -60,6 +60,7 @@
       margin:0 auto;
     }
 
+
     /* TOPO */
 
     .topbar{
@@ -114,6 +115,7 @@
       text-decoration:underline;
     }
 
+
     /* HERO */
 
     .hero{
@@ -159,6 +161,7 @@
       place-items:center;
       font-size:2.25rem;
     }
+
 
     /* NAVEGAÇÃO */
 
@@ -208,6 +211,7 @@
       font-size:.8rem;
     }
 
+
     /* CONTEÚDO */
 
     .content{
@@ -255,6 +259,7 @@
       font-weight:900;
     }
 
+
     /* VAZIO */
 
     .empty{
@@ -281,6 +286,7 @@
       font-size:.88rem;
     }
 
+
     /* AVISO */
 
     .notice{
@@ -302,6 +308,101 @@
       font-size:.9rem;
     }
 
+
+    /* MATERIAIS */
+
+    .materials-list{
+      display:grid;
+      gap:14px;
+    }
+
+    .material-card{
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      background:#fff;
+      transition:.18s ease;
+    }
+
+    .material-card:hover{
+      transform:translateY(-2px);
+      box-shadow:0 8px 22px rgba(28,35,45,.07);
+    }
+
+    .material-info{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:0;
+    }
+
+    .material-icon{
+      width:48px;
+      height:48px;
+      flex:0 0 auto;
+      border-radius:13px;
+      background:var(--purple-soft);
+      display:grid;
+      place-items:center;
+      font-size:1.25rem;
+    }
+
+    .material-text{
+      min-width:0;
+    }
+
+    .material-text strong{
+      display:block;
+      margin-bottom:3px;
+    }
+
+    .material-text span{
+      display:block;
+      color:var(--muted);
+      font-size:.85rem;
+    }
+
+    .material-tag{
+      display:inline-block !important;
+      width:max-content;
+      margin-top:6px;
+      padding:3px 8px;
+      border-radius:999px;
+      background:var(--purple-soft);
+      color:var(--purple) !important;
+      font-size:.72rem !important;
+      font-weight:800;
+    }
+
+    .material-button{
+      flex:0 0 auto;
+      background:var(--purple);
+      color:#fff;
+      font-size:.82rem;
+      font-weight:800;
+      padding:10px 15px;
+      border-radius:10px;
+      transition:.18s ease;
+      text-align:center;
+    }
+
+    .material-button:hover{
+      opacity:.9;
+      transform:translateY(-1px);
+    }
+
+    .material-button.disabled{
+      background:#e7e9ee;
+      color:#89909c;
+      cursor:default;
+      pointer-events:none;
+    }
+
+
     /* RODAPÉ */
 
     footer{
@@ -320,6 +421,7 @@
       font-size:.83rem;
     }
 
+
     /* MOBILE */
 
     @media(max-width:760px){
@@ -330,6 +432,23 @@
 
       .hero-inner{
         align-items:flex-start;
+      }
+    }
+
+    @media(max-width:600px){
+
+      .material-card{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .material-info{
+        align-items:flex-start;
+      }
+
+      .material-button{
+        width:100%;
+        text-align:center;
       }
     }
 
@@ -365,10 +484,13 @@
         gap:5px;
       }
     }
+
   </style>
 </head>
 
+
 <body>
+
 
   <!-- TOPO -->
 
@@ -389,6 +511,7 @@
 
       </div>
 
+
       <a
         href="../index.html"
         class="back-link"
@@ -399,6 +522,7 @@
     </div>
 
   </header>
+
 
 
   <!-- HERO -->
@@ -425,6 +549,7 @@
 
       </div>
 
+
       <div class="hero-icon">
         💻
       </div>
@@ -434,11 +559,13 @@
   </section>
 
 
+
   <!-- NAVEGAÇÃO -->
 
   <section class="quicknav">
 
     <div class="container quicknav-grid">
+
 
       <a href="#atividades" class="quick-card">
 
@@ -481,9 +608,11 @@
 
       </a>
 
+
     </div>
 
   </section>
+
 
 
   <!-- CONTEÚDO -->
@@ -491,6 +620,7 @@
   <main class="content">
 
     <div class="container">
+
 
 
       <!-- ATIVIDADES -->
@@ -503,12 +633,15 @@
         <div class="panel-head">
 
           <div>
+
             <h2>Atividades</h2>
 
             <p class="panel-subtitle">
               Atividades e trabalhos do componente.
             </p>
+
           </div>
+
 
           <span class="counter">
             0
@@ -536,6 +669,7 @@
       </section>
 
 
+
       <!-- AVISOS -->
 
       <section
@@ -546,12 +680,15 @@
         <div class="panel-head">
 
           <div>
+
             <h2>Avisos</h2>
 
             <p class="panel-subtitle">
               Comunicados importantes do componente.
             </p>
+
           </div>
+
 
           <span class="counter">
             1
@@ -577,6 +714,7 @@
       </section>
 
 
+
       <!-- MATERIAIS -->
 
       <section
@@ -587,43 +725,236 @@
         <div class="panel-head">
 
           <div>
-            <h2>Materiais</h2>
+
+            <h2>Banco de Materiais e Aulas</h2>
 
             <p class="panel-subtitle">
-              Conteúdos organizados por aula.
+              Conteúdos e materiais organizados por aula.
             </p>
+
           </div>
 
+
           <span class="counter">
-            0
+            6
           </span>
 
         </div>
 
 
-        <div class="empty">
 
-          <div class="empty-icon">
-            📚
+        <div class="materials-list">
+
+
+          <!-- AULA 01 -->
+
+          <div class="material-card">
+
+            <div class="material-info">
+
+              <div class="material-icon">
+                📘
+              </div>
+
+              <div class="material-text">
+
+                <strong>
+                  Aula 01 — Introdução
+                </strong>
+
+                <span>
+                  Introdução à Tecnologia da Informação Aplicada à Administração.
+                </span>
+
+                <span class="material-tag">
+                  Aula ministrada
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <span class="material-button disabled">
+              Sem material
+            </span>
+
           </div>
 
-          <strong>
-            Nenhum material publicado no momento
-          </strong>
 
-          <p>
-            As apostilas, apresentações e demais materiais de apoio
-            serão disponibilizados nesta seção.
-          </p>
+
+          <!-- AULA 02 -->
+
+          <div class="material-card">
+
+            <div class="material-info">
+
+              <div class="material-icon">
+                🧠
+              </div>
+
+              <div class="material-text">
+
+                <strong>
+                  Aula 02 — SIG
+                </strong>
+
+                <span>
+                  Sistema de Informações Gerenciais
+                </span>
+
+                <span class="material-tag">
+                  Material em breve
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <span class="material-button disabled">
+              Em breve
+            </span>
+
+          </div>
+
+
+
+          <!-- AULA 03 -->
+
+          <div class="material-card">
+
+            <div class="material-info">
+
+              <div class="material-icon">
+                💻
+              </div>
+
+              <div class="material-text">
+
+                <strong>
+                  Aula 03 — ERP Excel VBA
+                </strong>
+
+                <span>
+                  Início do Projeto
+                </span>
+
+                <span class="material-tag">
+                  Material disponível
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <a
+              href="https://1drv.ms/w/c/050c9a98ff922c79/IQDCq_JdoLThTb75GCtQ_Yc_AXzG0PT2DRyCh7y_Lap1t6M?e=tBXIUC"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="material-button"
+            >
+              📄 Abrir material
+            </a>
+
+          </div>
+
+
+
+          <!-- AULAS 04 E 05 -->
+
+          <div class="material-card">
+
+            <div class="material-info">
+
+              <div class="material-icon">
+                🛒
+              </div>
+
+              <div class="material-text">
+
+                <strong>
+                  Aulas 04/05 — ERP Excel VBA
+                </strong>
+
+                <span>
+                  Módulo Vendas
+                </span>
+
+                <span class="material-tag">
+                  Material disponível
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <a
+              href="https://1drv.ms/w/c/050c9a98ff922c79/IQDM7CYpGTG1SaGJ718kxCaxAYwvsy-dY54HQdR4b6BNWm4?e=aQ8tnS"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="material-button"
+            >
+              📄 Abrir material
+            </a>
+
+          </div>
+
+
+
+          <!-- AULA 06 -->
+
+          <div class="material-card">
+
+            <div class="material-info">
+
+              <div class="material-icon">
+                💾
+              </div>
+
+              <div class="material-text">
+
+                <strong>
+                  Aula 06 — ERP Excel VBA
+                </strong>
+
+                <span>
+                  Módulo Vendas — Gravação
+                </span>
+
+                <span class="material-tag">
+                  Material disponível
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <a
+              href="https://1drv.ms/w/c/050c9a98ff922c79/IQAElTnr_N2rT6dI3de9GW3wAWv5a2C4sHvHQ9_-ARxYZQs?e=AEmvQw"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="material-button"
+            >
+              📄 Abrir material
+            </a>
+
+          </div>
+
 
         </div>
 
       </section>
 
 
+
     </div>
 
   </main>
+
 
 
   <!-- RODAPÉ -->
@@ -643,6 +974,7 @@
     </div>
 
   </footer>
+
 
 </body>
 </html>
