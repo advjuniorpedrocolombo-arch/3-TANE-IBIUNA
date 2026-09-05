@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -10,365 +12,1037 @@
 
   <meta
     name="description"
-    content="Processos de Produção de Bens e Serviços — 3º TANE — Extensão Ibiúna"
+    content="PBBS — 3º TANE — Extensão Ibiúna"
   >
 
-  <title>PPBS — Processos de Produção de Bens e Serviços</title>
+  <title>PBBS — 3º TANE</title>
+
 
   <style>
+
     :root{
+
       --etec-red:#b5121b;
       --etec-red-dark:#8e0d14;
-      --etec-red-soft:#f9e9eb;
+      --etec-red-soft:#fff3f4;
 
-      --orange:#9a5b13;
-      --orange-soft:#fff4e5;
+      --blue:#355b7a;
+      --blue-dark:#28455d;
+      --blue-soft:#eef4f8;
+
+      --green:#356b50;
+      --green-soft:#edf6f1;
 
       --text:#263238;
       --muted:#667085;
-      --line:#e7e9ee;
+      --line:#e1e6eb;
 
-      --bg:#f5f6f8;
+      --bg:#f4f6f8;
       --white:#ffffff;
 
-      --shadow:0 12px 30px rgba(28,35,45,.08);
+      --shadow:0 12px 30px rgba(20,32,45,.06);
+
     }
+
 
     *{
       box-sizing:border-box;
     }
 
+
     html{
       scroll-behavior:smooth;
     }
 
+
     body{
+
       margin:0;
-      font-family:Arial,Helvetica,sans-serif;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
       background:var(--bg);
+
       color:var(--text);
+
       line-height:1.5;
+
     }
+
 
     a{
-      color:inherit;
+
       text-decoration:none;
+
+      color:inherit;
+
     }
+
 
     .container{
-      width:min(1120px,calc(100% - 32px));
+
+      width:min(
+        1120px,
+        calc(100% - 34px)
+      );
+
       margin:0 auto;
+
     }
 
-    /* TOPO */
+
+
+    /* =========================================
+       TOPO
+       ========================================= */
+
 
     .topbar{
-      background:#fff;
-      border-bottom:1px solid var(--line);
+
+      background:var(--white);
+
+      border-bottom:
+        1px solid var(--line);
+
     }
+
 
     .topbar-inner{
-      min-height:68px;
+
+      min-height:66px;
+
       display:flex;
+
       align-items:center;
+
       justify-content:space-between;
+
       gap:20px;
+
     }
+
 
     .brand{
+
       display:flex;
+
       align-items:center;
-      gap:12px;
+
+      gap:11px;
+
     }
+
 
     .brand-logo{
-      width:48px;
+
+      width:46px;
+
       height:38px;
-      border-radius:10px;
-      background:var(--etec-red);
-      color:#fff;
+
       display:grid;
+
       place-items:center;
+
+      border-radius:10px;
+
+      background:var(--etec-red);
+
+      color:white;
+
+      font-size:.72rem;
+
       font-weight:900;
-      font-size:.8rem;
+
     }
+
 
     .brand-text strong{
+
       display:block;
-      font-size:.92rem;
+
+      font-size:.88rem;
+
     }
+
 
     .brand-text span{
+
       display:block;
+
       color:var(--muted);
-      font-size:.78rem;
+
+      font-size:.73rem;
+
     }
+
 
     .back-link{
-      color:var(--orange);
+
+      color:var(--blue);
+
+      font-size:.82rem;
+
       font-weight:800;
-      font-size:.88rem;
+
+      padding:8px 11px;
+
+      border-radius:9px;
+
+      transition:.18s ease;
+
     }
+
 
     .back-link:hover{
-      text-decoration:underline;
+
+      background:var(--blue-soft);
+
     }
 
-    /* HERO */
+
+
+    /* =========================================
+       HERO
+       ========================================= */
+
 
     .hero{
-      background:#fff;
-      border-bottom:1px solid var(--line);
+
+      background:var(--white);
+
+      border-bottom:
+        1px solid var(--line);
+
     }
+
 
     .hero-inner{
-      padding:42px 0;
-      display:flex;
-      justify-content:space-between;
-      gap:28px;
+
+      padding:32px 0 36px;
+
+      display:grid;
+
+      grid-template-columns:
+        1fr auto;
+
       align-items:center;
+
+      gap:28px;
+
     }
 
-    .eyebrow{
-      color:var(--orange);
-      font-size:.76rem;
+
+    .component-code{
+
+      color:var(--green);
+
+      font-size:.74rem;
+
       font-weight:900;
+
       text-transform:uppercase;
-      letter-spacing:.1em;
+
+      letter-spacing:.08em;
+
+      margin-bottom:5px;
+
     }
+
 
     .hero h1{
-      margin:7px 0 7px;
-      font-size:clamp(2rem,5vw,3.4rem);
+
+      margin:0 0 7px;
+
+      font-size:
+        clamp(
+          2rem,
+          5vw,
+          3.1rem
+        );
+
       line-height:1.05;
+
     }
+
 
     .hero p{
+
       margin:0;
+
       max-width:760px;
+
       color:var(--muted);
+
+      font-size:.95rem;
+
     }
+
 
     .hero-icon{
+
       width:86px;
+
       height:86px;
-      flex:0 0 auto;
-      border-radius:22px;
-      background:var(--orange-soft);
+
       display:grid;
+
       place-items:center;
-      font-size:2.25rem;
+
+      border-radius:22px;
+
+      background:var(--green-soft);
+
+      font-size:2rem;
+
     }
 
-    /* NAVEGAÇÃO */
 
-    .quicknav{
-      padding:20px 0 0;
+
+    /* =========================================
+       MENU RÁPIDO
+       ========================================= */
+
+
+    .quick-menu{
+
+      background:var(--bg);
+
+      border-bottom:
+        1px solid var(--line);
+
     }
 
-    .quicknav-grid{
+
+    .quick-menu-inner{
+
+      padding:20px 0;
+
       display:grid;
-      grid-template-columns:repeat(3,1fr);
+
+      grid-template-columns:
+        repeat(3,1fr);
+
       gap:14px;
+
     }
 
-    .quick-card{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:17px 18px;
-      box-shadow:var(--shadow);
+
+    .quick-item{
+
+      min-height:78px;
+
       display:flex;
+
       align-items:center;
+
       gap:12px;
+
+      padding:15px 18px;
+
+      border:
+        1px solid var(--line);
+
+      border-radius:15px;
+
+      background:var(--white);
+
+      box-shadow:var(--shadow);
+
       transition:.18s ease;
+
     }
 
-    .quick-card:hover{
+
+    .quick-item:hover{
+
       transform:translateY(-2px);
+
     }
+
 
     .quick-icon{
+
       width:42px;
+
       height:42px;
-      border-radius:12px;
+
       display:grid;
+
       place-items:center;
-      background:var(--orange-soft);
-      font-size:1.1rem;
+
+      border-radius:12px;
+
+      background:var(--green-soft);
+
+      flex-shrink:0;
+
     }
 
-    .quick-card strong{
+
+    .quick-item strong{
+
       display:block;
+
+      font-size:.95rem;
+
     }
 
-    .quick-card span{
+
+    .quick-item span{
+
       display:block;
+
       color:var(--muted);
-      font-size:.8rem;
+
+      font-size:.75rem;
+
+      margin-top:1px;
+
     }
 
-    /* CONTEÚDO */
 
-    .content{
-      padding:28px 0 54px;
+
+    /* =========================================
+       ÁREA PRINCIPAL
+       ========================================= */
+
+
+    main{
+
+      padding:30px 0 55px;
+
     }
+
+
+    .content-grid{
+
+      display:grid;
+
+      grid-template-columns:
+        minmax(0,1.65fr)
+        minmax(300px,.85fr);
+
+      gap:22px;
+
+      align-items:start;
+
+    }
+
 
     .panel{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:20px;
+
+      background:var(--white);
+
+      border:
+        1px solid var(--line);
+
+      border-radius:18px;
+
       box-shadow:var(--shadow);
-      padding:24px;
-      margin-top:20px;
+
+      overflow:hidden;
+
     }
 
-    .panel-head{
+
+    .panel-header{
+
+      padding:22px 24px 16px;
+
       display:flex;
-      justify-content:space-between;
-      gap:20px;
+
       align-items:flex-start;
-      margin-bottom:20px;
+
+      justify-content:space-between;
+
+      gap:15px;
+
+      border-bottom:
+        1px solid var(--line);
+
     }
 
-    .panel h2{
-      margin:0 0 5px;
-      font-size:1.45rem;
+
+    .panel-header h2{
+
+      margin:0 0 3px;
+
+      font-size:1.3rem;
+
     }
 
-    .panel-subtitle{
+
+    .panel-header p{
+
       margin:0;
+
       color:var(--muted);
-      font-size:.9rem;
+
+      font-size:.82rem;
+
     }
 
-    .counter{
-      min-width:38px;
+
+    .count{
+
+      min-width:35px;
+
       height:30px;
+
       display:grid;
+
       place-items:center;
-      padding:0 10px;
+
       border-radius:999px;
-      background:var(--orange-soft);
-      color:var(--orange);
-      font-size:.8rem;
+
+      background:var(--green-soft);
+
+      color:var(--green);
+
+      font-size:.75rem;
+
       font-weight:900;
+
     }
 
-    /* VAZIO */
 
-    .empty{
-      border:1px dashed #cfd5dd;
-      border-radius:15px;
+
+    /* =========================================
+       AULAS
+       ========================================= */
+
+
+    .lesson-list{
+
+      padding:0;
+
+    }
+
+
+    .lesson-row{
+
+      display:grid;
+
+      grid-template-columns:
+        105px 1fr auto;
+
+      gap:15px;
+
+      align-items:center;
+
+      padding:18px 22px;
+
+      border-bottom:
+        1px solid var(--line);
+
+    }
+
+
+    .lesson-row:last-child{
+
+      border-bottom:0;
+
+    }
+
+
+    .lesson-row:hover{
+
       background:#fafbfc;
-      padding:24px;
-      text-align:center;
+
     }
 
-    .empty-icon{
-      font-size:1.7rem;
-      margin-bottom:7px;
+
+    .lesson-number{
+
+      color:var(--green);
+
+      font-size:.76rem;
+
+      font-weight:900;
+
+      text-transform:uppercase;
+
     }
 
-    .empty strong{
+
+    .lesson-date{
+
       display:block;
-      margin-bottom:4px;
-    }
 
-    .empty p{
-      margin:0;
+      margin-top:3px;
+
       color:var(--muted);
-      font-size:.88rem;
+
+      font-size:.68rem;
+
+      font-weight:700;
+
+      text-transform:none;
+
     }
 
-    /* AVISO */
 
-    .notice{
-      border-left:4px solid var(--etec-red);
-      background:#fff9f9;
-      border-radius:12px;
-      padding:16px 17px;
+    .lesson-info h3{
+
+      margin:0 0 3px;
+
+      font-size:.96rem;
+
+      line-height:1.35;
+
     }
 
-    .notice strong{
-      display:block;
-      color:var(--etec-red-dark);
-      margin-bottom:4px;
-    }
 
-    .notice p{
+    .lesson-info p{
+
       margin:0;
-      color:#646b77;
-      font-size:.9rem;
+
+      color:var(--muted);
+
+      font-size:.77rem;
+
     }
 
-    /* RODAPÉ */
+
+    .no-material{
+
+      min-width:125px;
+
+      text-align:center;
+
+      padding:8px 10px;
+
+      border-radius:9px;
+
+      background:#f2f4f7;
+
+      color:#7a828c;
+
+      font-size:.72rem;
+
+      font-weight:800;
+
+    }
+
+
+
+    /* =========================================
+       PROVA
+       ========================================= */
+
+
+    .lesson-row.prova{
+
+      background:#fff7f7;
+
+      border-left:
+        5px solid var(--etec-red);
+
+    }
+
+
+    .lesson-row.prova .lesson-number{
+
+      color:var(--etec-red);
+
+    }
+
+
+    .lesson-row.prova .lesson-date{
+
+      color:var(--etec-red);
+
+      font-weight:900;
+
+    }
+
+
+    .lesson-row.prova .lesson-info h3{
+
+      color:var(--etec-red);
+
+      font-weight:900;
+
+    }
+
+
+    .proof-label{
+
+      min-width:125px;
+
+      text-align:center;
+
+      padding:8px 10px;
+
+      border-radius:9px;
+
+      background:var(--etec-red);
+
+      color:white;
+
+      font-size:.72rem;
+
+      font-weight:900;
+
+    }
+
+
+
+    /* =========================================
+       SEM AULA / FERIADOS
+       ========================================= */
+
+
+    .lesson-row.sem-aula{
+
+      background:#fafafa;
+
+      border-left:
+        4px solid #b8bec6;
+
+    }
+
+
+    .lesson-row.sem-aula .lesson-number{
+
+      color:#727985;
+
+    }
+
+
+    .lesson-row.sem-aula .lesson-info h3{
+
+      color:#59616e;
+
+    }
+
+
+
+    /* =========================================
+       SÁBADO LETIVO
+       ========================================= */
+
+
+    .lesson-row.sabado{
+
+      background:#f8fbf9;
+
+      border-left:
+        4px solid var(--green);
+
+    }
+
+
+
+    /* =========================================
+       ATIVIDADES
+       ========================================= */
+
+
+    .activities-area{
+
+      padding:20px;
+
+    }
+
+
+    .activity-card{
+
+      border:
+        1px solid #efc7ca;
+
+      border-radius:15px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ffffff,
+          #fff7f7
+        );
+
+      padding:20px;
+
+    }
+
+
+    .activity-tag{
+
+      display:inline-block;
+
+      margin-bottom:8px;
+
+      padding:4px 8px;
+
+      border-radius:999px;
+
+      background:var(--etec-red-soft);
+
+      color:var(--etec-red);
+
+      font-size:.68rem;
+
+      font-weight:900;
+
+      text-transform:uppercase;
+
+    }
+
+
+    .activity-card h3{
+
+      margin:0 0 8px;
+
+      font-size:1.03rem;
+
+    }
+
+
+    .activity-card p{
+
+      margin:0 0 15px;
+
+      color:var(--muted);
+
+      font-size:.8rem;
+
+    }
+
+
+    .activity-meta{
+
+      margin:0;
+
+      padding:11px 12px;
+
+      border-radius:10px;
+
+      background:#fafafa;
+
+      font-size:.75rem;
+
+      color:#59616e;
+
+    }
+
+
+
+    /* =========================================
+       AVISOS
+       ========================================= */
+
+
+    .notice-panel{
+
+      margin-top:22px;
+
+    }
+
+
+    .notice-content{
+
+      padding:18px 22px 22px;
+
+    }
+
+
+    .notice-box{
+
+      padding:14px 16px;
+
+      border-left:
+        4px solid var(--etec-red);
+
+      border-radius:10px;
+
+      background:#fff7f7;
+
+    }
+
+
+    .notice-box + .notice-box{
+
+      margin-top:12px;
+
+    }
+
+
+    .notice-box strong{
+
+      display:block;
+
+      color:#991018;
+
+      margin-bottom:3px;
+
+      font-size:.88rem;
+
+    }
+
+
+    .notice-box p{
+
+      margin:0;
+
+      color:var(--muted);
+
+      font-size:.78rem;
+
+    }
+
+
+
+    /* =========================================
+       RODAPÉ
+       ========================================= */
+
 
     footer{
-      background:#fff;
-      border-top:1px solid var(--line);
+
+      background:var(--white);
+
+      border-top:
+        1px solid var(--line);
+
     }
+
 
     .footer-inner{
-      min-height:72px;
-      padding:15px 0;
+
+      min-height:74px;
+
       display:flex;
-      justify-content:space-between;
+
       align-items:center;
+
+      justify-content:space-between;
+
       gap:20px;
+
       color:var(--muted);
-      font-size:.83rem;
+
+      font-size:.78rem;
+
     }
 
-    /* MOBILE */
 
-    @media(max-width:760px){
 
-      .quicknav-grid{
+    /* =========================================
+       RESPONSIVO
+       ========================================= */
+
+
+    @media(max-width:900px){
+
+      .content-grid{
+
         grid-template-columns:1fr;
+
       }
 
-      .hero-inner{
-        align-items:flex-start;
-      }
     }
 
-    @media(max-width:480px){
 
-      .container{
-        width:min(100% - 20px,1120px);
+    @media(max-width:720px){
+
+      .quick-menu-inner{
+
+        grid-template-columns:1fr;
+
       }
+
+
+      .lesson-row{
+
+        grid-template-columns:
+          85px 1fr;
+
+      }
+
+
+      .no-material,
+      .proof-label{
+
+        grid-column:
+          1 / -1;
+
+        width:100%;
+
+      }
+
+    }
+
+
+    @media(max-width:600px){
 
       .topbar-inner{
-        align-items:flex-start;
+
         flex-direction:column;
-        padding:12px 0;
+
+        align-items:flex-start;
+
+        padding:11px 0;
+
       }
+
 
       .hero-inner{
-        padding:30px 0;
+
+        grid-template-columns:1fr;
+
+        padding:28px 0 30px;
+
       }
+
 
       .hero-icon{
-        width:64px;
-        height:64px;
-        font-size:1.7rem;
+
+        display:none;
+
       }
 
-      .panel{
-        padding:19px 16px;
+
+      .lesson-row{
+
+        padding:16px;
+
       }
+
+
+      .panel-header{
+
+        padding:18px;
+
+      }
+
 
       .footer-inner{
+
         flex-direction:column;
+
+        justify-content:center;
+
         text-align:center;
-        gap:5px;
+
+        padding:16px 0;
+
+        gap:3px;
+
       }
+
     }
+
   </style>
+
 </head>
 
+
+
 <body>
+
+
 
   <!-- TOPO -->
 
@@ -376,18 +1050,28 @@
 
     <div class="container topbar-inner">
 
+
       <div class="brand">
 
         <div class="brand-logo">
           ETEC
         </div>
 
+
         <div class="brand-text">
-          <strong>3º TANE — Extensão Ibiúna</strong>
-          <span>Portal de Estudos</span>
+
+          <strong>
+            3º TANE — Extensão Ibiúna
+          </strong>
+
+          <span>
+            PBBS
+          </span>
+
         </div>
 
       </div>
+
 
       <a
         href="../index.html"
@@ -396,9 +1080,11 @@
         ← Voltar ao 3º TANE
       </a>
 
+
     </div>
 
   </header>
+
 
 
   <!-- HERO -->
@@ -407,222 +1093,1280 @@
 
     <div class="container hero-inner">
 
+
       <div>
 
-        <div class="eyebrow">
-          PPBS
+        <div class="component-code">
+          PBBS
         </div>
 
+
         <h1>
-          Processos de Produção de Bens e Serviços
+          PBBS
         </h1>
 
+
         <p>
-          Área destinada aos materiais, atividades, avisos e
-          orientações do componente Processos de Produção de Bens e Serviços.
+          Área destinada aos materiais, atividades,
+          avisos e orientações do componente PBBS.
         </p>
 
       </div>
 
+
       <div class="hero-icon">
-        ⚙️
+        📊
       </div>
+
 
     </div>
 
   </section>
 
 
-  <!-- NAVEGAÇÃO -->
 
-  <section class="quicknav">
+  <!-- MENU -->
 
-    <div class="container quicknav-grid">
+  <nav class="quick-menu">
 
-      <a href="#atividades" class="quick-card">
+    <div class="container quick-menu-inner">
+
+
+      <a
+        href="#atividades"
+        class="quick-item"
+      >
 
         <div class="quick-icon">
           📝
         </div>
 
         <div>
-          <strong>Atividades</strong>
-          <span>Trabalhos e exercícios</span>
+
+          <strong>
+            Atividades
+          </strong>
+
+          <span>
+            Trabalhos e seminários
+          </span>
+
         </div>
 
       </a>
 
 
-      <a href="#avisos" class="quick-card">
+
+      <a
+        href="#avisos"
+        class="quick-item"
+      >
 
         <div class="quick-icon">
           📢
         </div>
 
         <div>
-          <strong>Avisos</strong>
-          <span>Informações importantes</span>
+
+          <strong>
+            Avisos
+          </strong>
+
+          <span>
+            Informações importantes
+          </span>
+
         </div>
 
       </a>
 
 
-      <a href="#materiais" class="quick-card">
+
+      <a
+        href="#materiais"
+        class="quick-item"
+      >
 
         <div class="quick-icon">
           📚
         </div>
 
         <div>
-          <strong>Materiais</strong>
-          <span>Aulas e conteúdos</span>
+
+          <strong>
+            Aulas
+          </strong>
+
+          <span>
+            Cronograma do componente
+          </span>
+
         </div>
 
       </a>
 
+
     </div>
 
-  </section>
+  </nav>
 
 
-  <!-- CONTEÚDO -->
 
-  <main class="content">
+  <main>
 
     <div class="container">
 
 
-      <!-- ATIVIDADES -->
+      <div class="content-grid">
 
-      <section
-        class="panel"
-        id="atividades"
-      >
 
-        <div class="panel-head">
 
-          <div>
-            <h2>Atividades</h2>
+        <!-- =====================================
+             AULAS
+             ===================================== -->
 
-            <p class="panel-subtitle">
-              Atividades e trabalhos do componente.
-            </p>
+
+        <section
+          class="panel"
+          id="materiais"
+        >
+
+          <div class="panel-header">
+
+            <div>
+
+              <h2>
+                Cronograma de Aulas
+              </h2>
+
+              <p>
+                Aulas, atividades, feriados e avaliações.
+              </p>
+
+            </div>
+
+
+            <div class="count">
+              18
+            </div>
+
           </div>
 
-          <span class="counter">
-            0
-          </span>
-
-        </div>
 
 
-        <div class="empty">
+          <div class="lesson-list">
 
-          <div class="empty-icon">
-            📝
+
+
+            <!-- AULA 01 -->
+
+            <div class="lesson-row">
+
+              <div class="lesson-number">
+
+                Aula 01
+
+                <span class="lesson-date">
+                  27/07/2026
+                </span>
+
+              </div>
+
+
+              <div class="lesson-info">
+
+                <h3>
+                  Introdução ao Componente
+                </h3>
+
+                <p>
+                  Sistema de avaliação, Bases Tecnológicas
+                  e apresentação do componente.
+                </p>
+
+              </div>
+
+
+              <div class="no-material">
+                Aula ministrada
+              </div>
+
+            </div>
+
+
+
+            <!-- AULA 02 -->
+
+            <div class="lesson-row">
+
+              <div class="lesson-number">
+
+                Aula 02
+
+                <span class="lesson-date">
+                  03/08/2026
+                </span>
+
+              </div>
+
+
+              <div class="lesson-info">
+
+                <h3>
+                  Conteúdo da aula
+                </h3>
+
+                <p>
+                  Conteúdo já ministrado — descrição a confirmar.
+                </p>
+
+              </div>
+
+
+              <div class="no-material">
+                Aula ministrada
+              </div>
+
+            </div>
+
+
+
+            <!-- AULA 03 -->
+
+            <div class="lesson-row">
+
+              <div class="lesson-number">
+
+                Aula 03
+
+                <span class="lesson-date">
+                  10/08/2026
+                </span>
+
+              </div>
+
+
+              <div class="lesson-info">
+
+                <h3>
+                  Teoria Taylorista
+                </h3>
+
+                <p>
+                  Estudo introdutório da Administração Científica
+                  e dos princípios de Frederick Taylor.
+                </p>
+
+              </div>
+
+
+              <div class="no-material">
+                Aula ministrada
+              </div>
+
+            </div>
+
+
+
+            <!-- ATESTADO -->
+
+            <div class="lesson-row sem-aula">
+
+              <div class="lesson-number">
+
+                Sem aula
+
+                <span class="lesson-date">
+                  17/08/2026
+                </span>
+
+              </div>
+
+
+              <div class="lesson-info">
+
+                <h3>
+                  Professor afastado — Atestado Médico
+                </h3>
+
+                <p>
+                  Não houve aula do componente nesta data.
+                </p>
+
+              </div>
+
+
+              <div class="no-material">
+                Atestado
+              </div>
+
+            </div>
+
+
+
+            <!-- AULA 04 -->
+
+            <div class="lesson-row">
+
+              <div class="lesson-number">
+
+                Aula 04
+
+                <span class="lesson-date">
+                  24/08/2026
+                </span>
+
+              </div>
+
+
+              <div class="lesson-info">
+
+                <h3>
+                  ATD1 — Seminário
+                </h3>
+
+                <p>
+                  Início da confecção e estruturação
+                  do trabalho de seminário.
+                </p>
+
+              </div>
+
+
+              <div class="no-material">
+                Confecção do trabalho
+              </div>
+
+            </div>
+
+
+
+            <!-- AULA 05 -->
+
+            <div class="lesson-row">
+
+              <div class="lesson-number">
+
+                Aula 05
+
+                <span class="lesson-date">
+                  31/08/2026
+                </span>
+
+              </div>
+
+
+              <div class="lesson-info">
+
+                <h3>
+                  ATD1 — Continuação dos Seminários
+                </h3>
+
+                <p>
+                  Desenvolvimento e organização dos trabalhos
+                  para apresentação.
+                </p>
+
+              </div>
+
+
+              <div class="no-material">
+                Confecção do trabalho
+              </div>
+
+            </div>
+
+
+
+            <!--
+              Observação:
+              seu registro indica Aula 06 em 31/08.
+              Mantemos abaixo a descrição dessa etapa.
+            -->
+
+            <div class="lesson-row">
+
+              <div class="lesson-number">
+
+                Aula 06
+
+                <span class="lesson-date">
+                  31/08/2026
+                </span>
+
+              </div>
+
+
+              <div class="lesson-info">
+
+                <h3>
+                  Continuação no Laboratório — Seminários
+                </h3>
+
+                <p>
+                  Utilização do laboratório para continuação
+                  da confecção dos trabalhos da ATD1.
+                </p>
+
+              </div>
+
+
+              <div class="no-material">
+                Laboratório
+              </div>
+
+            </div>
+
+
+
+            <!-- 07/09 -->
+
+            <div class="lesson-row sem-aula">
+
+              <div class="lesson-number">
+
+                Sem aula
+
+                <span class="lesson-date">
+                  07/09/2026
+                </span>
+
+              </div>
+
+
+              <div class="lesson-info">
+
+                <h3>
+                  Independência do Brasil
+                </h3>
+
+                <p>
+                  Feriado nacional.
+                </p>
+
+              </div>
+
+
+              <div class="no-material">
+                Feriado
+              </div>
+
+            </div>
+
+
+
+            <!-- SÁBADO 12/09 -->
+
+            <div class="lesson-row sabado">
+
+              <div class="lesson-number">
+
+                Sábado letivo
+
+                <span class="lesson-date">
+                  12/09/2026
+                </span>
+
+              </div>
+
+
+              <div class="lesson-info">
+
+                <h3>
+                  Atividade Letiva
+                </h3>
+
+                <p>
+                  Sábado letivo referente à segunda-feira
+                  de 21/12/2026.
+                </p>
+
+              </div>
+
+
+              <div class="no-material">
+                Atividade em breve
+              </div>
+
+            </div>
+
+
+
+            <!-- 14/09 -->
+
+            <div class="lesson-row sem-aula">
+
+              <div class="lesson-number">
+
+                Sem aula
+
+                <span class="lesson-date">
+                  14/09/2026
+                </span>
+
+              </div>
+
+
+              <div class="lesson-info">
+
+                <h3>
+                  Suspensão de Atividades
+                </h3>
+
+                <p>
+                  Data prevista no calendário escolar.
+                </p>
+
+              </div>
+
+
+              <div class="no-material">
+                Sem aula
+              </div>
+
+            </div>
+
+
+
+            <!-- 1ª PROVA -->
+
+            <div class="lesson-row prova">
+
+              <div class="lesson-number">
+
+                1ª Avaliação
+
+                <span class="lesson-date">
+                  21/09/2026
+                </span>
+
+              </div>
+
+
+              <div class="lesson-info">
+
+                <h3>
+                  APRESENTAÇÃO DOS SEMINÁRIOS — ATD1
+                </h3>
+
+                <p>
+                  Apresentação dos trabalhos confeccionados
+                  pelos alunos ao longo das aulas anteriores.<br>
+
+                  <strong>
+                    Início das apresentações às 19h30 —
+                    jantar servido às 19h.
+                  </strong>
+                </p>
+
+              </div>
+
+
+              <div class="proof-label">
+                AVALIAÇÃO
+              </div>
+
+            </div>
+
+
+
+            <!-- AULA 07 -->
+
+            <div class="lesson-row">
+
+              <div class="lesson-number">
+
+                Aula 07
+
+                <span class="lesson-date">
+                  28/09/2026
+                </span>
+
+              </div>
+
+
+              <div class="lesson-info">
+
+                <h3>
+                  Conteúdo da aula
+                </h3>
+
+                <p>
+                  Conteúdo será informado em breve.
+                </p>
+
+              </div>
+
+
+              <div class="no-material">
+                Em breve
+              </div>
+
+            </div>
+
+
+
+            <!-- AULA 08 -->
+
+            <div class="lesson-row">
+
+              <div class="lesson-number">
+
+                Aula 08
+
+                <span class="lesson-date">
+                  05/10/2026
+                </span>
+
+              </div>
+
+
+              <div class="lesson-info">
+
+                <h3>
+                  Conteúdo da aula
+                </h3>
+
+                <p>
+                  Conteúdo será informado em breve.
+                </p>
+
+              </div>
+
+
+              <div class="no-material">
+                Em breve
+              </div>
+
+            </div>
+
+
+
+            <!-- 12/10 -->
+
+            <div class="lesson-row sem-aula">
+
+              <div class="lesson-number">
+
+                Sem aula
+
+                <span class="lesson-date">
+                  12/10/2026
+                </span>
+
+              </div>
+
+
+              <div class="lesson-info">
+
+                <h3>
+                  Nossa Senhora Aparecida
+                </h3>
+
+                <p>
+                  Feriado nacional.
+                </p>
+
+              </div>
+
+
+              <div class="no-material">
+                Feriado
+              </div>
+
+            </div>
+
+
+
+            <!-- AULA 09 -->
+
+            <div class="lesson-row">
+
+              <div class="lesson-number">
+
+                Aula 09
+
+                <span class="lesson-date">
+                  19/10/2026
+                </span>
+
+              </div>
+
+
+              <div class="lesson-info">
+
+                <h3>
+                  Conteúdo da aula
+                </h3>
+
+                <p>
+                  Conteúdo será informado em breve.
+                </p>
+
+              </div>
+
+
+              <div class="no-material">
+                Em breve
+              </div>
+
+            </div>
+
+
+
+            <!-- AULA 10 -->
+
+            <div class="lesson-row">
+
+              <div class="lesson-number">
+
+                Aula 10
+
+                <span class="lesson-date">
+                  26/10/2026
+                </span>
+
+              </div>
+
+
+              <div class="lesson-info">
+
+                <h3>
+                  Conteúdo da aula
+                </h3>
+
+                <p>
+                  Conteúdo será informado em breve.
+                </p>
+
+              </div>
+
+
+              <div class="no-material">
+                Em breve
+              </div>
+
+            </div>
+
+
+
+            <!-- 31/10 -->
+
+            <div class="lesson-row sabado">
+
+              <div class="lesson-number">
+
+                Sábado letivo
+
+                <span class="lesson-date">
+                  31/10/2026
+                </span>
+
+              </div>
+
+
+              <div class="lesson-info">
+
+                <h3>
+                  Atividade Letiva
+                </h3>
+
+                <p>
+                  Sábado letivo referente à segunda-feira
+                  de 14/09/2026.
+                </p>
+
+              </div>
+
+
+              <div class="no-material">
+                Atividade em breve
+              </div>
+
+            </div>
+
+
+
+            <!-- 02/11 -->
+
+            <div class="lesson-row sem-aula">
+
+              <div class="lesson-number">
+
+                Sem aula
+
+                <span class="lesson-date">
+                  02/11/2026
+                </span>
+
+              </div>
+
+
+              <div class="lesson-info">
+
+                <h3>
+                  Finados
+                </h3>
+
+                <p>
+                  Feriado nacional.
+                </p>
+
+              </div>
+
+
+              <div class="no-material">
+                Feriado
+              </div>
+
+            </div>
+
+
+
+            <!-- AULA 11 -->
+
+            <div class="lesson-row">
+
+              <div class="lesson-number">
+
+                Aula 11
+
+                <span class="lesson-date">
+                  09/11/2026
+                </span>
+
+              </div>
+
+
+              <div class="lesson-info">
+
+                <h3>
+                  Conteúdo da aula
+                </h3>
+
+                <p>
+                  Conteúdo será informado em breve.
+                </p>
+
+              </div>
+
+
+              <div class="no-material">
+                Em breve
+              </div>
+
+            </div>
+
+
+
+            <!-- 14/11 -->
+
+            <div class="lesson-row sabado">
+
+              <div class="lesson-number">
+
+                Sábado letivo
+
+                <span class="lesson-date">
+                  14/11/2026
+                </span>
+
+              </div>
+
+
+              <div class="lesson-info">
+
+                <h3>
+                  Atividade Letiva
+                </h3>
+
+                <p>
+                  Sábado letivo referente à segunda-feira
+                  de 28/12/2026.
+                </p>
+
+              </div>
+
+
+              <div class="no-material">
+                Atividade em breve
+              </div>
+
+            </div>
+
+
+
+            <!-- AULA 12 -->
+
+            <div class="lesson-row">
+
+              <div class="lesson-number">
+
+                Aula 12
+
+                <span class="lesson-date">
+                  16/11/2026
+                </span>
+
+              </div>
+
+
+              <div class="lesson-info">
+
+                <h3>
+                  Conteúdo da aula
+                </h3>
+
+                <p>
+                  Conteúdo será informado em breve.
+                </p>
+
+              </div>
+
+
+              <div class="no-material">
+                Em breve
+              </div>
+
+            </div>
+
+
+
+            <!-- 2ª PROVA -->
+
+            <div class="lesson-row prova">
+
+              <div class="lesson-number">
+
+                2ª Avaliação
+
+                <span class="lesson-date">
+                  23/11/2026
+                </span>
+
+              </div>
+
+
+              <div class="lesson-info">
+
+                <h3>
+                  DIA DA 2ª AVALIAÇÃO
+                </h3>
+
+                <p>
+                  Forma de avaliação será definida posteriormente.<br>
+
+                  <strong>
+                    Avaliação às 19h30 —
+                    jantar servido às 19h.
+                  </strong>
+                </p>
+
+              </div>
+
+
+              <div class="proof-label">
+                AVALIAÇÃO
+              </div>
+
+            </div>
+
+
+
+            <!-- AULA 13 -->
+
+            <div class="lesson-row">
+
+              <div class="lesson-number">
+
+                Aula 13
+
+                <span class="lesson-date">
+                  30/11/2026
+                </span>
+
+              </div>
+
+
+              <div class="lesson-info">
+
+                <h3>
+                  Conteúdo da aula
+                </h3>
+
+                <p>
+                  Conteúdo será informado em breve.
+                </p>
+
+              </div>
+
+
+              <div class="no-material">
+                Em breve
+              </div>
+
+            </div>
+
+
+
+            <!-- AULA 14 -->
+
+            <div class="lesson-row">
+
+              <div class="lesson-number">
+
+                Aula 14
+
+                <span class="lesson-date">
+                  07/12/2026
+                </span>
+
+              </div>
+
+
+              <div class="lesson-info">
+
+                <h3>
+                  Conteúdo da aula
+                </h3>
+
+                <p>
+                  Conteúdo será informado em breve.
+                </p>
+
+              </div>
+
+
+              <div class="no-material">
+                Em breve
+              </div>
+
+            </div>
+
+
+
+            <!-- AULA 15 -->
+
+            <div class="lesson-row">
+
+              <div class="lesson-number">
+
+                Aula 15
+
+                <span class="lesson-date">
+                  14/12/2026
+                </span>
+
+              </div>
+
+
+              <div class="lesson-info">
+
+                <h3>
+                  Encerramento do Componente
+                </h3>
+
+                <p>
+                  Encerramento das atividades de PBBS.
+                </p>
+
+              </div>
+
+
+              <div class="no-material">
+                Encerramento
+              </div>
+
+            </div>
+
+
+
           </div>
 
-          <strong>
-            Nenhuma atividade publicada no momento
-          </strong>
+        </section>
 
-          <p>
-            As atividades serão disponibilizadas nesta seção.
-          </p>
+
+
+        <!-- =====================================
+             COLUNA DIREITA
+             ===================================== -->
+
+
+        <div>
+
+
+
+          <!-- ATIVIDADES -->
+
+          <section
+            class="panel"
+            id="atividades"
+          >
+
+            <div class="panel-header">
+
+              <div>
+
+                <h2>
+                  Atividades
+                </h2>
+
+                <p>
+                  Trabalhos e atividades avaliativas.
+                </p>
+
+              </div>
+
+
+              <div class="count">
+                1
+              </div>
+
+            </div>
+
+
+
+            <div class="activities-area">
+
+              <div class="activity-card">
+
+                <span class="activity-tag">
+                  ATD1 • Seminário
+                </span>
+
+
+                <h3>
+                  Seminário — Trabalho Avaliativo
+                </h3>
+
+
+                <p>
+                  Trabalho desenvolvido ao longo das aulas
+                  e apresentado durante a 1ª Semana de Provas.
+                </p>
+
+
+                <div class="activity-meta">
+
+                  📝 Confecção do trabalho em grupo<br>
+
+                  💻 Desenvolvimento em sala e laboratório<br>
+
+                  🎤 Apresentação em 21/09/2026
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+
+          <!-- AVISOS -->
+
+          <section
+            class="panel notice-panel"
+            id="avisos"
+          >
+
+            <div class="panel-header">
+
+              <div>
+
+                <h2>
+                  Avisos
+                </h2>
+
+                <p>
+                  Comunicados importantes do componente.
+                </p>
+
+              </div>
+
+
+              <div class="count">
+                3
+              </div>
+
+            </div>
+
+
+
+            <div class="notice-content">
+
+
+
+              <div class="notice-box">
+
+                <strong>
+                  📝 1ª Semana de Provas — 17 a 23/09/2026
+                </strong>
+
+                <p>
+                  A avaliação de PBBS será realizada
+                  na segunda-feira, dia <strong>21/09/2026</strong>,
+                  por meio da <strong>apresentação dos seminários</strong>.
+                  As apresentações começam às
+                  <strong>19h30</strong>.
+                  O jantar será servido às <strong>19h</strong>.
+                </p>
+
+              </div>
+
+
+
+              <div class="notice-box">
+
+                <strong>
+                  📝 2ª Semana de Provas — 23 a 27/11/2026
+                </strong>
+
+                <p>
+                  A 2ª avaliação de PBBS será realizada
+                  na segunda-feira, dia <strong>23/11/2026</strong>.
+                  A forma de avaliação será informada posteriormente.
+                  Início às <strong>19h30</strong> e jantar às
+                  <strong>19h</strong>.
+                </p>
+
+              </div>
+
+
+
+              <div class="notice-box">
+
+                <strong>
+                  🎤 ATD1 — Seminários
+                </strong>
+
+                <p>
+                  As aulas destinadas à ATD1 correspondem à
+                  <strong>confecção e preparação dos trabalhos</strong>.
+                  A apresentação ocorrerá somente na data da
+                  1ª avaliação.
+                </p>
+
+              </div>
+
+
+
+            </div>
+
+          </section>
+
+
 
         </div>
 
-      </section>
 
-
-      <!-- AVISOS -->
-
-      <section
-        class="panel"
-        id="avisos"
-      >
-
-        <div class="panel-head">
-
-          <div>
-            <h2>Avisos</h2>
-
-            <p class="panel-subtitle">
-              Comunicados importantes do componente.
-            </p>
-          </div>
-
-          <span class="counter">
-            1
-          </span>
-
-        </div>
-
-
-        <div class="notice">
-
-          <strong>
-            Página do componente disponível
-          </strong>
-
-          <p>
-            Os materiais e atividades de Processos de Produção
-            de Bens e Serviços serão organizados nesta página
-            ao longo das aulas.
-          </p>
-
-        </div>
-
-      </section>
-
-
-      <!-- MATERIAIS -->
-
-      <section
-        class="panel"
-        id="materiais"
-      >
-
-        <div class="panel-head">
-
-          <div>
-            <h2>Materiais</h2>
-
-            <p class="panel-subtitle">
-              Conteúdos organizados por aula.
-            </p>
-          </div>
-
-          <span class="counter">
-            0
-          </span>
-
-        </div>
-
-
-        <div class="empty">
-
-          <div class="empty-icon">
-            📚
-          </div>
-
-          <strong>
-            Nenhum material publicado no momento
-          </strong>
-
-          <p>
-            As apostilas, apresentações e materiais de apoio
-            serão disponibilizados nesta seção.
-          </p>
-
-        </div>
-
-      </section>
-
+      </div>
 
     </div>
 
   </main>
+
 
 
   <!-- RODAPÉ -->
@@ -632,16 +2376,19 @@
     <div class="container footer-inner">
 
       <span>
-        PPBS — Processos de Produção de Bens e Serviços
+        PBBS — 3º TANE — Extensão Ibiúna
       </span>
 
       <span>
-        Prof. Junior P. Colombo
+        Prof. Dr. Júnior Pedro Colombo
       </span>
 
     </div>
 
   </footer>
 
+
+
 </body>
+
 </html>
