@@ -60,6 +60,7 @@
       margin:0 auto;
     }
 
+
     /* TOPO */
 
     .topbar{
@@ -114,6 +115,7 @@
       text-decoration:underline;
     }
 
+
     /* HERO */
 
     .hero{
@@ -159,6 +161,7 @@
       place-items:center;
       font-size:2.25rem;
     }
+
 
     /* NAVEGAÇÃO */
 
@@ -208,6 +211,7 @@
       font-size:.8rem;
     }
 
+
     /* CONTEÚDO */
 
     .content{
@@ -254,6 +258,7 @@
       font-size:.8rem;
       font-weight:900;
     }
+
 
     /* ATIVIDADE */
 
@@ -302,6 +307,7 @@
       white-space:nowrap;
     }
 
+
     /* AVISO */
 
     .notice{
@@ -309,6 +315,10 @@
       background:#fff9f9;
       border-radius:12px;
       padding:16px 17px;
+    }
+
+    .notice + .notice{
+      margin-top:14px;
     }
 
     .notice strong{
@@ -323,31 +333,127 @@
       font-size:.9rem;
     }
 
-    /* VAZIO */
 
-    .empty{
-      border:1px dashed #cfd5dd;
-      border-radius:15px;
-      background:#fafbfc;
-      padding:24px;
+    /* MATERIAIS */
+
+    .materials-list{
+      display:grid;
+      gap:14px;
+    }
+
+    .material-card{
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      background:#fff;
+      transition:.18s ease;
+    }
+
+    .material-card:hover{
+      transform:translateY(-2px);
+      box-shadow:0 8px 22px rgba(28,35,45,.07);
+    }
+
+    .material-info{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:0;
+    }
+
+    .material-icon{
+      width:48px;
+      height:48px;
+      flex:0 0 auto;
+      border-radius:13px;
+      background:var(--green-soft);
+      display:grid;
+      place-items:center;
+      font-size:1.25rem;
+    }
+
+    .material-text{
+      min-width:0;
+    }
+
+    .material-text strong{
+      display:block;
+      margin-bottom:3px;
+    }
+
+    .material-text span{
+      display:block;
+      color:var(--muted);
+      font-size:.85rem;
+    }
+
+    .material-tag{
+      display:inline-block !important;
+      width:max-content;
+      margin-top:6px;
+      padding:3px 8px;
+      border-radius:999px;
+      background:var(--green-soft);
+      color:var(--green) !important;
+      font-size:.72rem !important;
+      font-weight:800;
+    }
+
+    .material-button{
+      flex:0 0 auto;
+      background:var(--green);
+      color:#fff;
+      font-size:.82rem;
+      font-weight:800;
+      padding:10px 15px;
+      border-radius:10px;
+      transition:.18s ease;
       text-align:center;
     }
 
-    .empty-icon{
-      font-size:1.7rem;
-      margin-bottom:7px;
+    .material-button.disabled{
+      background:#e7e9ee;
+      color:#89909c;
+      cursor:default;
+      pointer-events:none;
     }
 
-    .empty strong{
-      display:block;
-      margin-bottom:4px;
+
+    /* PROVAS */
+
+    .proof-card{
+      border:2px solid var(--etec-red);
+      background:#fff9f9;
     }
 
-    .empty p{
-      margin:0;
-      color:var(--muted);
-      font-size:.88rem;
+    .proof-card .material-icon{
+      background:var(--etec-red-soft);
     }
+
+    .proof-card .material-text strong{
+      color:var(--etec-red);
+      font-weight:900;
+    }
+
+    .proof-card .proof-description{
+      color:var(--etec-red);
+      font-weight:700;
+    }
+
+    .proof-card .material-tag{
+      background:var(--etec-red-soft);
+      color:var(--etec-red) !important;
+    }
+
+    .proof-button{
+      background:var(--etec-red) !important;
+      color:#fff !important;
+    }
+
 
     /* RODAPÉ */
 
@@ -366,6 +472,7 @@
       color:var(--muted);
       font-size:.83rem;
     }
+
 
     /* MOBILE */
 
@@ -386,6 +493,22 @@
       .activity-btn{
         grid-column:2;
         width:max-content;
+      }
+    }
+
+    @media(max-width:600px){
+
+      .material-card{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .material-info{
+        align-items:flex-start;
+      }
+
+      .material-button{
+        width:100%;
       }
     }
 
@@ -421,10 +544,14 @@
         gap:5px;
       }
     }
+
   </style>
 </head>
 
 <body>
+
+
+  <!-- TOPO -->
 
   <header class="topbar">
 
@@ -455,6 +582,9 @@
   </header>
 
 
+
+  <!-- HERO -->
+
   <section class="hero">
 
     <div class="container hero-inner">
@@ -484,6 +614,9 @@
 
   </section>
 
+
+
+  <!-- NAVEGAÇÃO -->
 
   <section class="quicknav">
 
@@ -535,9 +668,13 @@
   </section>
 
 
+
+  <!-- CONTEÚDO -->
+
   <main class="content">
 
     <div class="container">
+
 
 
       <!-- ATIVIDADES -->
@@ -550,11 +687,13 @@
         <div class="panel-head">
 
           <div>
+
             <h2>Atividades</h2>
 
             <p class="panel-subtitle">
               Atividades e trabalhos do componente.
             </p>
+
           </div>
 
           <span class="counter">
@@ -593,6 +732,7 @@
       </section>
 
 
+
       <!-- AVISOS -->
 
       <section
@@ -603,18 +743,53 @@
         <div class="panel-head">
 
           <div>
+
             <h2>Avisos</h2>
 
             <p class="panel-subtitle">
               Comunicados importantes do componente.
             </p>
+
           </div>
 
           <span class="counter">
-            1
+            3
           </span>
 
         </div>
+
+
+
+        <div class="notice">
+
+          <strong>
+            📝 1ª Semana de Provas — 17 a 23/09/2026
+          </strong>
+
+          <p>
+            A avaliação de Comércio Internacional será realizada
+            em 18/09/2026. A prova começará às 19h30.
+            Em especial, o jantar será servido às 19h.
+          </p>
+
+        </div>
+
+
+
+        <div class="notice">
+
+          <strong>
+            📝 2ª Semana de Provas — 23 a 27/11/2026
+          </strong>
+
+          <p>
+            A avaliação de Comércio Internacional será realizada
+            em 27/11/2026. A prova começará às 19h30.
+            Em especial, o jantar será servido às 19h.
+          </p>
+
+        </div>
+
 
 
         <div class="notice">
@@ -634,6 +809,7 @@
       </section>
 
 
+
       <!-- MATERIAIS -->
 
       <section
@@ -644,34 +820,721 @@
         <div class="panel-head">
 
           <div>
-            <h2>Materiais</h2>
+
+            <h2>Materiais e Aulas</h2>
 
             <p class="panel-subtitle">
               Conteúdos organizados por aula.
             </p>
+
           </div>
 
           <span class="counter">
-            0
+            19
           </span>
 
         </div>
 
 
-        <div class="empty">
+        <div class="materials-list">
 
-          <div class="empty-icon">
-            📚
+
+
+          <!-- AULA 01 -->
+
+          <div class="material-card">
+
+            <div class="material-info">
+
+              <div class="material-icon">
+                🌎
+              </div>
+
+              <div class="material-text">
+
+                <strong>
+                  Aula 01 — 31/07/2026
+                </strong>
+
+                <span>
+                  Comércio Internacional
+                </span>
+
+                <span class="material-tag">
+                  Aula ministrada
+                </span>
+
+              </div>
+
+            </div>
+
+            <span class="material-button disabled">
+              Material em breve
+            </span>
+
           </div>
 
-          <strong>
-            Materiais serão inseridos em breve
-          </strong>
 
-          <p>
-            As apostilas, apresentações e arquivos de apoio
-            serão disponibilizados nesta seção.
-          </p>
+
+          <!-- AULA 02 -->
+
+          <div class="material-card">
+
+            <div class="material-info">
+
+              <div class="material-icon">
+                🌎
+              </div>
+
+              <div class="material-text">
+
+                <strong>
+                  Aula 02 — 07/08/2026
+                </strong>
+
+                <span>
+                  Comércio Internacional
+                </span>
+
+                <span class="material-tag">
+                  Aula ministrada
+                </span>
+
+              </div>
+
+            </div>
+
+            <span class="material-button disabled">
+              Material em breve
+            </span>
+
+          </div>
+
+
+
+          <!-- AULA 03 -->
+
+          <div class="material-card">
+
+            <div class="material-info">
+
+              <div class="material-icon">
+                🌎
+              </div>
+
+              <div class="material-text">
+
+                <strong>
+                  Aula 03 — 14/08/2026
+                </strong>
+
+                <span>
+                  Comércio Internacional
+                </span>
+
+                <span class="material-tag">
+                  Aula ministrada
+                </span>
+
+              </div>
+
+            </div>
+
+            <span class="material-button disabled">
+              Material em breve
+            </span>
+
+          </div>
+
+
+
+          <!-- AULA 04 -->
+
+          <div class="material-card">
+
+            <div class="material-info">
+
+              <div class="material-icon">
+                🌎
+              </div>
+
+              <div class="material-text">
+
+                <strong>
+                  Aula 04 — 21/08/2026
+                </strong>
+
+                <span>
+                  Comércio Internacional
+                </span>
+
+                <span class="material-tag">
+                  Aula ministrada
+                </span>
+
+              </div>
+
+            </div>
+
+            <span class="material-button disabled">
+              Material em breve
+            </span>
+
+          </div>
+
+
+
+          <!-- AULA 05 -->
+
+          <div class="material-card">
+
+            <div class="material-info">
+
+              <div class="material-icon">
+                🌎
+              </div>
+
+              <div class="material-text">
+
+                <strong>
+                  Aula 05 — 28/08/2026
+                </strong>
+
+                <span>
+                  Comércio Internacional
+                </span>
+
+                <span class="material-tag">
+                  Aula ministrada
+                </span>
+
+              </div>
+
+            </div>
+
+            <span class="material-button disabled">
+              Material em breve
+            </span>
+
+          </div>
+
+
+
+          <!-- AULA 06 -->
+
+          <div class="material-card">
+
+            <div class="material-info">
+
+              <div class="material-icon">
+                🌎
+              </div>
+
+              <div class="material-text">
+
+                <strong>
+                  Aula 06 — 04/09/2026
+                </strong>
+
+                <span>
+                  Comércio Internacional
+                </span>
+
+                <span class="material-tag">
+                  Aula ministrada
+                </span>
+
+              </div>
+
+            </div>
+
+            <span class="material-button disabled">
+              Material em breve
+            </span>
+
+          </div>
+
+
+
+          <!-- AULA 07 -->
+
+          <div class="material-card">
+
+            <div class="material-info">
+
+              <div class="material-icon">
+                📚
+              </div>
+
+              <div class="material-text">
+
+                <strong>
+                  Aula 07 — 11/09/2026
+                </strong>
+
+                <span>
+                  Conteúdo da aula
+                </span>
+
+                <span class="material-tag">
+                  Material em breve
+                </span>
+
+              </div>
+
+            </div>
+
+            <span class="material-button disabled">
+              Em breve
+            </span>
+
+          </div>
+
+
+
+          <!-- AULA 08 - 1ª PROVA -->
+
+          <div class="material-card proof-card">
+
+            <div class="material-info">
+
+              <div class="material-icon">
+                📝
+              </div>
+
+              <div class="material-text">
+
+                <strong>
+                  Aula 08 — 18/09/2026 — DIA DA PROVA
+                </strong>
+
+                <span class="proof-description">
+                  1ª Avaliação — Comércio Internacional
+                </span>
+
+                <span class="material-tag">
+                  PROVA ÀS 19H30 — JANTAR ÀS 19H
+                </span>
+
+              </div>
+
+            </div>
+
+            <span class="material-button disabled proof-button">
+              PROVA
+            </span>
+
+          </div>
+
+
+
+          <!-- AULA 09 -->
+
+          <div class="material-card">
+
+            <div class="material-info">
+
+              <div class="material-icon">
+                📚
+              </div>
+
+              <div class="material-text">
+
+                <strong>
+                  Aula 09 — 25/09/2026
+                </strong>
+
+                <span>
+                  Conteúdo da aula
+                </span>
+
+                <span class="material-tag">
+                  Material em breve
+                </span>
+
+              </div>
+
+            </div>
+
+            <span class="material-button disabled">
+              Em breve
+            </span>
+
+          </div>
+
+
+
+          <!-- AULA 10 -->
+
+          <div class="material-card">
+
+            <div class="material-info">
+
+              <div class="material-icon">
+                📚
+              </div>
+
+              <div class="material-text">
+
+                <strong>
+                  Aula 10 — 02/10/2026
+                </strong>
+
+                <span>
+                  Conteúdo da aula
+                </span>
+
+                <span class="material-tag">
+                  Material em breve
+                </span>
+
+              </div>
+
+            </div>
+
+            <span class="material-button disabled">
+              Em breve
+            </span>
+
+          </div>
+
+
+
+          <!-- AULA 11 - SÁBADO LETIVO -->
+
+          <div class="material-card">
+
+            <div class="material-info">
+
+              <div class="material-icon">
+                📅
+              </div>
+
+              <div class="material-text">
+
+                <strong>
+                  Aula 11 — 03/10/2026 — Sábado Letivo
+                </strong>
+
+                <span>
+                  Sábado letivo referente à sexta-feira de 16/10/2026.
+                </span>
+
+                <span class="material-tag">
+                  Atividade em breve
+                </span>
+
+              </div>
+
+            </div>
+
+            <span class="material-button disabled">
+              Atividade em breve
+            </span>
+
+          </div>
+
+
+
+          <!-- AULA 12 -->
+
+          <div class="material-card">
+
+            <div class="material-info">
+
+              <div class="material-icon">
+                📚
+              </div>
+
+              <div class="material-text">
+
+                <strong>
+                  Aula 12 — 09/10/2026
+                </strong>
+
+                <span>
+                  Conteúdo da aula
+                </span>
+
+                <span class="material-tag">
+                  Material em breve
+                </span>
+
+              </div>
+
+            </div>
+
+            <span class="material-button disabled">
+              Em breve
+            </span>
+
+          </div>
+
+
+
+          <!-- 16/10/2026 substituído pelo sábado letivo de 03/10/2026 -->
+
+
+
+          <!-- AULA 13 -->
+
+          <div class="material-card">
+
+            <div class="material-info">
+
+              <div class="material-icon">
+                📚
+              </div>
+
+              <div class="material-text">
+
+                <strong>
+                  Aula 13 — 23/10/2026
+                </strong>
+
+                <span>
+                  Conteúdo da aula
+                </span>
+
+                <span class="material-tag">
+                  Material em breve
+                </span>
+
+              </div>
+
+            </div>
+
+            <span class="material-button disabled">
+              Em breve
+            </span>
+
+          </div>
+
+
+
+          <!-- AULA 14 -->
+
+          <div class="material-card">
+
+            <div class="material-info">
+
+              <div class="material-icon">
+                📚
+              </div>
+
+              <div class="material-text">
+
+                <strong>
+                  Aula 14 — 30/10/2026
+                </strong>
+
+                <span>
+                  Conteúdo da aula
+                </span>
+
+                <span class="material-tag">
+                  Material em breve
+                </span>
+
+              </div>
+
+            </div>
+
+            <span class="material-button disabled">
+              Em breve
+            </span>
+
+          </div>
+
+
+
+          <!-- AULA 15 -->
+
+          <div class="material-card">
+
+            <div class="material-info">
+
+              <div class="material-icon">
+                📚
+              </div>
+
+              <div class="material-text">
+
+                <strong>
+                  Aula 15 — 06/11/2026
+                </strong>
+
+                <span>
+                  Conteúdo da aula
+                </span>
+
+                <span class="material-tag">
+                  Material em breve
+                </span>
+
+              </div>
+
+            </div>
+
+            <span class="material-button disabled">
+              Em breve
+            </span>
+
+          </div>
+
+
+
+          <!-- AULA 16 -->
+
+          <div class="material-card">
+
+            <div class="material-info">
+
+              <div class="material-icon">
+                📚
+              </div>
+
+              <div class="material-text">
+
+                <strong>
+                  Aula 16 — 13/11/2026
+                </strong>
+
+                <span>
+                  Conteúdo da aula
+                </span>
+
+                <span class="material-tag">
+                  Material em breve
+                </span>
+
+              </div>
+
+            </div>
+
+            <span class="material-button disabled">
+              Em breve
+            </span>
+
+          </div>
+
+
+
+          <!--
+            20/11/2026
+            Dia Nacional da Consciência Negra
+            Não contabilizado como aula.
+          -->
+
+
+
+          <!-- AULA 17 - 2ª PROVA -->
+
+          <div class="material-card proof-card">
+
+            <div class="material-info">
+
+              <div class="material-icon">
+                📝
+              </div>
+
+              <div class="material-text">
+
+                <strong>
+                  Aula 17 — 27/11/2026 — DIA DA PROVA
+                </strong>
+
+                <span class="proof-description">
+                  2ª Avaliação — Comércio Internacional
+                </span>
+
+                <span class="material-tag">
+                  PROVA ÀS 19H30 — JANTAR ÀS 19H
+                </span>
+
+              </div>
+
+            </div>
+
+            <span class="material-button disabled proof-button">
+              PROVA
+            </span>
+
+          </div>
+
+
+
+          <!-- AULA 18 -->
+
+          <div class="material-card">
+
+            <div class="material-info">
+
+              <div class="material-icon">
+                📚
+              </div>
+
+              <div class="material-text">
+
+                <strong>
+                  Aula 18 — 04/12/2026
+                </strong>
+
+                <span>
+                  Conteúdo da aula
+                </span>
+
+                <span class="material-tag">
+                  Material em breve
+                </span>
+
+              </div>
+
+            </div>
+
+            <span class="material-button disabled">
+              Em breve
+            </span>
+
+          </div>
+
+
+
+          <!-- AULA 19 -->
+
+          <div class="material-card">
+
+            <div class="material-info">
+
+              <div class="material-icon">
+                📚
+              </div>
+
+              <div class="material-text">
+
+                <strong>
+                  Aula 19 — 11/12/2026
+                </strong>
+
+                <span>
+                  Encerramento das aulas do componente.
+                </span>
+
+                <span class="material-tag">
+                  Material em breve
+                </span>
+
+              </div>
+
+            </div>
+
+            <span class="material-button disabled">
+              Em breve
+            </span>
+
+          </div>
+
+
 
         </div>
 
@@ -682,6 +1545,9 @@
 
   </main>
 
+
+
+  <!-- RODAPÉ -->
 
   <footer>
 
@@ -698,6 +1564,7 @@
     </div>
 
   </footer>
+
 
 </body>
 </html>
