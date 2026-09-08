@@ -1,44 +1,2466 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="description" content="ATD3 - Simulado de Prova - Comércio Internacional - 3º TANE - Extensão Ibiúna">
-<title>ATD3 - Simulado de Prova | Comércio Internacional</title>
-<style>
-:root{--red:#b5121b;--red2:#8e0d14;--redsoft:#f9e9eb;--green:#356b50;--green2:#28533e;--greensoft:#edf6f1;--text:#263238;--muted:#667085;--line:#e4e7ec;--bg:#f5f6f8;--white:#fff;--yellow:#8a6100;--yellowsoft:#fff7da;--shadow:0 12px 30px rgba(28,35,45,.08)}
-*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}a{color:inherit;text-decoration:none}.container{width:min(980px,calc(100% - 28px));margin:auto}.topbar{background:#fff;border-bottom:1px solid var(--line)}.topbar-inner{min-height:66px;display:flex;justify-content:space-between;align-items:center;gap:16px}.brand{display:flex;align-items:center;gap:11px}.logo{width:48px;height:38px;border-radius:10px;background:var(--red);color:#fff;display:grid;place-items:center;font-size:.78rem;font-weight:900}.brand strong{display:block}.brand span{display:block;color:var(--muted);font-size:.76rem}.back{color:var(--green);font-weight:800;font-size:.84rem}.hero{background:#fff;border-bottom:1px solid var(--line)}.hero-inner{padding:34px 0}.eyebrow{display:inline-block;background:var(--greensoft);color:var(--green);padding:5px 10px;border-radius:999px;font-size:.72rem;font-weight:900;text-transform:uppercase}.hero h1{font-size:clamp(1.8rem,5vw,2.8rem);margin:10px 0 8px}.hero p{margin:0;color:var(--muted)}.prof{margin-top:10px;color:var(--green);font-weight:800;font-size:.86rem}main{padding:24px 0 52px}.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:var(--shadow);margin-bottom:18px}.card h2{margin:0 0 8px}.window{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}.window div{background:#fafafa;border:1px solid var(--line);border-radius:13px;padding:13px;text-align:center}.window strong{display:block;color:var(--green)}.status-banner{padding:16px;border-radius:14px;margin-bottom:18px;font-weight:800}.waiting{background:var(--yellowsoft);color:var(--yellow);border:1px solid #eadcaa}.open{background:var(--greensoft);color:var(--green2);border:1px solid #badbc7}.closed{background:var(--redsoft);color:var(--red2);border:1px solid #efc5c9}.hidden{display:none!important}.check-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}.check-item{display:flex;align-items:flex-start;gap:9px;border:1px solid var(--line);border-radius:11px;padding:10px;background:#fcfcfd;cursor:pointer}.check-item.selected{border-color:var(--green);background:var(--greensoft)}.check-item input{width:auto;margin-top:3px}.check-item span{font-size:.82rem}.selection-note{margin-top:12px;padding:12px 14px;border-radius:11px;background:#f7f8fa;color:var(--muted);font-size:.83rem}.selection-note strong{color:var(--green)}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:18px}.field label{display:block;margin-bottom:6px;font-size:.82rem;font-weight:800}.field input{width:100%;border:1px solid #cfd4dc;border-radius:10px;padding:11px 12px;outline:none}.declaration{margin:18px 0;padding:13px;background:var(--greensoft);border-radius:11px;display:flex;gap:9px}.declaration input{width:auto;margin-top:4px}.declaration label{font-size:.82rem}.btn{width:100%;border:0;border-radius:12px;min-height:50px;background:var(--green);color:#fff;font-weight:900;cursor:pointer}.btn:hover{background:var(--green2)}.btn:disabled{background:#aeb4bc;cursor:not-allowed}.case-head{display:flex;justify-content:space-between;gap:15px;align-items:flex-start}.case-tag{padding:5px 9px;background:var(--greensoft);color:var(--green);border-radius:999px;font-size:.75rem;font-weight:900}.case-text{background:#fafbfc;border:1px solid var(--line);border-radius:14px;padding:18px;margin:15px 0;white-space:pre-line;text-align:justify}.question{border:1px solid var(--line);border-radius:14px;padding:17px;margin-top:13px;background:#fcfcfd}.question strong{display:block;margin-bottom:8px}.question textarea{width:100%;min-height:125px;border:1px solid #cfd4dc;border-radius:10px;padding:11px;resize:vertical}.student-bar{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.chip{background:#f1f3f5;border-radius:999px;padding:6px 10px;font-size:.77rem;font-weight:800}.timerbox{position:sticky;top:8px;z-index:20;background:#fff;border:2px solid var(--green);border-radius:12px;padding:10px 13px;margin-bottom:15px;box-shadow:var(--shadow);display:flex;justify-content:space-between;gap:12px}.timerbox.alert{border-color:var(--red);color:var(--red)}.result{padding:16px;border-radius:12px;margin-top:14px}.success{background:var(--greensoft);border:1px solid #badbc7;color:#1f6139}.error{background:var(--redsoft);border:1px solid #efc5c9;color:var(--red2)}footer{background:#fff;border-top:1px solid var(--line)}.footer{min-height:70px;display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:.8rem}@media(max-width:700px){.check-grid,.form-grid,.window{grid-template-columns:1fr}.topbar-inner,.footer{align-items:flex-start;flex-direction:column;padding:12px 0}.case-head,.timerbox{flex-direction:column}}
-</style>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    ATD3 - Simulado Prova | Comércio Internacional
+  </title>
+
+  <style>
+
+    :root {
+      --etec-red: #b5121b;
+      --etec-dark-red: #8f0e15;
+
+      --blue: #17324d;
+      --blue-soft: #eef4f8;
+
+      --bg: #f4f6f8;
+      --card: #ffffff;
+
+      --text: #263238;
+      --muted: #64748b;
+
+      --border: #dce3e8;
+
+      --success: #16823b;
+      --success-bg: #edf8f0;
+
+      --warning: #a76400;
+      --warning-bg: #fff7df;
+
+      --danger: #b42318;
+      --danger-bg: #fff0ee;
+
+      --shadow:
+        0 12px 32px rgba(15, 23, 42, .09);
+
+      --radius: 18px;
+    }
+
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+    }
+
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+
+    button {
+      cursor: pointer;
+    }
+
+
+    .hidden {
+      display: none !important;
+    }
+
+
+    /* =========================
+       CABEÇALHO
+    ========================== */
+
+    .topbar {
+      background:
+        linear-gradient(
+          135deg,
+          var(--etec-dark-red),
+          var(--etec-red)
+        );
+
+      color: white;
+      box-shadow:
+        0 4px 18px rgba(0,0,0,.18);
+    }
+
+
+    .topbar-inner {
+      width: min(1100px, 92%);
+      margin: auto;
+
+      padding: 18px 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+
+    .brand-mark {
+      width: 52px;
+      height: 52px;
+
+      border-radius: 14px;
+
+      display: grid;
+      place-items: center;
+
+      background: white;
+      color: var(--etec-red);
+
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+
+    .brand h1 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+
+    .brand p {
+      margin: 4px 0 0;
+      opacity: .9;
+      font-size: 13px;
+    }
+
+
+    .status-server {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 8px 12px;
+
+      border-radius: 999px;
+
+      background:
+        rgba(255,255,255,.15);
+
+      font-size: 13px;
+    }
+
+
+    .status-dot {
+      width: 9px;
+      height: 9px;
+
+      border-radius: 50%;
+
+      background: #ffd3d3;
+    }
+
+
+    .status-dot.online {
+      background: #63e68a;
+      box-shadow:
+        0 0 0 4px rgba(99,230,138,.18);
+    }
+
+
+    /* =========================
+       LAYOUT
+    ========================== */
+
+    .page {
+      width: min(980px, 92%);
+      margin: 32px auto 60px;
+    }
+
+
+    .hero {
+      background: var(--card);
+
+      border-radius: var(--radius);
+
+      padding: 28px;
+
+      box-shadow: var(--shadow);
+
+      border:
+        1px solid rgba(0,0,0,.04);
+
+      margin-bottom: 22px;
+    }
+
+
+    .eyebrow {
+      color: var(--etec-red);
+
+      text-transform: uppercase;
+
+      font-size: 12px;
+      font-weight: 800;
+
+      letter-spacing: .08em;
+    }
+
+
+    .hero h2 {
+      margin:
+        8px 0 8px;
+
+      color: var(--blue);
+
+      font-size: 30px;
+    }
+
+
+    .hero p {
+      margin: 0;
+
+      color: var(--muted);
+
+      line-height: 1.6;
+    }
+
+
+    .info-grid {
+      margin-top: 22px;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 12px;
+    }
+
+
+    .info-box {
+      padding: 15px;
+
+      border-radius: 14px;
+
+      background: var(--blue-soft);
+
+      border:
+        1px solid #d9e6ef;
+    }
+
+
+    .info-box small {
+      color: var(--muted);
+
+      display: block;
+
+      margin-bottom: 4px;
+    }
+
+
+    .info-box strong {
+      color: var(--blue);
+
+      font-size: 14px;
+    }
+
+
+    /* =========================
+       CARDS
+    ========================== */
+
+    .card {
+      background: var(--card);
+
+      border-radius: var(--radius);
+
+      box-shadow: var(--shadow);
+
+      border:
+        1px solid rgba(0,0,0,.04);
+
+      margin-bottom: 22px;
+
+      overflow: hidden;
+    }
+
+
+    .card-head {
+      padding: 22px 24px;
+
+      border-bottom:
+        1px solid var(--border);
+
+      background:
+        linear-gradient(
+          180deg,
+          #ffffff,
+          #fafbfc
+        );
+    }
+
+
+    .card-head h3 {
+      margin: 0 0 6px;
+
+      color: var(--blue);
+
+      font-size: 21px;
+    }
+
+
+    .card-head p {
+      margin: 0;
+
+      color: var(--muted);
+
+      font-size: 14px;
+
+      line-height: 1.5;
+    }
+
+
+    .card-body {
+      padding: 24px;
+    }
+
+
+    /* =========================
+       FORMULÁRIO
+    ========================== */
+
+    .grid-2 {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 18px;
+    }
+
+
+    .field {
+      margin-bottom: 18px;
+    }
+
+
+    .field label {
+      display: block;
+
+      margin-bottom: 7px;
+
+      font-size: 13px;
+      font-weight: 700;
+
+      color: #334155;
+    }
+
+
+    .required {
+      color: var(--etec-red);
+    }
+
+
+    .field input,
+    .field select,
+    textarea {
+      width: 100%;
+
+      border:
+        1px solid #cfd8df;
+
+      border-radius: 11px;
+
+      background: white;
+
+      color: var(--text);
+
+      padding: 12px 13px;
+
+      outline: none;
+
+      transition:
+        border-color .15s,
+        box-shadow .15s;
+    }
+
+
+    .field input:focus,
+    .field select:focus,
+    textarea:focus {
+      border-color: var(--etec-red);
+
+      box-shadow:
+        0 0 0 3px rgba(181,18,27,.08);
+    }
+
+
+    .field select:disabled,
+    .field input:disabled {
+      background: #f1f3f5;
+      color: #8a9299;
+    }
+
+
+    .hint {
+      margin-top: 6px;
+
+      font-size: 12px;
+
+      color: var(--muted);
+
+      line-height: 1.4;
+    }
+
+
+    /* =========================
+       BOTÕES
+    ========================== */
+
+    .actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+
+      flex-wrap: wrap;
+    }
+
+
+    .btn {
+      border: 0;
+
+      border-radius: 11px;
+
+      padding:
+        12px 20px;
+
+      font-weight: 800;
+
+      transition:
+        transform .15s,
+        opacity .15s,
+        box-shadow .15s;
+    }
+
+
+    .btn:hover:not(:disabled) {
+      transform:
+        translateY(-1px);
+    }
+
+
+    .btn:disabled {
+      cursor: not-allowed;
+      opacity: .55;
+    }
+
+
+    .btn-primary {
+      background:
+        linear-gradient(
+          135deg,
+          var(--etec-dark-red),
+          var(--etec-red)
+        );
+
+      color: white;
+
+      box-shadow:
+        0 7px 16px rgba(181,18,27,.18);
+    }
+
+
+    .btn-secondary {
+      background: #e8eef3;
+      color: var(--blue);
+    }
+
+
+    /* =========================
+       MENSAGENS
+    ========================== */
+
+    .message {
+      padding: 14px 16px;
+
+      border-radius: 12px;
+
+      margin-bottom: 18px;
+
+      font-size: 14px;
+
+      line-height: 1.5;
+    }
+
+
+    .message.error {
+      color: var(--danger);
+
+      background: var(--danger-bg);
+
+      border:
+        1px solid #f2cbc7;
+    }
+
+
+    .message.success {
+      color: var(--success);
+
+      background: var(--success-bg);
+
+      border:
+        1px solid #cbe9d1;
+    }
+
+
+    .message.warning {
+      color: var(--warning);
+
+      background: var(--warning-bg);
+
+      border:
+        1px solid #f0dda3;
+    }
+
+
+    /* =========================
+       CASO
+    ========================== */
+
+    .attempt-info {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 8px;
+
+      margin-bottom: 18px;
+    }
+
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+
+      padding:
+        7px 11px;
+
+      border-radius: 999px;
+
+      background: #eef2f6;
+
+      color: #425466;
+
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+
+    .pill.red {
+      background: #fcebed;
+      color: var(--etec-red);
+    }
+
+
+    .case-box {
+      background:
+        linear-gradient(
+          180deg,
+          #f9fbfc,
+          #f4f7f9
+        );
+
+      border:
+        1px solid var(--border);
+
+      border-left:
+        5px solid var(--etec-red);
+
+      border-radius: 14px;
+
+      padding: 22px;
+
+      margin-bottom: 24px;
+    }
+
+
+    .case-box h4 {
+      color: var(--blue);
+
+      margin:
+        0 0 12px;
+
+      font-size: 21px;
+    }
+
+
+    .case-box p {
+      margin: 0;
+
+      line-height: 1.7;
+
+      white-space: pre-line;
+    }
+
+
+    .warning-box {
+      padding: 14px 16px;
+
+      background: var(--warning-bg);
+
+      border:
+        1px solid #f1dca2;
+
+      color: #765000;
+
+      border-radius: 12px;
+
+      margin-bottom: 20px;
+
+      line-height: 1.5;
+
+      font-size: 13px;
+    }
+
+
+    /* =========================
+       QUESTÕES
+    ========================== */
+
+    .question {
+      padding:
+        20px 0;
+
+      border-bottom:
+        1px solid #edf0f2;
+    }
+
+
+    .question:last-child {
+      border-bottom: 0;
+    }
+
+
+    .question-number {
+      color: var(--etec-red);
+
+      font-size: 13px;
+      font-weight: 900;
+
+      margin-bottom: 6px;
+
+      text-transform: uppercase;
+    }
+
+
+    .question p {
+      margin:
+        0 0 12px;
+
+      color: #334155;
+
+      font-weight: 700;
+
+      line-height: 1.55;
+    }
+
+
+    textarea {
+      min-height: 130px;
+
+      resize: vertical;
+
+      line-height: 1.55;
+    }
+
+
+    /* =========================
+       SUCESSO
+    ========================== */
+
+    .success-panel {
+      text-align: center;
+
+      padding:
+        42px 24px;
+    }
+
+
+    .success-icon {
+      width: 72px;
+      height: 72px;
+
+      margin:
+        0 auto 18px;
+
+      border-radius: 50%;
+
+      background: var(--success-bg);
+
+      display: grid;
+      place-items: center;
+
+      color: var(--success);
+
+      font-size: 34px;
+    }
+
+
+    .success-panel h3 {
+      margin:
+        0 0 8px;
+
+      color: var(--blue);
+
+      font-size: 24px;
+    }
+
+
+    .success-panel p {
+      max-width: 640px;
+
+      margin:
+        0 auto 12px;
+
+      color: var(--muted);
+
+      line-height: 1.6;
+    }
+
+
+    .protocol {
+      display: inline-block;
+
+      margin-top: 10px;
+
+      padding:
+        10px 16px;
+
+      background: #f2f5f7;
+
+      border-radius: 10px;
+
+      font-family: monospace;
+
+      font-weight: bold;
+
+      color: var(--blue);
+    }
+
+
+    /* =========================
+       LOADING
+    ========================== */
+
+    .loading {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 8px;
+    }
+
+
+    .spinner {
+      width: 15px;
+      height: 15px;
+
+      border:
+        2px solid rgba(255,255,255,.4);
+
+      border-top-color: white;
+
+      border-radius: 50%;
+
+      animation:
+        spin .7s linear infinite;
+    }
+
+
+    @keyframes spin {
+      to {
+        transform:
+          rotate(360deg);
+      }
+    }
+
+
+    footer {
+      text-align: center;
+
+      color: #7b8794;
+
+      font-size: 12px;
+
+      padding:
+        20px;
+    }
+
+
+    /* =========================
+       RESPONSIVO
+    ========================== */
+
+    @media(max-width: 760px) {
+
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+
+      .grid-2,
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .hero {
+        padding: 22px;
+      }
+
+
+      .hero h2 {
+        font-size: 25px;
+      }
+
+
+      .card-body,
+      .card-head {
+        padding:
+          20px;
+      }
+
+
+      .actions {
+        flex-direction: column;
+      }
+
+
+      .btn {
+        width: 100%;
+      }
+
+    }
+
+  </style>
 </head>
+
+
 <body>
-<header class="topbar"><div class="container topbar-inner"><div class="brand"><div class="logo">ETEC</div><div><strong>3º TANE — Extensão Ibiúna</strong><span>Comércio Internacional</span></div></div><a class="back" href="../../index.html">← Voltar para CI</a></div></header>
-<section class="hero"><div class="container hero-inner"><span class="eyebrow">ATD3</span><h1>Simulado de Prova</h1><p>Estudo de caso integrado envolvendo Comércio Internacional, negociação e Incoterms® 2020.</p><div class="prof">Prof. Junior P. Colombo</div></div></section>
-<main><div class="container">
-<div id="statusBanner" class="status-banner waiting">Verificando o período da atividade...</div>
-<section class="card"><h2>Período oficial</h2><p>A atividade deverá ser realizada durante o horário definido para a aula.</p><div class="window"><div><strong>08/09/2026</strong><span>Data</span></div><div><strong>19h00</strong><span>Abertura</span></div><div><strong>20h30</strong><span>Encerramento</span></div></div></section>
-<section id="identificacao" class="card hidden"><h2>1. Identificação</h2><p>Marque um ou dois nomes abaixo. A atividade poderá ser realizada individualmente ou em dupla.</p><div id="gridAlunos" class="check-grid"></div><div id="selectionNote" class="selection-note">Nenhum aluno selecionado.</div><div class="form-grid"><div class="field"><label for="email1">E-mail do Aluno 1</label><input id="email1" type="email" placeholder="aluno1@email.com"></div><div class="field"><label for="email2">E-mail do Aluno 2 <span style="font-weight:400;color:#667085">(se houver)</span></label><input id="email2" type="email" placeholder="aluno2@email.com" disabled></div></div><div class="declaration"><input id="declaracao" type="checkbox"><label for="declaracao">Confirmo que os nomes e e-mails informados estão corretos. A correção será enviada aos endereços cadastrados.</label></div><button id="btnAbrir" class="btn" type="button">ABRIR ATIVIDADE</button><div id="msgIdent" class="result hidden"></div></section>
-<section id="atividade" class="card hidden"><div id="timerBox" class="timerbox"><strong>Tempo restante</strong><span id="timer">--:--:--</span></div><div class="case-head"><div><h2 id="caseTitle">Estudo de caso</h2><div id="studentBar" class="student-bar"></div></div><span id="caseTag" class="case-tag">CASO</span></div><div id="caseText" class="case-text"></div><div id="questions"></div><div class="declaration"><input id="confirmEnvio" type="checkbox"><label for="confirmEnvio">Confirmo que as respostas representam o trabalho realizado pelo(s) aluno(s) selecionado(s).</label></div><button id="btnEnviar" class="btn" type="button">ENVIAR RESPOSTAS</button><div id="msgEnvio" class="result hidden"></div></section>
-<section id="confirmacao" class="card hidden"><h2>Atividade recebida</h2><div id="receipt" class="result success"></div></section>
-</div></main>
-<footer><div class="container footer"><span>ATD3 — Comércio Internacional</span><span>Etec de Mairinque — Extensão Ibiúna</span></div></footer>
-<script>
-const API_URL='https://script.google.com/macros/s/AKfycbwOqaQa3Q-GFNh8hHdymSbcxuDmKbm5bLhF68ak6SxvwJ8yz4mm1b_cK3vPKobZB10wOA/exec';
-const INICIO=new Date('2026-09-08T19:00:00-03:00'),FIM=new Date('2026-09-08T20:30:00-03:00');
-const ALUNOS=['BRUNA GALVÃO PRETO','FELIPE DA SILVA FREITAS','IZABELLA NUNES DE OLIVEIRA FERREIRA','JEREMIAS SILVA SANTANA','KAILANE SANTOS PEREIRA','LIVIA PONCIANO RODRIGUES DE OLIVEIRA','LORENA RODRIGUES DA ROCHA','LUANA APARECIDA DA SILVA RODRIGUES','LUCIANO DA SILVA ARRUDA','MARIANA MARY RODRIGUES','NANCI PONCIANO DE OLIVEIRA','REBECCA SILVA DE SOUSA','VICTOR HENRIQUE DE OLIVEIRA SANTOS'];
-let selecionados=[],atividadeId='',casoAtual=null;
-function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));}
-function renderNames(){const g=document.getElementById('gridAlunos');ALUNOS.forEach(nome=>{const l=document.createElement('label');l.className='check-item';l.innerHTML=`<input type="checkbox" value="${esc(nome)}"><span>${esc(nome)}</span>`;const cb=l.querySelector('input');cb.addEventListener('change',()=>toggleAluno(cb,l));g.appendChild(l);});}
-function toggleAluno(cb,label){if(cb.checked){if(selecionados.length>=2){cb.checked=false;alert('A atividade permite no máximo dois alunos.');return;}selecionados.push(cb.value);label.classList.add('selected');}else{selecionados=selecionados.filter(n=>n!==cb.value);label.classList.remove('selected');}syncSelection();}
-function syncSelection(){const note=document.getElementById('selectionNote'),e2=document.getElementById('email2');if(!selecionados.length)note.textContent='Nenhum aluno selecionado.';else if(selecionados.length===1)note.innerHTML=`<strong>Individual:</strong> ${esc(selecionados[0])}`;else note.innerHTML=`<strong>Dupla:</strong> ${esc(selecionados[0])} + ${esc(selecionados[1])}`;e2.disabled=selecionados.length<2;if(e2.disabled)e2.value='';}
-function statusLocal(){const n=new Date();if(n<INICIO)return'waiting';if(n>=FIM)return'closed';return'open';}
-function updateGate(){const s=statusLocal(),b=document.getElementById('statusBanner'),ident=document.getElementById('identificacao');b.className='status-banner '+s;if(s==='waiting'){b.innerHTML='⏳ A ATD3 será liberada hoje às <strong>19h00</strong>.';ident.classList.add('hidden')}else if(s==='open'){b.innerHTML='✅ ATD3 ABERTA — envio permitido até <strong>20h30</strong>.';if(!casoAtual)ident.classList.remove('hidden')}else{b.innerHTML='🔒 PRAZO ENCERRADO — a ATD3 foi encerrada em <strong>08/09/2026 às 20h30</strong>.';ident.classList.add('hidden');if(casoAtual)bloquearAtividade()}}
-async function api(payload){const body=new URLSearchParams();Object.entries(payload).forEach(([k,v])=>body.append(k,typeof v==='object'?JSON.stringify(v):v));const r=await fetch(API_URL,{method:'POST',body});const t=await r.text();try{return JSON.parse(t)}catch(e){throw new Error('Resposta inválida do servidor.')}}
-function show(el,msg,type='error'){el.textContent=msg;el.className='result '+type}function validEmail(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)}
-document.getElementById('btnAbrir').addEventListener('click',async()=>{if(statusLocal()!=='open')return updateGate();const e1=document.getElementById('email1').value.trim(),e2=document.getElementById('email2').value.trim(),msg=document.getElementById('msgIdent');if(selecionados.length<1)return show(msg,'Selecione pelo menos um aluno.');if(selecionados.length>2)return show(msg,'Selecione no máximo dois alunos.');if(!validEmail(e1))return show(msg,'Informe um e-mail válido para o Aluno 1.');if(selecionados.length===2&&!validEmail(e2))return show(msg,'Informe um e-mail válido para o Aluno 2.');if(!document.getElementById('declaracao').checked)return show(msg,'Confirme os dados antes de abrir a atividade.');const aluno1=selecionados[0],aluno2=selecionados[1]||'',btn=document.getElementById('btnAbrir');btn.disabled=true;btn.textContent='ABRINDO...';try{const res=await api({acao:'abrirAtividade',aluno1,email1:e1,aluno2,email2:aluno2?e2:'',modalidade:aluno2?'DUPLA':'INDIVIDUAL'});if(!res||res.ok===false||res.success===false)throw new Error(res?.mensagem||res?.message||'Não foi possível abrir a atividade.');atividadeId=res.id||res.protocolo||res.atividadeId||'';casoAtual=res.caso||res.estudoCaso||res;renderCase(casoAtual);document.getElementById('identificacao').classList.add('hidden');document.getElementById('atividade').classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'})}catch(e){show(msg,e.message||'Erro ao abrir atividade.');btn.disabled=false;btn.textContent='ABRIR ATIVIDADE'}});
-function renderCase(c){const title=c.titulo||c.title||`Estudo de Caso ${c.numero||c.codigo||''}`,text=c.texto||c.enunciado||c.descricao||'',qs=c.questoes||c.perguntas||[];document.getElementById('caseTitle').textContent=title;document.getElementById('caseText').textContent=text;document.getElementById('caseTag').textContent=c.codigo||c.numero||'CASO';document.getElementById('studentBar').innerHTML=selecionados.map(n=>`<span class="chip">${esc(n)}</span>`).join('');const box=document.getElementById('questions');box.innerHTML='';(Array.isArray(qs)?qs:[]).forEach((q,i)=>{const d=document.createElement('div');d.className='question';d.innerHTML=`<strong>${i+1}. ${esc(typeof q==='string'?q:(q.texto||q.pergunta||q.enunciado||''))}</strong><textarea data-index="${i}" placeholder="Digite sua resposta..."></textarea>`;box.appendChild(d)});if(!qs.length){for(let i=0;i<8;i++){const d=document.createElement('div');d.className='question';d.innerHTML=`<strong>Questão ${i+1}</strong><textarea data-index="${i}" placeholder="Digite sua resposta..."></textarea>`;box.appendChild(d)}}startTimer()}
-function startTimer(){tick();window._timer=setInterval(tick,1000)}function tick(){const ms=FIM-new Date(),el=document.getElementById('timer'),box=document.getElementById('timerBox');if(ms<=0){el.textContent='00:00:00';clearInterval(window._timer);bloquearAtividade();return}const t=Math.floor(ms/1000),h=String(Math.floor(t/3600)).padStart(2,'0'),m=String(Math.floor((t%3600)/60)).padStart(2,'0'),s=String(t%60).padStart(2,'0');el.textContent=`${h}:${m}:${s}`;if(ms<=600000)box.classList.add('alert')}
-function bloquearAtividade(){document.querySelectorAll('#atividade textarea,#atividade input,#btnEnviar').forEach(el=>el.disabled=true);show(document.getElementById('msgEnvio'),'Prazo encerrado. O envio não está mais disponível.')}
-document.getElementById('btnEnviar').addEventListener('click',async()=>{if(statusLocal()!=='open')return bloquearAtividade();if(!document.getElementById('confirmEnvio').checked)return show(document.getElementById('msgEnvio'),'Confirme a declaração antes do envio.');const respostas=[...document.querySelectorAll('#questions textarea')].map((el,i)=>({numero:i+1,resposta:el.value.trim()}));if(respostas.some(r=>!r.resposta))return show(document.getElementById('msgEnvio'),'Responda todas as questões antes de enviar.');const aluno1=selecionados[0],aluno2=selecionados[1]||'',btn=document.getElementById('btnEnviar');btn.disabled=true;btn.textContent='ENVIANDO...';try{const res=await api({acao:'enviarAtividade',id:atividadeId,aluno1,email1:document.getElementById('email1').value.trim(),aluno2,email2:aluno2?document.getElementById('email2').value.trim():'',caso:casoAtual?.codigo||casoAtual?.numero||'',respostas});if(!res||res.ok===false||res.success===false)throw new Error(res?.mensagem||res?.message||'Não foi possível enviar.');clearInterval(window._timer);document.getElementById('atividade').classList.add('hidden');document.getElementById('confirmacao').classList.remove('hidden');document.getElementById('receipt').innerHTML=`<strong>Entrega registrada com sucesso.</strong><br>Protocolo: ${esc(res.protocolo||res.id||atividadeId||'registrado')}<br>Horário: ${esc(res.horario||new Date().toLocaleString('pt-BR'))}<br>A correção será revisada pelo professor e enviada ao(s) e-mail(s) cadastrado(s).`;window.scrollTo({top:0,behavior:'smooth'})}catch(e){show(document.getElementById('msgEnvio'),e.message||'Erro ao enviar.');btn.disabled=false;btn.textContent='ENVIAR RESPOSTAS'}});
-renderNames();updateGate();setInterval(updateGate,15000);
-</script>
-</body></html>
+
+  <!-- =========================
+       TOPO
+  ========================== -->
+
+  <header class="topbar">
+
+    <div class="topbar-inner">
+
+      <div class="brand">
+
+        <div class="brand-mark">
+          CI
+        </div>
+
+        <div>
+
+          <h1>
+            Comércio Internacional
+          </h1>
+
+          <p>
+            3º TANE — Extensão Ibiúna
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="status-server">
+
+        <span
+          class="status-dot"
+          id="statusDot"
+        ></span>
+
+        <span id="statusText">
+          Conectando...
+        </span>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <main class="page">
+
+
+    <!-- =========================
+         APRESENTAÇÃO
+    ========================== -->
+
+    <section class="hero">
+
+      <div class="eyebrow">
+        Atividade avaliativa
+      </div>
+
+      <h2>
+        ATD3 — Simulado Prova
+      </h2>
+
+      <p>
+        Leia atentamente o estudo de caso sorteado e responda
+        às questões de forma fundamentada. A atividade poderá
+        ser realizada individualmente ou em dupla.
+      </p>
+
+
+      <div class="info-grid">
+
+        <div class="info-box">
+
+          <small>
+            Professor
+          </small>
+
+          <strong>
+            Prof. Dr. Junior P. Colombo
+          </strong>
+
+        </div>
+
+
+        <div class="info-box">
+
+          <small>
+            Data
+          </small>
+
+          <strong>
+            08/09/2026
+          </strong>
+
+        </div>
+
+
+        <div class="info-box">
+
+          <small>
+            Horário oficial
+          </small>
+
+          <strong>
+            19h00 às 20h30
+          </strong>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         IDENTIFICAÇÃO
+    ========================== -->
+
+    <section
+      class="card"
+      id="identificacaoCard"
+    >
+
+      <div class="card-head">
+
+        <h3>
+          1. Identificação
+        </h3>
+
+        <p>
+          Selecione os participantes e informe os e-mails para
+          recebimento posterior da devolutiva.
+        </p>
+
+      </div>
+
+
+      <div class="card-body">
+
+        <div
+          id="identificacaoMensagem"
+          class="hidden"
+        ></div>
+
+
+        <div class="grid-2">
+
+          <div>
+
+            <div class="field">
+
+              <label for="aluno1">
+                Aluno 1
+                <span class="required">*</span>
+              </label>
+
+              <select id="aluno1">
+
+                <option value="">
+                  Carregando alunos...
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="email1">
+                E-mail do Aluno 1
+                <span class="required">*</span>
+              </label>
+
+              <input
+                id="email1"
+                type="email"
+                autocomplete="email"
+                placeholder="exemplo@email.com"
+              >
+
+            </div>
+
+          </div>
+
+
+          <div>
+
+            <div class="field">
+
+              <label for="aluno2">
+                Aluno 2
+                <span class="required">*</span>
+              </label>
+
+              <select id="aluno2">
+
+                <option value="">
+                  Carregando alunos...
+                </option>
+
+              </select>
+
+              <div class="hint">
+                Para realizar sozinho, selecione
+                “SEM DUPLA – REALIZAÇÃO INDIVIDUAL”.
+              </div>
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="email2">
+                E-mail do Aluno 2
+              </label>
+
+              <input
+                id="email2"
+                type="email"
+                autocomplete="email"
+                placeholder="exemplo@email.com"
+              >
+
+              <div class="hint">
+                Não será necessário na realização individual.
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="actions">
+
+          <button
+            class="btn btn-primary"
+            id="btnAbrir"
+            type="button"
+          >
+            Abrir atividade
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ATIVIDADE
+    ========================== -->
+
+    <section
+      class="card hidden"
+      id="atividadeCard"
+    >
+
+      <div class="card-head">
+
+        <h3>
+          2. Estudo de caso
+        </h3>
+
+        <p>
+          O caso foi sorteado e vinculado aos participantes.
+          Após a abertura, ele não poderá ser trocado.
+        </p>
+
+      </div>
+
+
+      <div class="card-body">
+
+        <div class="attempt-info">
+
+          <span
+            class="pill red"
+            id="pillCaso"
+          ></span>
+
+          <span
+            class="pill"
+            id="pillParticipantes"
+          ></span>
+
+          <span
+            class="pill"
+            id="pillProtocolo"
+          ></span>
+
+        </div>
+
+
+        <div class="warning-box">
+          ⚠️ Responda com suas próprias palavras.
+          Analise o caso e justifique tecnicamente suas decisões.
+          O gabarito não é exibido durante a realização.
+        </div>
+
+
+        <div class="case-box">
+
+          <h4 id="casoTitulo">
+            Estudo de caso
+          </h4>
+
+          <p id="casoTexto"></p>
+
+        </div>
+
+
+
+        <div id="questoesContainer"></div>
+
+
+        <div
+          id="envioMensagem"
+          class="hidden"
+        ></div>
+
+
+        <div class="actions">
+
+          <button
+            class="btn btn-primary"
+            id="btnEnviar"
+            type="button"
+          >
+            Enviar respostas
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CONFIRMAÇÃO
+    ========================== -->
+
+    <section
+      class="card hidden"
+      id="sucessoCard"
+    >
+
+      <div class="success-panel">
+
+        <div class="success-icon">
+          ✓
+        </div>
+
+        <h3>
+          Atividade enviada
+        </h3>
+
+        <p>
+          Suas respostas foram registradas com sucesso.
+          A correção será realizada posteriormente e somente
+          será enviada após revisão e aprovação do professor.
+        </p>
+
+        <div
+          class="protocol"
+          id="protocoloFinal"
+        ></div>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <footer>
+    Etec de Mairinque — Extensão Ibiúna •
+    Comércio Internacional • Prof. Junior P. Colombo
+  </footer>
+
+
+
+  <script>
+
+    /* =========================================================
+       CONFIGURAÇÃO DA API
+    ========================================================== */
+
+    const WEBAPP_URL =
+      'https://script.google.com/macros/s/AKfycbwOqaQa3Q-GFNh8hHdymSbcxuDmKbm5bLhF68ak6SxvwJ8yz4mm1b_cK3vPKobZB10wOA/exec';
+
+
+
+    /* =========================================================
+       QUESTÕES
+    ========================================================== */
+
+    const QUESTOES = [
+
+      'Identifique exportador, importador e pelo menos três agentes que podem participar da operação.',
+
+      'Aponte os principais riscos da operação e explique como poderiam ser administrados.',
+
+      'Identifique os interesses mais relevantes de comprador e vendedor.',
+
+      'Indique o Incoterm® 2020 mais adequado e justifique.',
+
+      'Informe onde ocorre a transferência do risco.',
+
+      'Informe quem contrata/paga o transporte principal.',
+
+      'Informe se o vendedor deve contratar seguro.',
+
+      'Informe quem realiza o desembaraço de exportação e de importação.',
+
+      'Escreva corretamente a cláusula Incoterm: regra + local preciso + Incoterms® 2020.',
+
+      'Resolva o problema específico do caso e apresente uma recomendação profissional.'
+
+    ];
+
+
+
+    /* =========================================================
+       TEXTOS DOS CASOS
+       SOMENTE SITUAÇÃO-PROBLEMA.
+       O GABARITO NÃO É ENVIADO AO NAVEGADOR.
+    ========================================================== */
+
+    const CASOS = {
+
+      CASO01: {
+
+        titulo:
+          'Café de Santos para Roterdã',
+
+        texto:
+          `A Montanha Verde Cafés Ltda., de Minas Gerais, vende 20 toneladas de café em grãos para uma empresa de Roterdã.
+
+O vendedor brasileiro pagará o frete marítimo e o seguro até Roterdã. A mercadoria é embarcada corretamente no Porto de Santos.
+
+Durante a travessia, uma infiltração de água danifica 30% da carga.
+
+O importador afirma que o prejuízo é do vendedor porque ele pagou frete e seguro até o destino.`
+
+      },
+
+
+      CASO02: {
+
+        titulo:
+          'Equipamentos de Ibiúna para o Chile',
+
+        texto:
+          `A Ibiúna Tech Equipamentos Ltda. vende máquinas para uma empresa chilena.
+
+A transportadora indicada pelo comprador retirará as máquinas no galpão da empresa em Ibiúna e seguirá por rodovia até Santiago.
+
+O setor comercial redigiu:
+
+“FOB Galpão da Ibiúna Tech, Ibiúna/SP — Incoterms® 2020”.
+
+Antes da assinatura, o responsável pelo comércio exterior identifica possível erro.`
+
+      },
+
+
+      CASO03: {
+
+        titulo:
+          'Painéis solares da China para o Brasil',
+
+        texto:
+          `Uma empresa brasileira pretende importar 500 painéis solares da China.
+
+O comprador deseja pagar no máximo US$ 112 por painel, receber em até 60 dias, pagar 20% de entrada e obter seguro e garantia adicional.
+
+O vendedor deseja receber ao menos US$ 105 por painel, prefere 500 unidades, pede 40% de entrada e aceita entregar em até 65 dias.
+
+O lote será conteinerizado.
+
+O vendedor se dispõe a pagar transporte e seguro até o Porto de Santos.`
+
+      },
+
+
+      CASO04: {
+
+        titulo:
+          'Soja brasileira para a China',
+
+        texto:
+          `Uma trading brasileira vende soja a granel para um comprador chinês.
+
+A carga será embarcada no Porto de Paranaguá e seguirá diretamente por navio até Xangai.
+
+O comprador quer controlar o frete marítimo, enquanto o vendedor aceita entregar a carga a bordo do navio e cumprir as formalidades de exportação.`
+
+      },
+
+
+      CASO05: {
+
+        titulo:
+          'Equipamento alemão entregue em Campinas',
+
+        texto:
+          `Uma indústria alemã vende um equipamento para uma empresa brasileira e assume o transporte até a planta do comprador em Campinas.
+
+O comprador brasileiro fará o desembaraço de importação e arcará com tributos.
+
+A mercadoria deverá chegar ao local indicado no veículo do vendedor/transportador, pronta para ser descarregada pelo comprador.`
+
+      },
+
+
+      CASO06: {
+
+        titulo:
+          'Máquina italiana com descarga incluída',
+
+        texto:
+          `Uma empresa italiana vende uma máquina industrial pesada para uma fábrica brasileira.
+
+O vendedor assume transporte até o pátio da fábrica e se compromete a descarregar a máquina no local indicado.
+
+O comprador realizará a importação.`
+
+      },
+
+
+      CASO07: {
+
+        titulo:
+          'Produto estrangeiro com entrega “tudo incluído”',
+
+        texto:
+          `Um fornecedor estrangeiro oferece vender equipamentos a uma empresa brasileira prometendo entregar na sede do comprador com transporte internacional, importação, direitos aduaneiros e tributos de importação assumidos pelo próprio vendedor.
+
+O comprador quer apenas receber a mercadoria pronta para descarga.
+
+O departamento jurídico alerta que a operação precisa ser validada quanto à viabilidade cadastral e tributária no Brasil.`
+
+      },
+
+
+      CASO08: {
+
+        titulo:
+          'Retirada na fábrica',
+
+        texto:
+          `Uma pequena indústria brasileira vende peças para um comprador estrangeiro que deseja retirar a mercadoria diretamente na fábrica e assumir praticamente toda a logística.
+
+O comprador afirma que sua transportadora fará a coleta e cuidará do transporte internacional.
+
+O exportador quer ter o mínimo possível de obrigações logísticas.`
+
+      },
+
+
+      CASO09: {
+
+        titulo:
+          'Vinho argentino para São Paulo',
+
+        texto:
+          `Uma vinícola argentina negocia 4.800 garrafas de Malbec com um distribuidor brasileiro.
+
+O vendedor prefere US$ 8,40 por garrafa e aceita no mínimo US$ 7,30.
+
+O comprador pretende pagar US$ 6,80 e aceita no máximo US$ 7,90.
+
+Ambos preferem 4.800 garrafas.
+
+O vendedor deseja 30% de entrada; o comprador prefere 20%.
+
+O vendedor aceita oferecer rótulos em português e 2% de unidades extras para degustação.
+
+O comprador pode aceitar entrada maior se obtiver condições melhores.`
+
+      },
+
+
+      CASO10: {
+
+        titulo:
+          'Componentes eletrônicos por transporte aéreo',
+
+        texto:
+          `Uma empresa brasileira compra componentes eletrônicos de alto valor de um fornecedor asiático.
+
+O vendedor aceita pagar o transporte aéreo e contratar seguro até o Aeroporto de Viracopos.
+
+A mercadoria é entregue ao primeiro transportador ainda no país de origem.
+
+O comprador brasileiro fará a importação.`
+
+      }
+
+    };
+
+
+
+    /* =========================================================
+       ESTADO
+    ========================================================== */
+
+    let dadosServidor = null;
+
+    let tentativaAtual = null;
+
+
+
+    /* =========================================================
+       ELEMENTOS
+    ========================================================== */
+
+    const aluno1 =
+      document.getElementById('aluno1');
+
+    const aluno2 =
+      document.getElementById('aluno2');
+
+    const email1 =
+      document.getElementById('email1');
+
+    const email2 =
+      document.getElementById('email2');
+
+    const btnAbrir =
+      document.getElementById('btnAbrir');
+
+    const btnEnviar =
+      document.getElementById('btnEnviar');
+
+
+
+    /* =========================================================
+       COMUNICAÇÃO COM APPS SCRIPT
+    ========================================================== */
+
+    async function apiGet() {
+
+      const response =
+        await fetch(
+          WEBAPP_URL + '?t=' + Date.now(),
+          {
+            method: 'GET',
+            cache: 'no-store'
+          }
+        );
+
+
+      if (!response.ok) {
+
+        throw new Error(
+          'Servidor respondeu HTTP ' +
+          response.status
+        );
+
+      }
+
+
+      const texto =
+        await response.text();
+
+
+      try {
+
+        return JSON.parse(texto);
+
+      } catch (erro) {
+
+        throw new Error(
+          'O servidor retornou uma resposta inválida.'
+        );
+
+      }
+
+    }
+
+
+
+    async function apiPost(payload) {
+
+      /*
+       * IMPORTANTE:
+       *
+       * text/plain evita o preflight OPTIONS
+       * causado por application/json.
+       *
+       * NÃO usar mode: no-cors.
+       */
+
+      const response =
+        await fetch(
+          WEBAPP_URL,
+          {
+            method: 'POST',
+
+            headers: {
+              'Content-Type':
+                'text/plain;charset=utf-8'
+            },
+
+            body:
+              JSON.stringify(payload)
+          }
+        );
+
+
+      if (!response.ok) {
+
+        throw new Error(
+          'Servidor respondeu HTTP ' +
+          response.status
+        );
+
+      }
+
+
+      const texto =
+        await response.text();
+
+
+      let dados;
+
+
+      try {
+
+        dados =
+          JSON.parse(texto);
+
+      } catch (erro) {
+
+        throw new Error(
+          'Resposta inválida do servidor.'
+        );
+
+      }
+
+
+      if (!dados.ok) {
+
+        throw new Error(
+          dados.erro ||
+          dados.mensagem ||
+          'Não foi possível concluir a operação.'
+        );
+
+      }
+
+
+      return dados;
+
+    }
+
+
+
+    /* =========================================================
+       INICIALIZAÇÃO
+    ========================================================== */
+
+    async function iniciar() {
+
+      try {
+
+        setServerStatus(
+          false,
+          'Conectando...'
+        );
+
+
+        dadosServidor =
+          await apiGet();
+
+
+        if (!dadosServidor.ok) {
+
+          throw new Error(
+            dadosServidor.erro ||
+            'Servidor indisponível.'
+          );
+
+        }
+
+
+        preencherAlunos(
+          dadosServidor.alunos || []
+        );
+
+
+        setServerStatus(
+          true,
+          'Sistema online'
+        );
+
+
+      } catch (erro) {
+
+        console.error(erro);
+
+
+        setServerStatus(
+          false,
+          'Servidor indisponível'
+        );
+
+
+        mostrarMensagem(
+          'identificacaoMensagem',
+          'error',
+          'Não foi possível carregar a atividade. ' +
+          erro.message
+        );
+
+
+        btnAbrir.disabled = true;
+
+      }
+
+    }
+
+
+
+    /* =========================================================
+       ALUNOS
+    ========================================================== */
+
+    function preencherAlunos(lista) {
+
+      const normal =
+        lista.filter(
+          nome =>
+            !nome
+              .toUpperCase()
+              .includes('SEM DUPLA')
+        );
+
+
+      const individual =
+        lista.find(
+          nome =>
+            nome
+              .toUpperCase()
+              .includes('SEM DUPLA')
+        ) ||
+        'SEM DUPLA – REALIZAÇÃO INDIVIDUAL';
+
+
+      aluno1.innerHTML =
+        '<option value="">Selecione seu nome</option>';
+
+
+      normal.forEach(nome => {
+
+        const option =
+          document.createElement('option');
+
+        option.value = nome;
+        option.textContent = nome;
+
+        aluno1.appendChild(option);
+
+      });
+
+
+      aluno2.innerHTML =
+        '<option value="">Selecione</option>';
+
+
+      normal.forEach(nome => {
+
+        const option =
+          document.createElement('option');
+
+        option.value = nome;
+        option.textContent = nome;
+
+        aluno2.appendChild(option);
+
+      });
+
+
+      const optionIndividual =
+        document.createElement('option');
+
+      optionIndividual.value =
+        individual;
+
+      optionIndividual.textContent =
+        individual;
+
+      aluno2.appendChild(
+        optionIndividual
+      );
+
+    }
+
+
+
+    aluno2.addEventListener(
+      'change',
+      function() {
+
+        const individual =
+          aluno2
+            .value
+            .toUpperCase()
+            .includes('SEM DUPLA');
+
+
+        email2.disabled =
+          individual;
+
+
+        if (individual) {
+
+          email2.value = '';
+
+        }
+
+      }
+    );
+
+
+
+    /* =========================================================
+       ABRIR ATIVIDADE
+    ========================================================== */
+
+    btnAbrir.addEventListener(
+      'click',
+      abrirAtividade
+    );
+
+
+
+    async function abrirAtividade() {
+
+      limparMensagem(
+        'identificacaoMensagem'
+      );
+
+
+      const a1 =
+        aluno1.value.trim();
+
+      const a2 =
+        aluno2.value.trim();
+
+      const e1 =
+        email1.value.trim();
+
+      const e2 =
+        email2.value.trim();
+
+
+      if (!a1) {
+
+        return mostrarMensagem(
+          'identificacaoMensagem',
+          'error',
+          'Selecione o Aluno 1.'
+        );
+
+      }
+
+
+      if (!a2) {
+
+        return mostrarMensagem(
+          'identificacaoMensagem',
+          'error',
+          'Selecione o Aluno 2 ou a opção de realização individual.'
+        );
+
+      }
+
+
+      if (!emailValido(e1)) {
+
+        return mostrarMensagem(
+          'identificacaoMensagem',
+          'error',
+          'Informe um e-mail válido para o Aluno 1.'
+        );
+
+      }
+
+
+      const individual =
+        a2
+          .toUpperCase()
+          .includes('SEM DUPLA');
+
+
+      if (
+        !individual &&
+        a1 === a2
+      ) {
+
+        return mostrarMensagem(
+          'identificacaoMensagem',
+          'error',
+          'O mesmo aluno não pode ser selecionado duas vezes.'
+        );
+
+      }
+
+
+      if (
+        !individual &&
+        !emailValido(e2)
+      ) {
+
+        return mostrarMensagem(
+          'identificacaoMensagem',
+          'error',
+          'Informe um e-mail válido para o Aluno 2.'
+        );
+
+      }
+
+
+      try {
+
+        setButtonLoading(
+          btnAbrir,
+          true,
+          'Abrindo...'
+        );
+
+
+        const resposta =
+          await apiPost({
+
+            acao:
+              'abrir_atividade',
+
+            aluno1:
+              a1,
+
+            email1:
+              e1,
+
+            aluno2:
+              a2,
+
+            email2:
+              individual
+                ? ''
+                : e2,
+
+            individual:
+              individual
+
+          });
+
+
+        tentativaAtual =
+          resposta;
+
+
+        exibirAtividade(
+          resposta
+        );
+
+
+      } catch (erro) {
+
+        console.error(erro);
+
+
+        mostrarMensagem(
+          'identificacaoMensagem',
+          'error',
+          erro.message
+        );
+
+
+      } finally {
+
+        setButtonLoading(
+          btnAbrir,
+          false,
+          'Abrir atividade'
+        );
+
+      }
+
+    }
+
+
+
+    /* =========================================================
+       EXIBIR CASO
+    ========================================================== */
+
+    function exibirAtividade(dados) {
+
+      const idCaso =
+        dados.casoId ||
+        dados.caso_id ||
+        dados.caso?.id;
+
+
+      const caso =
+        CASOS[idCaso];
+
+
+      if (!caso) {
+
+        throw new Error(
+          'O caso sorteado não foi localizado: ' +
+          idCaso
+        );
+
+      }
+
+
+      document
+        .getElementById(
+          'identificacaoCard'
+        )
+        .classList
+        .add('hidden');
+
+
+      document
+        .getElementById(
+          'atividadeCard'
+        )
+        .classList
+        .remove('hidden');
+
+
+      document
+        .getElementById(
+          'pillCaso'
+        )
+        .textContent =
+          idCaso;
+
+
+      const participantes =
+        [
+          dados.aluno1,
+          dados.aluno2
+        ]
+        .filter(Boolean)
+        .join(' / ');
+
+
+      document
+        .getElementById(
+          'pillParticipantes'
+        )
+        .textContent =
+          participantes;
+
+
+      document
+        .getElementById(
+          'pillProtocolo'
+        )
+        .textContent =
+          dados.id ||
+          dados.protocolo;
+
+
+      document
+        .getElementById(
+          'casoTitulo'
+        )
+        .textContent =
+          caso.titulo;
+
+
+      document
+        .getElementById(
+          'casoTexto'
+        )
+        .textContent =
+          caso.texto;
+
+
+      montarQuestoes();
+
+
+      window.scrollTo({
+        top:
+          document
+            .getElementById(
+              'atividadeCard'
+            )
+            .offsetTop - 20,
+
+        behavior:
+          'smooth'
+      });
+
+    }
+
+
+
+    /* =========================================================
+       QUESTÕES
+    ========================================================== */
+
+    function montarQuestoes() {
+
+      const container =
+        document.getElementById(
+          'questoesContainer'
+        );
+
+
+      container.innerHTML = '';
+
+
+      QUESTOES.forEach(
+        (texto, indice) => {
+
+          const numero =
+            indice + 1;
+
+
+          const div =
+            document.createElement(
+              'div'
+            );
+
+
+          div.className =
+            'question';
+
+
+          div.innerHTML =
+            `
+              <div class="question-number">
+                Questão ${numero}
+              </div>
+
+              <p>
+                ${escapeHtml(texto)}
+              </p>
+
+              <textarea
+                id="resposta${numero}"
+                placeholder="Digite sua resposta..."
+              ></textarea>
+            `;
+
+
+          container.appendChild(
+            div
+          );
+
+        }
+      );
+
+    }
+
+
+
+    /* =========================================================
+       ENVIO
+    ========================================================== */
+
+    btnEnviar.addEventListener(
+      'click',
+      enviarAtividade
+    );
+
+
+
+    async function enviarAtividade() {
+
+      limparMensagem(
+        'envioMensagem'
+      );
+
+
+      if (!tentativaAtual) {
+
+        return mostrarMensagem(
+          'envioMensagem',
+          'error',
+          'Não foi possível identificar a atividade aberta.'
+        );
+
+      }
+
+
+      const respostas = {};
+
+
+      for (
+        let i = 1;
+        i <= QUESTOES.length;
+        i++
+      ) {
+
+        const campo =
+          document.getElementById(
+            'resposta' + i
+          );
+
+
+        const valor =
+          campo.value.trim();
+
+
+        if (!valor) {
+
+          campo.focus();
+
+
+          return mostrarMensagem(
+            'envioMensagem',
+            'error',
+            'Responda a Questão ' +
+            i +
+            ' antes de enviar.'
+          );
+
+        }
+
+
+        respostas[
+          'questao' + i
+        ] = valor;
+
+      }
+
+
+      const confirmar =
+        window.confirm(
+          'Deseja realmente enviar as respostas?\n\n' +
+          'Após o envio, a atividade será finalizada.'
+        );
+
+
+      if (!confirmar) {
+        return;
+      }
+
+
+      try {
+
+        setButtonLoading(
+          btnEnviar,
+          true,
+          'Enviando...'
+        );
+
+
+        const retorno =
+          await apiPost({
+
+            acao:
+              'enviar_respostas',
+
+            id:
+              tentativaAtual.id ||
+              tentativaAtual.protocolo,
+
+            protocolo:
+              tentativaAtual.id ||
+              tentativaAtual.protocolo,
+
+            respostas:
+              respostas
+
+          });
+
+
+        document
+          .getElementById(
+            'atividadeCard'
+          )
+          .classList
+          .add('hidden');
+
+
+        document
+          .getElementById(
+            'sucessoCard'
+          )
+          .classList
+          .remove('hidden');
+
+
+        document
+          .getElementById(
+            'protocoloFinal'
+          )
+          .textContent =
+            'Protocolo: ' +
+            (
+              retorno.protocolo ||
+              retorno.id ||
+              tentativaAtual.id
+            );
+
+
+        window.scrollTo({
+          top:
+            document
+              .getElementById(
+                'sucessoCard'
+              )
+              .offsetTop - 20,
+
+          behavior:
+            'smooth'
+        });
+
+
+      } catch (erro) {
+
+        console.error(erro);
+
+
+        mostrarMensagem(
+          'envioMensagem',
+          'error',
+          erro.message
+        );
+
+
+      } finally {
+
+        setButtonLoading(
+          btnEnviar,
+          false,
+          'Enviar respostas'
+        );
+
+      }
+
+    }
+
+
+
+    /* =========================================================
+       UTILIDADES
+    ========================================================== */
+
+    function emailValido(email) {
+
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        .test(email);
+
+    }
+
+
+
+    function mostrarMensagem(
+      id,
+      tipo,
+      texto
+    ) {
+
+      const el =
+        document.getElementById(id);
+
+
+      el.className =
+        'message ' + tipo;
+
+
+      el.textContent =
+        texto;
+
+
+      el.classList
+        .remove('hidden');
+
+    }
+
+
+
+    function limparMensagem(id) {
+
+      const el =
+        document.getElementById(id);
+
+
+      el.textContent = '';
+
+      el.className =
+        'hidden';
+
+    }
+
+
+
+    function setServerStatus(
+      online,
+      texto
+    ) {
+
+      document
+        .getElementById(
+          'statusText'
+        )
+        .textContent =
+          texto;
+
+
+      const dot =
+        document.getElementById(
+          'statusDot'
+        );
+
+
+      dot.classList
+        .toggle(
+          'online',
+          online
+        );
+
+    }
+
+
+
+    function setButtonLoading(
+      button,
+      loading,
+      texto
+    ) {
+
+      button.disabled =
+        loading;
+
+
+      if (loading) {
+
+        button.innerHTML =
+          `
+            <span class="loading">
+              <span class="spinner"></span>
+              ${texto}
+            </span>
+          `;
+
+      } else {
+
+        button.textContent =
+          texto;
+
+      }
+
+    }
+
+
+
+    function escapeHtml(texto) {
+
+      const div =
+        document.createElement(
+          'div'
+        );
+
+
+      div.textContent =
+        texto;
+
+
+      return div.innerHTML;
+
+    }
+
+
+
+    /* =========================================================
+       INICIAR
+    ========================================================== */
+
+    iniciar();
+
+  </script>
+
+</body>
+</html>
