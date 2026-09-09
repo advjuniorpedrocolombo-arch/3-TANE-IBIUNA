@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PTCC — Planejamento do Trabalho de Conclusão de Curso — Técnico em Marketing">
+  <title>PTCC — Técnico em Marketing</title>
+  <style>
+    :root{
+      --etec-red:#b5121b;
+      --etec-red-dark:#8e0d14;
+      --etec-red-soft:#f9e9eb;
+      --green:#356b50;
+      --green-soft:#edf6f1;
+      --blue:#365d8d;
+      --blue-soft:#edf3fb;
+      --amber:#9a6b10;
+      --amber-soft:#fff7e6;
+      --text:#263238;
+      --muted:#667085;
+      --line:#e7e9ee;
+      --bg:#f5f6f8;
+      --white:#fff;
+      --shadow:0 12px 30px rgba(28,35,45,.08);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .container{width:min(1120px,calc(100% - 32px));margin:0 auto}
+
+    .topbar{background:#fff;border-bottom:1px solid var(--line)}
+    .topbar-inner{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand-logo{width:48px;height:38px;border-radius:10px;background:var(--etec-red);color:#fff;display:grid;place-items:center;font-weight:900;font-size:.8rem}
+    .brand-text strong{display:block;font-size:.92rem}
+    .brand-text span{display:block;color:var(--muted);font-size:.78rem}
+    .top-actions{display:flex;gap:10px;align-items:center}
+    .top-link{color:var(--green);font-weight:800;font-size:.88rem}
+    .top-link:hover{text-decoration:underline}
+
+    .hero{background:#fff;border-bottom:1px solid var(--line)}
+    .hero-inner{padding:42px 0;display:flex;justify-content:space-between;gap:28px;align-items:center}
+    .eyebrow{color:var(--green);font-size:.76rem;font-weight:900;text-transform:uppercase;letter-spacing:.1em}
+    .hero h1{margin:7px 0;font-size:clamp(2rem,5vw,3.4rem);line-height:1.05}
+    .hero p{margin:0;max-width:760px;color:var(--muted)}
+    .hero-icon{width:86px;height:86px;flex:0 0 auto;border-radius:22px;background:var(--green-soft);display:grid;place-items:center;font-size:2.25rem}
+
+    .quicknav{padding:20px 0 0}
+    .quicknav-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .quick-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:17px 18px;box-shadow:var(--shadow);display:flex;align-items:center;gap:12px;transition:.18s}
+    .quick-card:hover{transform:translateY(-2px)}
+    .quick-icon{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:var(--green-soft);font-size:1.1rem}
+    .quick-card strong{display:block}
+    .quick-card span{display:block;color:var(--muted);font-size:.8rem}
+
+    .content{padding:28px 0 54px}
+    .panel{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:24px;margin-top:20px}
+    .panel-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:20px}
+    .panel h2{margin:0 0 5px;font-size:1.45rem}
+    .panel-subtitle{margin:0;color:var(--muted);font-size:.9rem}
+    .counter{min-width:38px;height:30px;display:grid;place-items:center;padding:0 10px;border-radius:999px;background:var(--green-soft);color:var(--green);font-size:.8rem;font-weight:900}
+
+    .status-grid{display:grid;grid-template-columns:1.3fr .7fr .7fr .7fr;gap:14px}
+    .status-card{border:1px solid var(--line);border-radius:16px;padding:18px;background:#fff}
+    .status-card.featured{background:linear-gradient(135deg,#fbfefc,#f3f9f5);border-color:#cfe2d7}
+    .status-label{display:block;color:var(--muted);font-size:.75rem;text-transform:uppercase;font-weight:900;letter-spacing:.06em}
+    .status-value{display:block;margin-top:7px;font-weight:900;font-size:1.05rem}
+    .status-note{display:block;margin-top:5px;color:var(--muted);font-size:.8rem}
+    .progress-wrap{margin-top:14px}
+    .progress-line{height:12px;background:#e9ecef;border-radius:999px;overflow:hidden}
+    .progress-bar{height:100%;width:0;background:var(--green);transition:.3s}
+    .progress-meta{display:flex;justify-content:space-between;gap:12px;margin-top:7px;color:var(--muted);font-size:.78rem}
+
+    .notice{border-left:4px solid var(--etec-red);background:#fff9f9;border-radius:12px;padding:16px 17px}
+    .notice+.notice{margin-top:14px}
+    .notice strong{display:block;color:var(--etec-red-dark);margin-bottom:4px}
+    .notice p{margin:0;color:#646b77;font-size:.9rem}
+    .notice.info{border-left-color:var(--blue);background:#f8fbff}
+    .notice.info strong{color:var(--blue)}
+
+    .steps{display:grid;gap:12px}
+    .step{border:1px solid var(--line);border-radius:16px;padding:17px;display:grid;grid-template-columns:48px 1fr auto;gap:14px;align-items:center;background:#fff}
+    .step-number{width:48px;height:48px;border-radius:13px;background:var(--green-soft);display:grid;place-items:center;font-weight:900;color:var(--green)}
+    .step h3{margin:0 0 3px;font-size:1rem}
+    .step p{margin:0;color:var(--muted);font-size:.84rem}
+    .step-meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
+    .tag{display:inline-flex;align-items:center;min-height:24px;padding:3px 8px;border-radius:999px;background:#f1f2f4;color:#5d6470;font-size:.72rem;font-weight:800}
+    .tag.green{background:var(--green-soft);color:var(--green)}
+    .tag.blue{background:var(--blue-soft);color:var(--blue)}
+    .tag.amber{background:var(--amber-soft);color:var(--amber)}
+    .step-btn{min-height:38px;padding:0 13px;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;background:var(--green);color:#fff;font-size:.82rem;font-weight:800;white-space:nowrap;border:0}
+    .step-btn.disabled{background:#e7e9ee;color:#89909c;pointer-events:none}
+
+    .workflow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-items:stretch}
+    .flow-item{border:1px solid var(--line);border-radius:14px;padding:15px;text-align:center;background:#fff;position:relative}
+    .flow-icon{width:42px;height:42px;margin:0 auto 9px;border-radius:12px;display:grid;place-items:center;background:var(--blue-soft);font-size:1.05rem}
+    .flow-item strong{display:block;font-size:.87rem}
+    .flow-item span{display:block;color:var(--muted);font-size:.76rem;margin-top:4px}
+
+    .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:15px}
+    table{width:100%;border-collapse:collapse;min-width:790px;background:#fff}
+    th,td{padding:13px 14px;text-align:left;border-bottom:1px solid var(--line);font-size:.84rem;vertical-align:top}
+    th{background:#fafbfc;color:#4b5563;font-size:.76rem;text-transform:uppercase;letter-spacing:.04em}
+    tr:last-child td{border-bottom:0}
+    .schedule-status{font-weight:800;color:var(--muted)}
+
+    .structure-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .structure-card{border:1px solid var(--line);border-radius:16px;padding:18px;background:#fff}
+    .structure-card h3{margin:0 0 10px;font-size:1rem}
+    .structure-card ul{margin:0;padding-left:20px;color:var(--muted);font-size:.87rem}
+    .structure-card li+li{margin-top:6px}
+
+    .actions-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .action-card{border:1px solid var(--line);border-radius:16px;padding:19px;background:#fff}
+    .action-card .action-icon{width:46px;height:46px;border-radius:13px;background:var(--green-soft);display:grid;place-items:center;font-size:1.15rem;margin-bottom:12px}
+    .action-card h3{margin:0 0 5px;font-size:1rem}
+    .action-card p{margin:0 0 14px;color:var(--muted);font-size:.84rem}
+    .action-button{width:100%;min-height:40px;border-radius:10px;border:0;background:var(--green);color:#fff;font-weight:800;font-size:.82rem}
+    .action-button.disabled{background:#e7e9ee;color:#89909c}
+
+    footer{background:#fff;border-top:1px solid var(--line)}
+    .footer-inner{min-height:72px;padding:15px 0;display:flex;justify-content:space-between;align-items:center;gap:20px;color:var(--muted);font-size:.83rem}
+
+    @media(max-width:900px){
+      .quicknav-grid{grid-template-columns:repeat(2,1fr)}
+      .status-grid{grid-template-columns:repeat(2,1fr)}
+      .workflow{grid-template-columns:repeat(2,1fr)}
+      .actions-grid{grid-template-columns:1fr}
+    }
+    @media(max-width:760px){
+      .hero-inner{align-items:flex-start}
+      .step{grid-template-columns:44px 1fr}
+      .step-btn{grid-column:2;width:max-content}
+      .structure-grid{grid-template-columns:1fr}
+    }
+    @media(max-width:560px){
+      .quicknav-grid,.status-grid,.workflow{grid-template-columns:1fr}
+      .container{width:min(100% - 20px,1120px)}
+      .topbar-inner{align-items:flex-start;flex-direction:column;padding:12px 0}
+      .hero-inner{padding:30px 0}
+      .hero-icon{width:64px;height:64px;font-size:1.7rem}
+      .panel{padding:19px 16px}
+      .footer-inner{flex-direction:column;text-align:center;gap:5px}
+    }
+  </style>
+</head>
+<body>
+<header class="topbar">
+  <div class="container topbar-inner">
+    <div class="brand">
+      <div class="brand-logo">ETEC</div>
+      <div class="brand-text">
+        <strong>Técnico em Marketing</strong>
+        <span>Plataforma PTCC — Site Oficial do Professor</span>
+      </div>
+    </div>
+    <div class="top-actions">
+      <a href="#cronograma" class="top-link">Cronograma</a>
+      <a href="#etapas" class="top-link">Etapas</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div>
+      <div class="eyebrow">PTCC</div>
+      <h1>Planejamento do Trabalho de Conclusão de Curso</h1>
+      <p>Ambiente exclusivo do Curso Técnico em Marketing para organização das equipes, acompanhamento das etapas do projeto, envio de versões em PDF, devolutivas e aprovação do trabalho ao longo do semestre.</p>
+    </div>
+    <div class="hero-icon">🎓</div>
+  </div>
+</section>
+
+<section class="quicknav">
+  <div class="container quicknav-grid">
+    <a href="#painel" class="quick-card"><div class="quick-icon">📊</div><div><strong>Painel</strong><span>Andamento do semestre</span></div></a>
+    <a href="#etapas" class="quick-card"><div class="quick-icon">🧩</div><div><strong>Etapas</strong><span>Fluxo de construção do PTCC</span></div></a>
+    <a href="#cronograma" class="quick-card"><div class="quick-icon">📅</div><div><strong>Cronograma</strong><span>Aulas, prazos e entregas</span></div></a>
+    <a href="#grupo" class="quick-card"><div class="quick-icon">👥</div><div><strong>Meu Grupo</strong><span>Envios e devolutivas</span></div></a>
+  </div>
+</section>
+
+<main class="content">
+  <div class="container">
+
+    <section class="panel" id="painel">
+      <div class="panel-head">
+        <div>
+          <h2>Painel do Semestre</h2>
+          <p class="panel-subtitle">Visão geral do desenvolvimento do projeto de TCC.</p>
+        </div>
+        <span class="counter">2026/2</span>
+      </div>
+
+      <div class="status-grid">
+        <div class="status-card featured">
+          <span class="status-label">Etapa atual</span>
+          <span class="status-value">Configuração inicial da plataforma</span>
+          <span class="status-note">Os prazos específicos serão publicados no cronograma oficial.</span>
+          <div class="progress-wrap">
+            <div class="progress-line"><div class="progress-bar" id="semesterProgress"></div></div>
+            <div class="progress-meta"><span>Progresso geral</span><strong id="semesterProgressText">0%</strong></div>
+          </div>
+        </div>
+        <div class="status-card">
+          <span class="status-label">Curso</span>
+          <span class="status-value">Técnico em Marketing</span>
+          <span class="status-note">Componente PTCC</span>
+        </div>
+        <div class="status-card">
+          <span class="status-label">Modalidade</span>
+          <span class="status-value">Projeto em grupo</span>
+          <span class="status-note">Acompanhamento contínuo</span>
+        </div>
+        <div class="status-card">
+          <span class="status-label">Entrega</span>
+          <span class="status-value">PDF por versão</span>
+          <span class="status-note">Reenvios controlados</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="avisos">
+      <div class="panel-head">
+        <div>
+          <h2>Avisos Importantes</h2>
+          <p class="panel-subtitle">Regras gerais de funcionamento da plataforma.</p>
+        </div>
+        <span class="counter">3</span>
+      </div>
+      <div class="notice"><strong>📌 O PTCC será desenvolvido por etapas</strong><p>Cada etapa terá período próprio de desenvolvimento, entrega, correção, eventual reenvio e aprovação do professor.</p></div>
+      <div class="notice info"><strong>🔁 O histórico de versões será preservado</strong><p>Os reenvios não substituirão os arquivos anteriores. Cada versão será armazenada para permitir acompanhamento da evolução acadêmica do grupo.</p></div>
+      <div class="notice"><strong>👥 A devolutiva será vinculada ao grupo</strong><p>As orientações, correções e liberações de reenvio serão associadas aos integrantes cadastrados no grupo e registradas no controle do professor.</p></div>
+    </section>
+
+    <section class="panel" id="fluxo">
+      <div class="panel-head">
+        <div>
+          <h2>Como funcionará cada entrega</h2>
+          <p class="panel-subtitle">Fluxo padrão utilizado nas etapas do PTCC.</p>
+        </div>
+        <span class="counter">5</span>
+      </div>
+      <div class="workflow">
+        <div class="flow-item"><div class="flow-icon">🛠️</div><strong>1. Desenvolver</strong><span>O grupo produz a etapa dentro do prazo.</span></div>
+        <div class="flow-item"><div class="flow-icon">📤</div><strong>2. Enviar PDF</strong><span>A versão é registrada e armazenada.</span></div>
+        <div class="flow-item"><div class="flow-icon">🔎</div><strong>3. Corrigir</strong><span>O professor analisa e registra a devolutiva.</span></div>
+        <div class="flow-item"><div class="flow-icon">🔁</div><strong>4. Reenviar</strong><span>Quando necessário, uma nova versão é liberada.</span></div>
+        <div class="flow-item"><div class="flow-icon">✅</div><strong>5. Aprovar</strong><span>A etapa é encerrada e integrada ao projeto.</span></div>
+      </div>
+    </section>
+
+    <section class="panel" id="etapas">
+      <div class="panel-head">
+        <div>
+          <h2>Etapas do PTCC</h2>
+          <p class="panel-subtitle">Sequência de desenvolvimento e acompanhamento do projeto.</p>
+        </div>
+        <span class="counter">15</span>
+      </div>
+
+      <div class="steps">
+        <div class="step"><div class="step-number">01</div><div><h3>Formação da equipe</h3><p>Definição dos integrantes, representante, vice-representante e canal oficial de comunicação.</p><div class="step-meta"><span class="tag green">Cadastro do grupo</span></div></div><span class="step-btn disabled">Em preparação</span></div>
+        <div class="step"><div class="step-number">02</div><div><h3>Termo de compromisso</h3><p>Preenchimento, envio e registro do termo de compromisso da equipe.</p><div class="step-meta"><span class="tag blue">Documento obrigatório</span></div></div><span class="step-btn disabled">Em preparação</span></div>
+        <div class="step"><div class="step-number">03</div><div><h3>Definição e delimitação do tema</h3><p>Escolha do objeto de estudo e definição clara do recorte do projeto de Marketing.</p><div class="step-meta"><span class="tag">Tema do projeto</span></div></div><span class="step-btn disabled">Aguardando cronograma</span></div>
+        <div class="step"><div class="step-number">04</div><div><h3>Problemáticas</h3><p>Construção de no mínimo quatro problemáticas objetivas, demonstráveis e relacionadas ao tema escolhido.</p><div class="step-meta"><span class="tag amber">Mínimo 4</span><span class="tag blue">Pesquisa e fontes</span></div></div><span class="step-btn disabled">Aguardando cronograma</span></div>
+        <div class="step"><div class="step-number">05</div><div><h3>Hipóteses de solução</h3><p>Formulação de possibilidades de resposta ou solução diretamente vinculadas às problemáticas identificadas.</p></div><span class="step-btn disabled">Aguardando cronograma</span></div>
+        <div class="step"><div class="step-number">06</div><div><h3>Objetivo geral</h3><p>Definição da finalidade central do projeto e do resultado acadêmico pretendido.</p></div><span class="step-btn disabled">Aguardando cronograma</span></div>
+        <div class="step"><div class="step-number">07</div><div><h3>Objetivos específicos</h3><p>Desdobramento do objetivo geral em ações específicas, claras e verificáveis.</p></div><span class="step-btn disabled">Aguardando cronograma</span></div>
+        <div class="step"><div class="step-number">08</div><div><h3>Justificativa</h3><p>Apresentação da relevância acadêmica, profissional e social do projeto escolhido.</p></div><span class="step-btn disabled">Aguardando cronograma</span></div>
+        <div class="step"><div class="step-number">09</div><div><h3>Metodologia</h3><p>Definição dos procedimentos de pesquisa, coleta, análise e desenvolvimento do estudo.</p></div><span class="step-btn disabled">Aguardando cronograma</span></div>
+        <div class="step"><div class="step-number">10</div><div><h3>Estrutura preliminar em tópicos</h3><p>Organização dos capítulos e subcapítulos que orientarão a redação do trabalho.</p><div class="step-meta"><span class="tag green">Estrutura obrigatória</span></div></div><span class="step-btn disabled">Aguardando cronograma</span></div>
+        <div class="step"><div class="step-number">11</div><div><h3>Fundamentação — Conceitos</h3><p>Desenvolvimento da base conceitual e teórica relacionada ao objeto do projeto.</p></div><span class="step-btn disabled">Aguardando cronograma</span></div>
+        <div class="step"><div class="step-number">12</div><div><h3>Desenvolvimento</h3><p>Construção analítica do projeto, articulando teoria, pesquisa e o problema estudado.</p></div><span class="step-btn disabled">Aguardando cronograma</span></div>
+        <div class="step"><div class="step-number">13</div><div><h3>Estudo de caso</h3><p>Aplicação prática do estudo em organização, mercado, produto, serviço, público ou situação definida pelo grupo.</p></div><span class="step-btn disabled">Aguardando cronograma</span></div>
+        <div class="step"><div class="step-number">14</div><div><h3>Revisão do projeto</h3><p>Consolidação das correções, coerência entre os capítulos, referências e padronização do documento.</p></div><span class="step-btn disabled">Aguardando cronograma</span></div>
+        <div class="step"><div class="step-number">15</div><div><h3>Projeto final</h3><p>Entrega da versão final aprovada do projeto desenvolvido durante o semestre.</p><div class="step-meta"><span class="tag green">Entrega definitiva</span></div></div><span class="step-btn disabled">Aguardando cronograma</span></div>
+      </div>
+    </section>
+
+    <section class="panel" id="estrutura">
+      <div class="panel-head">
+        <div>
+          <h2>Estrutura obrigatória do trabalho</h2>
+          <p class="panel-subtitle">Organização-base para elaboração do projeto acadêmico.</p>
+        </div>
+      </div>
+      <div class="structure-grid">
+        <div class="structure-card">
+          <h3>Estrutura principal</h3>
+          <ul>
+            <li><strong>1 INTRODUÇÃO</strong></li>
+            <li><strong>2 CONCEITOS</strong></li>
+            <li><strong>3 DESENVOLVIMENTO</strong></li>
+            <li><strong>4 ESTUDO DE CASO</strong></li>
+            <li><strong>5 CONCLUSÃO</strong></li>
+            <li><strong>REFERÊNCIAS BIBLIOGRÁFICAS</strong></li>
+          </ul>
+        </div>
+        <div class="structure-card">
+          <h3>Detalhamento dos capítulos</h3>
+          <ul>
+            <li>Os capítulos de desenvolvimento deverão ser organizados em subcapítulos coerentes com o tema.</li>
+            <li>Como referência estrutural, os capítulos 2, 3 e 4 deverão possuir pelo menos cinco subcapítulos.</li>
+            <li>Introdução e Conclusão serão orientadas conforme a natureza do projeto e não precisam ser subdivididas artificialmente.</li>
+            <li>Todo o conteúdo deverá manter relação direta com problema, hipóteses, objetivos e metodologia.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="cronograma">
+      <div class="panel-head">
+        <div>
+          <h2>Cronograma de Aulas e Entregas</h2>
+          <p class="panel-subtitle">As datas oficiais serão incorporadas aqui conforme o planejamento do semestre.</p>
+        </div>
+        <span class="counter">PTCC</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Aula</th><th>Data</th><th>Conteúdo / orientação</th><th>Etapa do projeto</th><th>Entrega / situação</th></tr>
+          </thead>
+          <tbody id="scheduleBody">
+            <tr><td>—</td><td>A definir</td><td>Apresentação do componente e organização das equipes</td><td>Formação da equipe</td><td class="schedule-status">Configuração inicial</td></tr>
+            <tr><td>—</td><td>A definir</td><td>Definição do tema e delimitação do objeto de estudo</td><td>Tema</td><td class="schedule-status">Aguardando publicação</td></tr>
+            <tr><td>—</td><td>A definir</td><td>Construção e comprovação das problemáticas</td><td>Problemáticas</td><td class="schedule-status">Aguardando publicação</td></tr>
+            <tr><td>—</td><td>A definir</td><td>Formulação das hipóteses e objetivos</td><td>Hipóteses / Objetivos</td><td class="schedule-status">Aguardando publicação</td></tr>
+            <tr><td>—</td><td>A definir</td><td>Justificativa, metodologia e estrutura preliminar</td><td>Projeto acadêmico</td><td class="schedule-status">Aguardando publicação</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel" id="grupo">
+      <div class="panel-head">
+        <div>
+          <h2>Área do Grupo</h2>
+          <p class="panel-subtitle">Esta seção será integrada ao Google Apps Script, Sheets e Drive.</p>
+        </div>
+      </div>
+      <div class="actions-grid">
+        <div class="action-card"><div class="action-icon">👥</div><h3>Identificar meu grupo</h3><p>Consultar integrantes cadastrados, representante, vice, tema e situação geral.</p><button class="action-button disabled" type="button">Integração em preparação</button></div>
+        <div class="action-card"><div class="action-icon">📤</div><h3>Enviar nova versão</h3><p>Fazer upload do PDF da etapa liberada. O sistema registrará automaticamente a versão.</p><button class="action-button disabled" type="button">Integração em preparação</button></div>
+        <div class="action-card"><div class="action-icon">📝</div><h3>Consultar devolutivas</h3><p>Acompanhar correções, orientações, solicitações de reenvio e aprovações do professor.</p><button class="action-button disabled" type="button">Integração em preparação</button></div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span>PTCC — Técnico em Marketing</span>
+    <span>Prof. Junior Pedro Colombo</span>
+  </div>
+</footer>
+
+<script>
+  const semesterProgress = 0;
+  document.getElementById('semesterProgress').style.width = semesterProgress + '%';
+  document.getElementById('semesterProgressText').textContent = semesterProgress + '%';
+</script>
+</body>
+</html>
