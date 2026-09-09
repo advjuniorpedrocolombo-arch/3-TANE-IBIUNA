@@ -1,0 +1,13 @@
+CI — Comércio Internacional
+Última atualização: 09/09/2026
+
+ALTERAÇÕES DESTA VERSÃO
+- 08/09/2026 deixou de ser contabilizado como Aula 07.
+- Registro: Professor em atestado médico — ATD2 Estudo de Caso: Incoterms Aplicada (Prof. Ricardo Conceição).
+- A aula de 22/09/2026 passou a ser Aula 07.
+- As aulas seguintes foram renumeradas sequencialmente.
+- Contador total ajustado de 21 para 20 aulas numeradas.
+
+PADRÃO
+- index.html = versão atualizada de referência para copiar/substituir no ci/index.html quando desejado.
+- O próprio histórico de commits do GitHub mantém as versões anteriores e permite recuperar qualquer código antigo.
