@@ -1,11 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 220" role="img" aria-labelledby="title desc">
-  <title id="title">Etec Centro Paula Souza</title>
-  <desc id="desc">Identidade visual simplificada da Etec em vetor puro.</desc>
-  <rect width="420" height="220" rx="24" fill="#ffffff"/>
-  <g transform="translate(36 34)">
-    <text x="0" y="92" font-family="Arial, Helvetica, sans-serif" font-size="92" font-weight="800" letter-spacing="-6" fill="#c9162b">etec</text>
-    <rect x="2" y="108" width="278" height="6" rx="3" fill="#c9162b"/>
-    <text x="2" y="142" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#1f2f36">Centro Paula Souza</text>
-    <text x="2" y="169" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#52636b">Etec de Mairinque • Extensão Ibiúna</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="220" viewBox="0 0 640 220" role="img" aria-label="Etec Centro Paula Souza">
+  <rect width="640" height="220" fill="white"/>
+  <g transform="translate(24 28)">
+    <g fill="#c8102e">
+      <rect x="0" y="0" width="34" height="34" rx="2"/>
+      <rect x="42" y="0" width="34" height="34" rx="2"/>
+      <rect x="0" y="42" width="34" height="34" rx="2"/>
+      <rect x="42" y="42" width="34" height="34" rx="2"/>
+      <rect x="84" y="42" width="34" height="34" rx="2"/>
+      <rect x="42" y="84" width="34" height="34" rx="2"/>
+    </g>
+    <text x="145" y="84" font-family="Arial, Helvetica, sans-serif" font-size="86" font-weight="700" letter-spacing="-5" fill="#c8102e">etec</text>
+    <text x="148" y="122" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#2b2b2b">CENTRO PAULA SOUZA</text>
+    <text x="148" y="154" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#555">Educação profissional e tecnológica</text>
   </g>
 </svg>
