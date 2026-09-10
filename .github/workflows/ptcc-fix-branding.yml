@@ -1,0 +1,52 @@
+name: PTCC - corrigir logo e identificação
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/ptcc-fix-branding.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Corrigir assets e identificação do PTCC
+        shell: bash
+        run: |
+          set -e
+          cp ptcc/logo-etec.svg ptcc-supabase/logo-etec.svg
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('ptcc-supabase/index.html')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace('../ptcc/logo-etec.svg', 'logo-etec.svg')
+          s = s.replace(
+              '<span>Prof. Junior Pedro Colombo • 2026/2</span>',
+              '<span><b>Professor responsável:</b> Prof. Junior Pedro Colombo<br><a href="https://wa.me/5515997451709" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline">WhatsApp: (15) 99745-1709</a> • 2026/2</span>'
+          )
+          p.write_text(s, encoding='utf-8')
+
+          q = Path('ptcc-supabase/professor.html')
+          if q.exists():
+              t = q.read_text(encoding='utf-8')
+              t = t.replace('../ptcc/logo-etec.svg', 'logo-etec.svg')
+              t = t.replace('Prof. Junior Pedro Colombo', 'Prof. Junior Pedro Colombo')
+              q.write_text(t, encoding='utf-8')
+          PY
+      - name: Publicar correção
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo 'Nada a alterar.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add ptcc-supabase
+          git commit -m 'Corrige logo e identificação do professor no PTCC [skip ci]'
+          git push
