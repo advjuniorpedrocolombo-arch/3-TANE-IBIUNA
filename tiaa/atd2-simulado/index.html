@@ -5,7 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>TIAA — ATD2 Simulado de Prova</title>
 <style>
-:root{--azul:#0b3558;--verde:#1f7a4c;--cinza:#f4f6f8;--texto:#1f2937;--borda:#d7dde4}*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cinza);color:var(--texto)}header{background:linear-gradient(135deg,#0b3558,#174f7c);color:#fff;padding:28px 18px}.wrap{max-width:900px;margin:auto}.tag{display:inline-block;background:#fff;color:#0b3558;padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px}h1{margin:12px 0 6px;font-size:30px}header p{margin:0;opacity:.92}.card{background:#fff;border:1px solid var(--borda);border-radius:14px;padding:22px;margin:18px 0;box-shadow:0 4px 14px rgba(0,0,0,.05)}h2{margin-top:0;color:var(--azul)}ol,ul{line-height:1.55}.alerta{background:#fff7df;border-left:5px solid #d99b00;padding:14px;border-radius:8px}.apoio{display:flex;gap:16px;align-items:center;justify-content:space-between;background:#eef5fb;border:1px solid #c9ddeb}.apoio p{margin:6px 0 0;color:#4b5563}.apoio-btn{display:inline-block;background:var(--azul);color:#fff;text-decoration:none;font-weight:700;padding:12px 16px;border-radius:9px;white-space:nowrap}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.full{grid-column:1/-1}label{font-weight:700;font-size:14px;display:block;margin-bottom:6px}input{width:100%;padding:12px;border:1px solid #bcc6d0;border-radius:9px;font-size:15px}button{width:100%;border:0;border-radius:10px;padding:14px;font-size:16px;font-weight:700;cursor:pointer;background:var(--verde);color:#fff}button:disabled{background:#9aa4ae;cursor:not-allowed}.status{margin-top:14px;padding:12px;border-radius:9px;display:none}.ok{display:block;background:#e7f7ee;color:#145b37}.erro{display:block;background:#fdeaea;color:#8b1d1d}.rodape{text-align:center;color:#6b7280;font-size:13px;padding:20px}.check{display:flex;gap:10px;align-items:flex-start;margin:14px 0}.check input{width:auto;margin-top:4px}@media(max-width:650px){.grid{grid-template-columns:1fr}.apoio{flex-direction:column;align-items:flex-start}.apoio-btn{width:100%;text-align:center}h1{font-size:24px}}
+:root{--azul:#0b3558;--verde:#1f7a4c;--cinza:#f4f6f8;--texto:#1f2937;--borda:#d7dde4;--codigo:#0f172a}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cinza);color:var(--texto);line-height:1.5}header{background:linear-gradient(135deg,#0b3558,#174f7c);color:#fff;padding:28px 18px}.wrap{max-width:900px;margin:auto;padding:0 16px}.tag{display:inline-block;background:#fff;color:#0b3558;padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px}h1{margin:12px 0 6px;font-size:30px}header p{margin:0;opacity:.92}.card{background:#fff;border:1px solid var(--borda);border-radius:14px;padding:22px;margin:18px 0;box-shadow:0 4px 14px rgba(0,0,0,.05)}h2{margin-top:0;color:var(--azul)}h3{color:var(--azul);margin:24px 0 8px}ol,ul{line-height:1.55}.alerta{background:#fff7df;border-left:5px solid #d99b00;padding:14px;border-radius:8px}.apostila{background:#eef5fb;border:1px solid #c9ddeb}.apostila-intro{display:flex;justify-content:space-between;align-items:center;gap:16px}.apoio-btn{display:inline-block;background:var(--azul);color:#fff;text-decoration:none;font-weight:700;padding:10px 14px;border-radius:9px;white-space:nowrap}.indice{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}.indice a{background:#fff;border:1px solid #c9ddeb;padding:7px 10px;border-radius:999px;text-decoration:none;color:var(--azul);font-size:13px;font-weight:700}table{width:100%;border-collapse:collapse;margin:12px 0}th,td{border:1px solid #cfd6df;padding:9px;text-align:left}th{background:#eef3f8}pre{background:var(--codigo);color:#e5e7eb;padding:16px;border-radius:10px;overflow:auto;white-space:pre-wrap;font-size:13px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.full{grid-column:1/-1}label{font-weight:700;font-size:14px;display:block;margin-bottom:6px}input{width:100%;padding:12px;border:1px solid #bcc6d0;border-radius:9px;font-size:15px}button{width:100%;border:0;border-radius:10px;padding:14px;font-size:16px;font-weight:700;cursor:pointer;background:var(--verde);color:#fff}button:disabled{background:#9aa4ae;cursor:not-allowed}.status{margin-top:14px;padding:12px;border-radius:9px;display:none}.ok{display:block;background:#e7f7ee;color:#145b37}.erro{display:block;background:#fdeaea;color:#8b1d1d}.rodape{text-align:center;color:#6b7280;font-size:13px;padding:20px}.check{display:flex;gap:10px;align-items:flex-start;margin:14px 0}.check input{width:auto;margin-top:4px}.separador{border:0;border-top:1px solid #d9e3ec;margin:22px 0}
+@media(max-width:650px){.grid{grid-template-columns:1fr}.apostila-intro{flex-direction:column;align-items:flex-start}.apoio-btn{width:100%;text-align:center}h1{font-size:24px}table{font-size:13px}}
 </style>
 </head>
 <body>
@@ -16,25 +18,102 @@
 <p>Desenvolver no Excel VBA um cadastro de funcionários usando UserForm. O arquivo deverá ser salvo e enviado como <strong>Pasta de Trabalho Habilitada para Macro do Excel (.xlsm)</strong>.</p>
 <div class="alerta"><strong>Importante:</strong> a correção será realizada manualmente pelo professor. O funcionamento do VBA será testado no arquivo enviado.</div>
 </div>
-<div class="card apoio">
-<div><h2 style="margin-bottom:0">📘 Apostila de apoio</h2><p>Use a apostila prática para acompanhar o passo a passo, os nomes dos campos e os códigos VBA necessários para a atividade.</p></div>
-<a class="apoio-btn" href="apostila.html">ABRIR APOSTILA</a>
+
+<div class="card apostila" id="apostila">
+<div class="apostila-intro"><div><h2 style="margin-bottom:4px">📘 Apostila de apoio — dentro do simulado</h2><p style="margin:0">A apostila completa está disponível nesta mesma página para consulta durante a atividade.</p></div><a class="apoio-btn" href="#envio">IR PARA O ENVIO</a></div>
+<div class="indice"><a href="#ap1">1. Planilha</a><a href="#ap2">2. UserForm</a><a href="#ap3">3. Cadastrar</a><a href="#ap4">4. Limpar</a><a href="#ap5">5. Cancelar</a><a href="#ap6">6. Abrir formulário</a><a href="#ap7">7. Testes</a></div>
+<hr class="separador">
+<h3 id="ap1">1. Criando a planilha</h3>
+<p>Crie uma nova pasta de trabalho do Excel e salve como <strong>Pasta de Trabalho Habilitada para Macro do Excel (*.xlsm)</strong>. Renomeie a planilha para <strong>BANCO_FUNCIONARIOS</strong>.</p>
+<table><tr><th>MATRÍCULA</th><th>NOME</th><th>CARGO</th><th>SETOR</th></tr><tr><td>1</td><td>Exemplo</td><td>Gerente</td><td>Marketing</td></tr></table>
+<p><strong>Importante:</strong> a matrícula não será digitada no formulário. Ela será criada automaticamente pelo VBA.</p>
+
+<h3 id="ap2">2. Criando o formulário</h3>
+<p>Pressione <strong>ALT + F11</strong> para abrir o Editor do VBA. Depois clique em <strong>Inserir &gt; UserForm</strong>.</p>
+<table><tr><th>Campo</th><th>Name do TextBox</th></tr><tr><td>Nome</td><td>txtnome</td></tr><tr><td>Cargo</td><td>TxtCargo</td></tr><tr><td>Setor</td><td>TxtSetor</td></tr></table>
+<p>Crie também três botões:</p>
+<table><tr><th>Texto do botão</th><th>Name do botão</th></tr><tr><td>Cadastrar</td><td>btnCadastrar</td></tr><tr><td>Limpar</td><td>btnLimpar</td></tr><tr><td>Cancelar</td><td>btnCancelar</td></tr></table>
+<p><strong>Observação:</strong> no modelo atual, o botão com o texto “Cancelar” está com o Name <strong>btnExcluir</strong>. Vamos manter esse nome porque o código já está funcionando.</p>
+
+<h3 id="ap3">3. Código do botão CADASTRAR</h3>
+<pre>Private Sub btnCadastrar_Click()
+    Dim planilha As Worksheet
+    Dim linha As Long
+    Dim matricula As Long
+
+    If txtnome.Value = "" Or TxtCargo.Value = "" Or TxtSetor.Value = "" Then
+        MsgBox "Preencha todos os campos antes de cadastrar.", _
+               vbExclamation, _
+               "Campos obrigatórios"
+        Exit Sub
+    End If
+
+    Set planilha = Sheets("BANCO_FUNCIONARIOS")
+    linha = planilha.Cells(planilha.Rows.Count, 1).End(xlUp).Row + 1
+
+    If linha = 2 Then
+        matricula = 1
+    Else
+        matricula = planilha.Cells(linha - 1, 1).Value + 1
+    End If
+
+    planilha.Cells(linha, 1).Value = matricula
+    planilha.Cells(linha, 2).Value = txtnome.Value
+    planilha.Cells(linha, 3).Value = TxtCargo.Value
+    planilha.Cells(linha, 4).Value = TxtSetor.Value
+
+    MsgBox "Funcionário cadastrado com sucesso!" & vbCrLf & vbCrLf & _
+           "Matrícula: " & matricula, _
+           vbInformation, _
+           "Cadastro realizado"
+
+    txtnome.Value = ""
+    TxtCargo.Value = ""
+    TxtSetor.Value = ""
+    txtnome.SetFocus
+End Sub</pre>
+<p>Esse código verifica se todos os campos foram preenchidos, cria a próxima matrícula, grava Nome, Cargo e Setor na planilha e mostra uma mensagem com a matrícula gerada.</p>
+
+<h3 id="ap4">4. Código do botão LIMPAR</h3>
+<pre>Private Sub btnLimpar_Click()
+    txtnome.Value = ""
+    TxtCargo.Value = ""
+    TxtSetor.Value = ""
+    txtnome.SetFocus
+End Sub</pre>
+<p>Esse botão apaga apenas o que está digitado no formulário. Ele não apaga os dados já cadastrados na planilha.</p>
+
+<h3 id="ap5">5. Código do botão CANCELAR</h3>
+<pre>Private Sub btnExcluir_Click()
+    Unload Me
+End Sub</pre>
+<p>Esse botão fecha o formulário.</p>
+
+<h3 id="ap6">6. Criando o botão para abrir o formulário</h3>
+<p>No Editor do VBA, clique em <strong>Inserir &gt; Módulo</strong> e digite:</p>
+<pre>Sub AbrirCadastro()
+    UserForm1.Show
+End Sub</pre>
+<p>Volte para a planilha <strong>BANCO_FUNCIONARIOS</strong>. Na guia Inserir, escolha uma Forma, escreva <strong>ABRIR CADASTRO DE FUNCIONÁRIOS</strong>, clique com o botão direito sobre a forma, escolha <strong>Atribuir Macro</strong> e selecione <strong>AbrirCadastro</strong>.</p>
+
+<h3 id="ap7">7. Testando o cadastro</h3>
+<ol><li>Abra o formulário.</li><li>Digite um nome, um cargo e um setor.</li><li>Clique em Cadastrar.</li><li>Confira se a matrícula foi criada automaticamente.</li><li>Confira se os dados apareceram na planilha BANCO_FUNCIONARIOS.</li><li>Faça mais dois cadastros e observe a sequência das matrículas.</li><li>Teste também os botões Limpar e Cancelar.</li></ol>
+<p><strong>Resultado esperado:</strong> o sistema deverá cadastrar os funcionários em sequência usando as colunas MATRÍCULA, NOME, CARGO e SETOR.</p>
 </div>
+
 <div class="card">
 <h2>O que deverá funcionar</h2>
 <ol>
-<li>Crie a planilha <strong>BANCO_FUNCIONARIOS</strong> com as colunas <strong>MATRÍCULA, NOME, CARGO e SETOR</strong>.</li>
-<li>Crie um <strong>UserForm</strong> com campos para Nome, Cargo e Setor.</li>
-<li>A matrícula deverá ser <strong>gerada automaticamente</strong>, sem digitação pelo usuário.</li>
-<li>Crie os botões <strong>Cadastrar</strong>, <strong>Limpar</strong> e <strong>Cancelar</strong>.</li>
-<li>O botão Cadastrar deverá validar os campos, gerar a próxima matrícula e gravar os dados na planilha.</li>
-<li>O botão Limpar deverá apagar apenas os campos do formulário.</li>
-<li>O botão Cancelar deverá fechar o formulário.</li>
-<li>Crie na planilha um botão <strong>ABRIR CADASTRO DE FUNCIONÁRIOS</strong> para abrir o UserForm.</li>
-<li>Antes do envio, faça pelo menos <strong>três cadastros de teste</strong> e confirme a sequência das matrículas.</li>
+<li>Planilha <strong>BANCO_FUNCIONARIOS</strong> com MATRÍCULA, NOME, CARGO e SETOR.</li>
+<li>UserForm com campos Nome, Cargo e Setor.</li>
+<li>Matrícula gerada automaticamente.</li>
+<li>Botões Cadastrar, Limpar e Cancelar funcionando.</li>
+<li>Botão na planilha para abrir o cadastro.</li>
+<li>Pelo menos três cadastros de teste com sequência correta das matrículas.</li>
 </ol>
 </div>
-<div class="card">
+
+<div class="card" id="envio">
 <h2>Envio do arquivo</h2>
 <form id="formEnvio">
 <div class="grid">
