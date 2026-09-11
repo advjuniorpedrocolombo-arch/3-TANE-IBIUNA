@@ -15,17 +15,20 @@ Abra a planilha `BANCO_QUESTOES_PROVA_ADMINISTRACAO_PUBLICA` e depois:
 7. Volte à planilha e atualize a página.
 8. No menu **PROVA ADM. PÚBLICA**, execute **Verificar estrutura** e depois **Testar backend**.
 
-## Publicar como Web App
+## Publicação como Web App
 
-Depois da instalação:
+Implantação atual:
 
-1. No Apps Script, clique em **Implantar > Nova implantação**.
-2. Tipo: **App da Web**.
-3. Executar como: **você**.
-4. Quem tem acesso: conforme a política da conta; para a página do GitHub conseguir chamar o backend, o endpoint precisa estar acessível aos alunos.
-5. Implantar e copiar a URL terminada em `/exec`.
+`https://script.google.com/macros/s/AKfycbxcF6IGrDmVMWR_Ev4eBDJXXVBK2qlmJarvrV7pKYJLr4W8FJ9mcis55x9C1nM-DdLl/exec`
 
-Essa URL será colocada depois na interface GitHub.
+Configuração esperada:
+
+1. Tipo: **App da Web**.
+2. Executar como: **você**.
+3. Acesso: o endpoint precisa estar acessível aos alunos para a página GitHub conseguir chamar o backend.
+4. Em futuras alterações do Apps Script, atualizar a implantação preservando a URL quando possível.
+
+Essa URL será usada na interface GitHub da prova.
 
 ## O que o backend já faz
 
