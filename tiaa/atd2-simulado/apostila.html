@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>TIAA — Apostila ATD2</title>
+<style>
+:root{--azul:#0b3558;--fundo:#f4f6f8;--texto:#1f2937;--borda:#d7dde4;--codigo:#0f172a}*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--fundo);color:var(--texto);line-height:1.55}.wrap{max-width:900px;margin:auto;padding:0 18px}header{background:linear-gradient(135deg,#0b3558,#174f7c);color:#fff;padding:28px 0}h1{margin:8px 0 4px}.tag{display:inline-block;background:#fff;color:var(--azul);padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px}.card{background:#fff;border:1px solid var(--borda);border-radius:14px;padding:22px;margin:18px 0;box-shadow:0 4px 14px rgba(0,0,0,.05)}h2{color:var(--azul);margin-top:0}table{width:100%;border-collapse:collapse;margin:12px 0}th,td{border:1px solid #cfd6df;padding:9px;text-align:left}th{background:#eef3f8}pre{background:var(--codigo);color:#e5e7eb;padding:16px;border-radius:10px;overflow:auto;white-space:pre-wrap}.voltar{display:inline-block;margin-top:14px;background:#fff;color:var(--azul);padding:9px 12px;border-radius:9px;text-decoration:none;font-weight:700}.rodape{text-align:center;color:#6b7280;font-size:13px;padding:20px}</style>
+</head>
+<body>
+<header><div class="wrap"><span class="tag">TIAA — EXCEL VBA</span><h1>Cadastro de Funcionários com UserForm</h1><p>Apostila prática — passo a passo</p><a class="voltar" href="index.html">← Voltar para a ATD2</a></div></header>
+<main class="wrap">
+<div class="card"><h2>Objetivo</h2><p>Criar um formulário simples no Excel VBA para cadastrar funcionários, gerar a matrícula automaticamente, limpar os campos e fechar o formulário.</p></div>
+<div class="card"><h2>1. Criando a planilha</h2><p>Crie uma nova pasta de trabalho do Excel e salve como <strong>Pasta de Trabalho Habilitada para Macro do Excel (*.xlsm)</strong>.</p><p>Renomeie a planilha para <strong>BANCO_FUNCIONARIOS</strong>.</p><table><tr><th>MATRÍCULA</th><th>NOME</th><th>CARGO</th><th>SETOR</th></tr><tr><td>1</td><td>Exemplo</td><td>Gerente</td><td>Marketing</td></tr></table><p><strong>Importante:</strong> a matrícula não será digitada no formulário. Ela será criada automaticamente pelo VBA.</p></div>
+<div class="card"><h2>2. Criando o formulário</h2><p>Pressione <strong>ALT + F11</strong> para abrir o Editor do VBA. Depois clique em <strong>Inserir &gt; UserForm</strong>.</p><p>No formulário, crie três campos:</p><table><tr><th>Campo</th><th>Name do TextBox</th></tr><tr><td>Nome</td><td>txtnome</td></tr><tr><td>Cargo</td><td>TxtCargo</td></tr><tr><td>Setor</td><td>TxtSetor</td></tr></table><p>Crie também três botões:</p><table><tr><th>Texto do botão</th><th>Name do botão</th></tr><tr><td>Cadastrar</td><td>btnCadastrar</td></tr><tr><td>Limpar</td><td>btnLimpar</td></tr><tr><td>Cancelar</td><td>btnCancelar</td></tr></table><p><strong>Observação:</strong> no modelo atual, o botão com o texto “Cancelar” está com o Name <strong>btnExcluir</strong>. Vamos manter esse nome porque o código já está funcionando.</p></div>
+<div class="card"><h2>3. Código do botão CADASTRAR</h2><p>Dê dois cliques no botão Cadastrar e cole o código abaixo:</p><pre>Private Sub btnCadastrar_Click()
+    Dim planilha As Worksheet
+    Dim linha As Long
+    Dim matricula As Long
+
+    If txtnome.Value = "" Or TxtCargo.Value = "" Or TxtSetor.Value = "" Then
+        MsgBox "Preencha todos os campos antes de cadastrar.", _
+               vbExclamation, _
+               "Campos obrigatórios"
+        Exit Sub
+    End If
+
+    Set planilha = Sheets("BANCO_FUNCIONARIOS")
+    linha = planilha.Cells(planilha.Rows.Count, 1).End(xlUp).Row + 1
+
+    If linha = 2 Then
+        matricula = 1
+    Else
+        matricula = planilha.Cells(linha - 1, 1).Value + 1
+    End If
+
+    planilha.Cells(linha, 1).Value = matricula
+    planilha.Cells(linha, 2).Value = txtnome.Value
+    planilha.Cells(linha, 3).Value = TxtCargo.Value
+    planilha.Cells(linha, 4).Value = TxtSetor.Value
+
+    MsgBox "Funcionário cadastrado com sucesso!" & vbCrLf & vbCrLf & _
+           "Matrícula: " & matricula, _
+           vbInformation, _
+           "Cadastro realizado"
+
+    txtnome.Value = ""
+    TxtCargo.Value = ""
+    TxtSetor.Value = ""
+    txtnome.SetFocus
+End Sub</pre><p>Esse código verifica se todos os campos foram preenchidos, cria a próxima matrícula, grava Nome, Cargo e Setor na planilha e mostra uma mensagem com a matrícula gerada.</p></div>
+<div class="card"><h2>4. Código do botão LIMPAR</h2><pre>Private Sub btnLimpar_Click()
+    txtnome.Value = ""
+    TxtCargo.Value = ""
+    TxtSetor.Value = ""
+    txtnome.SetFocus
+End Sub</pre><p>Esse botão apaga apenas o que está digitado no formulário. Ele não apaga os dados já cadastrados na planilha.</p></div>
+<div class="card"><h2>5. Código do botão CANCELAR</h2><pre>Private Sub btnExcluir_Click()
+    Unload Me
+End Sub</pre><p>Esse botão fecha o formulário.</p></div>
+<div class="card"><h2>6. Criando o botão para abrir o formulário</h2><p>No Editor do VBA, clique em <strong>Inserir &gt; Módulo</strong> e digite:</p><pre>Sub AbrirCadastro()
+    UserForm1.Show
+End Sub</pre><p>Volte para a planilha <strong>BANCO_FUNCIONARIOS</strong>. Na guia Inserir, escolha uma Forma e escreva <strong>ABRIR CADASTRO DE FUNCIONÁRIOS</strong>. Clique com o botão direito sobre a forma, escolha <strong>Atribuir Macro</strong> e selecione <strong>AbrirCadastro</strong>.</p></div>
+<div class="card"><h2>7. Testando o cadastro</h2><ol><li>Abra o formulário.</li><li>Digite um nome, um cargo e um setor.</li><li>Clique em Cadastrar.</li><li>Confira se a matrícula foi criada automaticamente.</li><li>Confira se os dados apareceram na planilha BANCO_FUNCIONARIOS.</li><li>Faça mais dois cadastros e observe a sequência das matrículas.</li><li>Teste também os botões Limpar e Cancelar.</li></ol></div>
+<div class="card"><h2>8. Resultado esperado</h2><p>Ao final, o sistema deverá cadastrar os funcionários em sequência, usando as colunas MATRÍCULA, NOME, CARGO e SETOR.</p><table><tr><th>MATRÍCULA</th><th>NOME</th><th>CARGO</th><th>SETOR</th></tr><tr><td>1</td><td>Ana Souza</td><td>Assistente</td><td>Financeiro</td></tr><tr><td>2</td><td>Carlos Lima</td><td>Auxiliar</td><td>Compras</td></tr><tr><td>3</td><td>Marina Alves</td><td>Analista</td><td>RH</td></tr></table></div>
+<div class="card"><h2>9. Resumo</h2><p><strong>Cadastrar:</strong> valida os campos, cria a matrícula e grava os dados.<br><strong>Limpar:</strong> apaga os campos do formulário.<br><strong>Cancelar:</strong> fecha o formulário.</p></div>
+</main><div class="rodape">Prof. Dr. Júnior Pedro Colombo</div>
+</body></html>
