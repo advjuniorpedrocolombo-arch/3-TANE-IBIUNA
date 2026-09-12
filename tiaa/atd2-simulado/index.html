@@ -15,7 +15,7 @@
 <main class="wrap">
 <div class="card">
 <h2>Objetivo do simulado</h2>
-<p>Desenvolver no Excel VBA um cadastro de funcionários usando UserForm. O arquivo deverá ser salvo e enviado como <strong>Pasta de Trabalho Habilitada para Macro do Excel (.xlsm ou .xltm)</strong>.</p>
+<p>Desenvolver no Excel VBA um cadastro de funcionários usando UserForm. O arquivo deverá ser salvo e enviado em formato do Excel compatível com macros.</p>
 <div class="alerta"><strong>Importante:</strong> a correção será realizada manualmente pelo professor. O funcionamento do VBA será testado no arquivo enviado.</div>
 </div>
 
@@ -24,7 +24,7 @@
 <div class="indice"><a href="#ap1">1. Planilha</a><a href="#ap2">2. UserForm</a><a href="#ap3">3. Cadastrar</a><a href="#ap4">4. Limpar</a><a href="#ap5">5. Cancelar</a><a href="#ap6">6. Abrir formulário</a><a href="#ap7">7. Testes</a></div>
 <hr class="separador">
 <h3 id="ap1">1. Criando a planilha</h3>
-<p>Crie uma nova pasta de trabalho do Excel e salve como <strong>Pasta de Trabalho Habilitada para Macro do Excel (*.xlsm)</strong> ou <strong>Modelo Habilitado para Macro do Excel (*.xltm)</strong>. Renomeie a planilha para <strong>BANCO_FUNCIONARIOS</strong>.</p>
+<p>Crie uma nova pasta de trabalho do Excel e salve preferencialmente como <strong>Pasta de Trabalho Habilitada para Macro do Excel (*.xlsm)</strong>. Também serão aceitos <strong>.xltm, .xlsb e .xls</strong>.</p>
 <table><tr><th>MATRÍCULA</th><th>NOME</th><th>CARGO</th><th>SETOR</th></tr><tr><td>1</td><td>Exemplo</td><td>Gerente</td><td>Marketing</td></tr></table>
 <p><strong>Importante:</strong> a matrícula não será digitada no formulário. Ela será criada automaticamente pelo VBA.</p>
 
@@ -119,7 +119,7 @@ End Sub</pre>
 <div class="grid">
 <div><label for="nome">Nome completo</label><input id="nome" required autocomplete="name"></div>
 <div><label for="email">E-mail para receber a devolutiva</label><input id="email" type="email" required autocomplete="email"></div>
-<div class="full"><label for="arquivo">Arquivo Excel (.xlsm ou .xltm)</label><input id="arquivo" type="file" accept=".xlsm,.xltm,application/vnd.ms-excel.sheet.macroEnabled.12,application/vnd.ms-excel.template.macroEnabled.12" required></div>
+<div class="full"><label for="arquivo">Arquivo Excel habilitado para macro (.xlsm, .xltm, .xlsb ou .xls)</label><input id="arquivo" type="file" accept=".xlsm,.xltm,.xlsb,.xls,application/vnd.ms-excel.sheet.macroEnabled.12,application/vnd.ms-excel.template.macroEnabled.12,application/vnd.ms-excel.sheet.binary.macroEnabled.12,application/vnd.ms-excel" required></div>
 </div>
 <div class="check"><input id="confirma" type="checkbox" required><label for="confirma">Confirmo que testei o arquivo e que ele contém as macros necessárias para a atividade.</label></div>
 <button id="btnEnviar" type="submit">ENVIAR ATD2 — SIMULADO</button>
@@ -137,14 +137,25 @@ form.addEventListener('submit',async e=>{
  e.preventDefault();
  try{
   const file=document.getElementById('arquivo').files[0];
-  if(!file) throw new Error('Selecione o arquivo .xlsm ou .xltm.');
-  const nomeArquivo=file.name.toLowerCase();
-  if(!nomeArquivo.endsWith('.xlsm') && !nomeArquivo.endsWith('.xltm')) throw new Error('Envie somente arquivo .xlsm ou .xltm.');
+  if(!file) throw new Error('Selecione o arquivo do Excel habilitado para macro.');
+  const nomeArquivo=(file.name||'').trim().toLowerCase();
+  const extensao=(nomeArquivo.split('.').pop()||'').toLowerCase();
+  const permitidas=['xlsm','xltm','xlsb','xls'];
+  if(!permitidas.includes(extensao)) throw new Error('Envie um arquivo Excel habilitado para macro: .xlsm, .xltm, .xlsb ou .xls.');
   if(file.size>20*1024*1024) throw new Error('O arquivo ultrapassa 20 MB.');
   btn.disabled=true;btn.textContent='ENVIANDO...';mostrar('Aguarde. Enviando o arquivo...','ok');
-  const payload={nome:document.getElementById('nome').value.trim(),email:document.getElementById('email').value.trim(),fileName:file.name,mimeType:file.type||(nomeArquivo.endsWith('.xltm')?'application/vnd.ms-excel.template.macroEnabled.12':'application/vnd.ms-excel.sheet.macroEnabled.12'),fileBase64:await toBase64(file)};
+  let mime=file.type;
+  if(!mime){
+    if(extensao==='xltm') mime='application/vnd.ms-excel.template.macroEnabled.12';
+    else if(extensao==='xlsb') mime='application/vnd.ms-excel.sheet.binary.macroEnabled.12';
+    else if(extensao==='xls') mime='application/vnd.ms-excel';
+    else mime='application/vnd.ms-excel.sheet.macroEnabled.12';
+  }
+  const payload={nome:document.getElementById('nome').value.trim(),email:document.getElementById('email').value.trim(),fileName:file.name,mimeType:mime,fileBase64:await toBase64(file)};
   const r=await fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});
-  const j=await r.json();
+  const texto=await r.text();
+  let j;
+  try{j=JSON.parse(texto)}catch(_){throw new Error('O servidor não retornou uma resposta válida. Tente novamente.')}
   if(!j.ok) throw new Error(j.erro||'Não foi possível concluir o envio.');
   mostrar('Arquivo enviado com sucesso. Protocolo: '+j.protocolo+' • '+j.horario,'ok');
   form.reset();
