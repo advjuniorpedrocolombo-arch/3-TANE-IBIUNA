@@ -1,29 +1,26 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>TIAA — Tecnologia da Informação Aplicada à Administração</title>
-</head>
-<body>
-<div id="loader" style="font-family:Arial,sans-serif;padding:32px;text-align:center">Carregando TIAA...</div>
-<script>
-(async()=>{
-  try{
-    const fonte='https://raw.githubusercontent.com/advjuniorpedrocolombo-arch/3-TANE-IBIUNA/dcb54257aa0a4e56cd725714f370c318fd5ad8e7/tiaa/index.html?ts='+Date.now();
-    const r=await fetch(fonte,{cache:'no-store'});
-    if(!r.ok) throw new Error('HTTP '+r.status);
-    let html=await r.text();
+<div class="activity-card">
+  <div class="activity-info">
+    <div class="activity-icon">🧩</div>
 
-    html=html.replaceAll('18/09/2026','23/09/2026');
+    <div class="activity-text">
+      <strong>ATD2 — Simulado de Prova</strong>
 
-    document.open();
-    document.write(html);
-    document.close();
-  }catch(e){
-    document.getElementById('loader').innerHTML='<strong>Não foi possível carregar a página.</strong><br>'+String(e.message||e);
-  }
-})();
-</script>
-</body>
-</html>
+      <span>
+        11/09/2026 — Excel VBA • Cadastro de Funcionários com UserForm.
+      </span>
+
+      <span>
+        O aluno deverá desenvolver, testar e enviar o arquivo Excel
+        habilitado para macro (.xlsm ou .xltm).
+        A correção será realizada manualmente pelo professor.
+      </span>
+
+      <span class="activity-tag">DISPONÍVEL</span>
+    </div>
+  </div>
+
+  <a class="activity-button"
+     href="./atd2-simulado/index.html">
+     ACESSAR ATD2
+  </a>
+</div>
