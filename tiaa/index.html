@@ -1,26 +1,52 @@
-<div class="activity-card">
-  <div class="activity-info">
-    <div class="activity-icon">🧩</div>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>TIAA — Tecnologia da Informação Aplicada à Administração</title>
+</head>
+<body>
+<div id="loader" style="font-family:Arial,sans-serif;padding:32px;text-align:center">Carregando TIAA...</div>
+<script>
+(async()=>{
+  try{
+    const fonte='https://raw.githubusercontent.com/advjuniorpedrocolombo-arch/3-TANE-IBIUNA/2e100a115f16543f41e528878b2bc05f493a0781/tiaa/index.html?ts='+Date.now();
+    const r=await fetch(fonte,{cache:'no-store'});
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    let html=await r.text();
 
-    <div class="activity-text">
-      <strong>ATD2 — Simulado de Prova</strong>
+    // Atualiza a data da prova para 23/09/2026.
+    html=html.replaceAll('18/09/2026','23/09/2026');
 
-      <span>
-        11/09/2026 — Excel VBA • Cadastro de Funcionários com UserForm.
-      </span>
+    // Publica a ATD2 nova sem eliminar o restante da página.
+    const atividadeNova=`
+      <div class="material-card" style="border:2px solid #5c4b8a;background:#faf8ff;margin-bottom:14px;">
+        <div class="material-info">
+          <div class="material-icon">🧩</div>
+          <div class="material-text">
+            <strong>ATD2 — Simulado de Prova</strong>
+            <span>11/09/2026 — Excel VBA • Cadastro de Funcionários com UserForm.</span>
+            <span>Envie o arquivo habilitado para macro em formato .xlsm ou .xltm. Correção manual pelo professor.</span>
+            <span class="material-tag">DISPONÍVEL</span>
+          </div>
+        </div>
+        <a class="material-button" href="./atd2-simulado/index.html">ACESSAR ATD2</a>
+      </div>`;
 
-      <span>
-        O aluno deverá desenvolver, testar e enviar o arquivo Excel
-        habilitado para macro (.xlsm ou .xltm).
-        A correção será realizada manualmente pelo professor.
-      </span>
+    // Substitui apenas o aviso de "nenhuma atividade" pela ATD2.
+    const blocoVazio=/<div class="empty">[\s\S]*?<\/div>\s*<\/section>/;
+    if(blocoVazio.test(html)){
+      html=html.replace(blocoVazio, atividadeNova+'\n      </section>');
+      html=html.replace(/<span class="counter">\s*0\s*<\/span>/,'<span class="counter">1</span>');
+    }
 
-      <span class="activity-tag">DISPONÍVEL</span>
-    </div>
-  </div>
-
-  <a class="activity-button"
-     href="./atd2-simulado/index.html">
-     ACESSAR ATD2
-  </a>
-</div>
+    document.open();
+    document.write(html);
+    document.close();
+  }catch(e){
+    document.getElementById('loader').innerHTML='<strong>Erro ao carregar a página de TIAA.</strong><br>'+e.message;
+  }
+})();
+</script>
+</body>
+</html>
