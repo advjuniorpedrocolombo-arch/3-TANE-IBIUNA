@@ -1,4 +1,4 @@
-const SHEET_ID='COLE_AQUI_ID_DA_PLANILHA_3TANE';
+const SHEET_ID='1susEJxYDXa8WM2ss_21RoJMe7xy1TTsckqgVKnvFvrU';
 const TURMA='3º TANE - Ibiúna';
 const COMPONENTES=['CI','TIAA','PPBS','ADMP'];
 
