@@ -1,28 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Administração Pública | 3º TANE</title>
-</head>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Administração Pública | 3º TANE</title></head>
 <body>
-<div id="loader" style="font-family:Arial,sans-serif;padding:32px;text-align:center">Carregando ADMP...</div>
+<div id="loader" style="font-family:Arial,sans-serif;padding:32px;text-align:center">Carregando Administração Pública...</div>
 <script>
 (async()=>{
   try{
-    const fonte='https://raw.githubusercontent.com/advjuniorpedrocolombo-arch/3-TANE-IBIUNA/72be460c027b285cdbae61bf0238218808f3a4ed/admp/index.html?ts='+Date.now();
+    const fonte='https://raw.githubusercontent.com/advjuniorpedrocolombo-arch/3-TANE-IBIUNA/c595fe8820fa0a0c0f8f04d9e5ec4733125511dc/admp/index.html?ts='+Date.now();
     const r=await fetch(fonte,{cache:'no-store'});
-    if(!r.ok) throw new Error('HTTP '+r.status);
+    if(!r.ok)throw new Error('HTTP '+r.status);
     let html=await r.text();
-    const contato=`
-<style>
-.prof-contact{width:min(1120px,calc(100% - 34px));margin:0 auto 32px;background:#fff;border:1px solid #e1e6eb;border-radius:18px;padding:18px;display:flex;align-items:center;gap:16px;box-shadow:0 8px 22px rgba(28,35,45,.06);font-family:Arial,Helvetica,sans-serif}.prof-contact img{width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid #edf6f1}.prof-contact strong{display:block;font-size:1rem;color:#263238;margin-bottom:4px}.prof-contact span{display:block;color:#667085;font-size:.84rem;margin-bottom:8px}.prof-links{display:flex;gap:8px;flex-wrap:wrap}.prof-links a{display:inline-flex;align-items:center;padding:8px 11px;border-radius:9px;background:#245f4b;color:#fff!important;text-decoration:none!important;font-size:.78rem;font-weight:800}.prof-links a.prof-mail{background:#355b7a}@media(max-width:560px){.prof-contact{align-items:flex-start}.prof-contact img{width:60px;height:60px}.prof-links{flex-direction:column}.prof-links a{width:100%;justify-content:center}}
-</style>
-<section class="prof-contact" aria-label="Contato do professor"><img src="../foto-professor.png" alt="Prof. Junior Pedro Colombo"><div><strong>Prof. Junior Pedro Colombo</strong><span>Contato do professor</span><div class="prof-links"><a class="prof-mail" href="mailto:junio.colombo@cps.sp.gov.br">✉️ junio.colombo@cps.sp.gov.br</a><a href="https://wa.me/5515997451709" target="_blank" rel="noopener noreferrer">💬 WhatsApp: (15) 99745-1709</a></div></div></section>`;
-    html=html.replace('</body>',contato+'\n</body>');
+    html=html.replace('</body>','<script src="../assets/portal-dinamico.js" data-componente="ADMP"><\/script></body>');
     document.open();document.write(html);document.close();
-  }catch(e){document.getElementById('loader').innerHTML='<strong>Erro ao carregar a página de ADMP.</strong><br>'+e.message;}
+  }catch(e){document.getElementById('loader').innerHTML='<strong>Erro ao carregar a página de ADMP.</strong><br>'+e.message}
 })();
 </script>
-</body>
-</html>
+</body></html>
