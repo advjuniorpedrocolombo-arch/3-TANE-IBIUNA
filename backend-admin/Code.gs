@@ -18,6 +18,7 @@ function dateTime_(v){if(!v)return'';if(Object.prototype.toString.call(v)==='[ob
 function dateTimeInput_(v){if(!v)return'';if(Object.prototype.toString.call(v)==='[object Date]')return Utilities.formatDate(v,Session.getScriptTimeZone(),"yyyy-MM-dd'T'HH:mm");const s=String(v).trim();if(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}/.test(s))return s.slice(0,16);if(/^\d{4}-\d{2}-\d{2}$/.test(s))return s+'T23:59';return s}
 function comp_(v){const c=String(v||'').trim().toUpperCase();if(!COMPONENTES.includes(c))throw new Error('Componente inválido: '+c);return c}
 function ensureColumn_(sh,nome){const lastCol=Math.max(sh.getLastColumn(),1);const headers=sh.getRange(1,1,1,lastCol).getValues()[0].map(String);if(headers.indexOf(nome)>=0)return;sh.getRange(1,lastCol+1).setValue(nome)}
+function headerMap_(sh){const h=sh.getRange(1,1,1,sh.getLastColumn()).getValues()[0].map(String);return {h:h,m:Object.fromEntries(h.map((x,i)=>[x,i]))}}
 function listarComponentes(){return COMPONENTES.map(c=>({id:c,nome:c}))}
 
 function listarAtividades(componente){
@@ -65,9 +66,97 @@ function excluirMaterial(componente,id){
   throw new Error('Material não encontrado');
 }
 
+const COLUNAS_CORRECAO=['MENCAO_IA','FEEDBACK_IA','MENCAO_FINAL','FEEDBACK_FINAL','STATUS_CORRECAO','APROVADO','DATA_APROVACAO','EMAIL_ENVIADO','DATA_EMAIL'];
+function ensureEntregaColumns_(){const sh=sh_('ENTREGAS');COLUNAS_CORRECAO.forEach(c=>ensureColumn_(sh,c));return sh}
+function atividadesIds_(c){return new Set(rows_('ATIVIDADES').filter(x=>String(x.TURMA||'')===TURMA&&String(x.COMPONENTE||'').toUpperCase()===c).map(x=>String(x.ID_ATIVIDADE||'')))}
+function atividade_(c,id){const a=rows_('ATIVIDADES').find(x=>String(x.TURMA||'')===TURMA&&String(x.COMPONENTE||'').toUpperCase()===c&&String(x.ID_ATIVIDADE||'')===String(id));if(!a)throw new Error('Atividade não encontrada para esta turma/componente.');return a}
+
 function listarEntregas(componente,idAtividade){
-  const c=comp_(componente),ids=new Set(rows_('ATIVIDADES').filter(x=>String(x.TURMA||'')===TURMA&&String(x.COMPONENTE||'').toUpperCase()===c).map(x=>String(x.ID_ATIVIDADE||'')));
-  return rows_('ENTREGAS').filter(x=>ids.has(String(x.ID_ATIVIDADE||''))&&(!idAtividade||String(x.ID_ATIVIDADE)===String(idAtividade))).map(e=>({id:String(e.ID_ENTREGA||''),idAtividade:String(e.ID_ATIVIDADE||''),aluno:String(e.ALUNO||''),email:String(e.EMAIL||''),arquivos:String(e.ARQUIVOS_URL||''),resposta:String(e.RESPOSTA_TEXTO||''),dataEnvio:dateTime_(e.DATA_ENVIO),status:String(e.STATUS||''),tentativa:Number(e.TENTATIVA||1),observacao:String(e.OBSERVACAO||'')}));
+  const c=comp_(componente),ids=atividadesIds_(c),sh=ensureEntregaColumns_(),hm=headerMap_(sh),h=hm.h,m=hm.m;
+  const v=sh.getDataRange().getValues(),out=[];
+  for(let i=1;i<v.length;i++){
+    const r=v[i],id=String(r[m.ID_ATIVIDADE]||'');
+    if(!ids.has(id)|| (idAtividade&&id!==String(idAtividade)))continue;
+    out.push({linha:i+1,id:String(r[m.ID_ENTREGA]||''),idAtividade:id,aluno:String(r[m.ALUNO]||''),email:String(r[m.EMAIL]||''),arquivos:String(r[m.ARQUIVOS_URL]||''),resposta:String(r[m.RESPOSTA_TEXTO]||''),dataEnvio:dateTime_(r[m.DATA_ENVIO]),status:String(r[m.STATUS]||''),tentativa:Number(r[m.TENTATIVA]||1),observacao:String(r[m.OBSERVACAO]||''),mencaoIA:String(r[m.MENCAO_IA]||''),feedbackIA:String(r[m.FEEDBACK_IA]||''),mencaoFinal:String(r[m.MENCAO_FINAL]||''),feedbackFinal:String(r[m.FEEDBACK_FINAL]||''),statusCorrecao:String(r[m.STATUS_CORRECAO]||''),aprovado:String(r[m.APROVADO]||''),dataAprovacao:dateTime_(r[m.DATA_APROVACAO]),emailEnviado:String(r[m.EMAIL_ENVIADO]||''),dataEmail:dateTime_(r[m.DATA_EMAIL])});
+  }
+  return out;
+}
+
+function entregaLinha_(componente,linha){
+  const c=comp_(componente),sh=ensureEntregaColumns_(),n=Number(linha);if(!n||n<2||n>sh.getLastRow())throw new Error('Entrega inválida.');
+  const hm=headerMap_(sh),r=sh.getRange(n,1,1,hm.h.length).getValues()[0],o=Object.fromEntries(hm.h.map((k,i)=>[k,r[i]]));
+  if(!atividadesIds_(c).has(String(o.ID_ATIVIDADE||'')))throw new Error('Esta entrega não pertence ao componente selecionado.');
+  return {sh:sh,linha:n,h:hm.h,m:hm.m,o:o};
+}
+function setEntrega_(ctx,valores){Object.keys(valores).forEach(k=>{if(ctx.m[k]===undefined)throw new Error('Coluna não encontrada: '+k);ctx.sh.getRange(ctx.linha,ctx.m[k]+1).setValue(valores[k])})}
+function mencaoValida_(v){const x=String(v||'').trim().toUpperCase();if(!['MB','B','R','I'].includes(x))throw new Error('Menção inválida. Use MB, B, R ou I.');return x}
+
+function salvarCorrecaoProfessor(componente,linha,mencao,feedback){
+  const ctx=entregaLinha_(componente,linha),m=mencaoValida_(mencao),f=String(feedback||'').trim();
+  setEntrega_(ctx,{MENCAO_FINAL:m,FEEDBACK_FINAL:f,STATUS_CORRECAO:'REVISADA_PELO_PROFESSOR',APROVADO:'NAO'});
+  return {ok:true,mencao:m};
+}
+
+function aprovarCorrecao(componente,linha,mencao,feedback){
+  const ctx=entregaLinha_(componente,linha),m=mencaoValida_(mencao),f=String(feedback||'').trim();
+  if(!f)throw new Error('Informe o feedback antes de aprovar.');
+  setEntrega_(ctx,{MENCAO_FINAL:m,FEEDBACK_FINAL:f,STATUS_CORRECAO:'APROVADA',APROVADO:'SIM',DATA_APROVACAO:new Date()});
+  return {ok:true,mencao:m};
+}
+
+function enviarCorrecaoEmail(componente,linha){
+  const ctx=entregaLinha_(componente,linha),o=ctx.o,email=String(o.EMAIL||'').trim();
+  if(String(o.APROVADO||'').toUpperCase()!=='SIM')throw new Error('A correção precisa ser aprovada antes do envio.');
+  if(!email)throw new Error('O aluno não possui e-mail cadastrado nesta entrega.');
+  const mencao=String(o.MENCAO_FINAL||'').trim(),feedback=String(o.FEEDBACK_FINAL||'').trim(),a=atividade_(comp_(componente),o.ID_ATIVIDADE);
+  const assunto='Correção da atividade - '+String(a.TITULO||o.ID_ATIVIDADE);
+  const html='<p>Olá, <strong>'+escapeHtml_(o.ALUNO||'aluno(a)')+'</strong>.</p><p>Sua atividade <strong>'+escapeHtml_(a.TITULO||o.ID_ATIVIDADE)+'</strong> foi corrigida e aprovada pelo professor.</p><p><strong>Menção: '+escapeHtml_(mencao)+'</strong></p><p><strong>Feedback:</strong><br>'+escapeHtml_(feedback).replace(/\n/g,'<br>')+'</p><p>Atenciosamente,<br>Prof. Junior Colombo</p>';
+  MailApp.sendEmail({to:email,subject:assunto,htmlBody:html,name:'Prof. Junior Colombo'});
+  setEntrega_(ctx,{EMAIL_ENVIADO:'SIM',DATA_EMAIL:new Date(),STATUS_CORRECAO:'ENVIADA_AO_ALUNO'});
+  return {ok:true,email:email};
+}
+function escapeHtml_(s){return String(s||'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]))}
+
+function idsDrive_(texto){const s=String(texto||''),out=[],re=/[-\w]{25,}/g;let m;while((m=re.exec(s))!==null)if(!out.includes(m[0]))out.push(m[0]);return out}
+function anexosIA_(texto){
+  const ids=idsDrive_(texto),content=[];
+  ids.slice(0,5).forEach(id=>{
+    try{
+      const f=DriveApp.getFileById(id),blob=f.getBlob(),bytes=blob.getBytes();
+      if(bytes.length>20*1024*1024)throw new Error('Arquivo maior que 20 MB: '+f.getName());
+      const mime=blob.getContentType()||'',b64=Utilities.base64Encode(bytes);
+      if(/^image\/(png|jpeg|jpg|webp)$/i.test(mime)) content.push({type:'input_image',image_url:'data:'+mime+';base64,'+b64,detail:'high'});
+      else content.push({type:'input_file',filename:f.getName(),file_data:b64});
+    }catch(err){content.push({type:'input_text',text:'[Não foi possível anexar um arquivo da entrega: '+err.message+']'})}
+  });
+  return content;
+}
+function textoRespostaOpenAI_(json){
+  if(json.output_text)return String(json.output_text);
+  const partes=[];(json.output||[]).forEach(o=>(o.content||[]).forEach(c=>{if(c.type==='output_text'&&c.text)partes.push(c.text)}));return partes.join('\n').trim();
+}
+function parseCorrecao_(texto){
+  let s=String(texto||'').trim().replace(/^```(?:json)?\s*/i,'').replace(/\s*```$/,'');
+  try{const j=JSON.parse(s);return {mencao:mencaoValida_(j.mencao),feedback:String(j.feedback||'').trim()}}catch(e){}
+  const mm=s.match(/\b(MB|B|R|I)\b/i);if(!mm)throw new Error('A IA respondeu em formato inesperado. Tente novamente.');
+  return {mencao:mencaoValida_(mm[1]),feedback:s.replace(mm[0],'').replace(/^\s*[-:–—]+\s*/,'').trim()};
+}
+
+function corrigirComIA(componente,linha){
+  const c=comp_(componente),ctx=entregaLinha_(c,linha),o=ctx.o,a=atividade_(c,o.ID_ATIVIDADE),criterios=String(a.GABARITO_CRITERIOS||'').trim();
+  if(String(a.CORRECAO_IA||'').toUpperCase()!=='SIM')throw new Error('A correção por IA não está habilitada nesta atividade.');
+  if(!criterios)throw new Error('Cadastre o gabarito/critério desta atividade antes de utilizar a correção por IA.');
+  const key=PropertiesService.getScriptProperties().getProperty('OPENAI_API_KEY');
+  if(!key)throw new Error('Configure OPENAI_API_KEY nas Propriedades do Script antes de usar a correção por IA.');
+  const model=PropertiesService.getScriptProperties().getProperty('OPENAI_MODEL')||'gpt-5.6-luna';
+  const prompt='Você é um auxiliar de correção escolar. O GABARITO/CRITÉRIOS DO PROFESSOR abaixo é obrigatório e soberano. Não crie exigências adicionais, não penalize redações equivalentes quando o gabarito permitir e não altere os critérios definidos pelo professor.\n\nATIVIDADE: '+String(a.TITULO||o.ID_ATIVIDADE)+'\nDESCRIÇÃO: '+String(a.DESCRICAO||'')+'\n\nGABARITO/CRITÉRIOS DO PROFESSOR:\n'+criterios+'\n\nALUNO: '+String(o.ALUNO||'')+'\nRESPOSTA TEXTUAL REGISTRADA:\n'+String(o.RESPOSTA_TEXTO||'(sem resposta textual; analise os arquivos anexados)')+'\n\nAvalie exclusivamente com as menções MB, B, R ou I. Produza feedback curto, pedagógico e objetivo, indicando acertos e o que precisa melhorar conforme o gabarito. Retorne APENAS JSON válido no formato {"mencao":"MB","feedback":"texto"}.';
+  const content=[{type:'input_text',text:prompt}].concat(anexosIA_(o.ARQUIVOS_URL));
+  const payload={model:model,input:[{role:'user',content:content}]};
+  const resp=UrlFetchApp.fetch('https://api.openai.com/v1/responses',{method:'post',contentType:'application/json',headers:{Authorization:'Bearer '+key},payload:JSON.stringify(payload),muteHttpExceptions:true});
+  const code=resp.getResponseCode(),body=resp.getContentText();if(code<200||code>=300)throw new Error('Falha na correção por IA ('+code+'): '+body.slice(0,500));
+  const r=parseCorrecao_(textoRespostaOpenAI_(JSON.parse(body)));
+  setEntrega_(ctx,{MENCAO_IA:r.mencao,FEEDBACK_IA:r.feedback,MENCAO_FINAL:r.mencao,FEEDBACK_FINAL:r.feedback,STATUS_CORRECAO:'AGUARDANDO_APROVACAO',APROVADO:'NAO'});
+  return {ok:true,mencao:r.mencao,feedback:r.feedback};
 }
 
 function statusPainel(){return {ok:true,sistema:'3º TANE',turma:TURMA,componentes:COMPONENTES,timeZone:Session.getScriptTimeZone()}}
