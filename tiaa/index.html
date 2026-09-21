@@ -15,10 +15,8 @@
     if(!r.ok) throw new Error('HTTP '+r.status);
     let html=await r.text();
 
-    // Atualiza a data da prova para 23/09/2026.
     html=html.replaceAll('18/09/2026','23/09/2026');
 
-    // Publica a ATD2 nova sem eliminar o restante da página.
     const atividadeNova=`
       <div class="material-card" style="border:2px solid #5c4b8a;background:#faf8ff;margin-bottom:14px;">
         <div class="material-info">
@@ -33,12 +31,18 @@
         <a class="material-button" href="https://advjuniorpedrocolombo-arch.github.io/3-TANE-IBIUNA/tiaa/atd2-simulado/">ACESSAR ATD2</a>
       </div>`;
 
-    // Substitui apenas o aviso de "nenhuma atividade" pela ATD2.
     const blocoVazio=/<div class="empty">[\s\S]*?<\/div>\s*<\/section>/;
     if(blocoVazio.test(html)){
       html=html.replace(blocoVazio, atividadeNova+'\n      </section>');
       html=html.replace(/<span class="counter">\s*0\s*<\/span>/,'<span class="counter">1</span>');
     }
+
+    const contato=`
+<style>
+.prof-contact{width:min(1120px,calc(100% - 34px));margin:0 auto 32px;background:#fff;border:1px solid #e1e6eb;border-radius:18px;padding:18px;display:flex;align-items:center;gap:16px;box-shadow:0 8px 22px rgba(28,35,45,.06);font-family:Arial,Helvetica,sans-serif}.prof-contact img{width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid #edf6f1}.prof-contact strong{display:block;font-size:1rem;color:#263238;margin-bottom:4px}.prof-contact span{display:block;color:#667085;font-size:.84rem;margin-bottom:8px}.prof-links{display:flex;gap:8px;flex-wrap:wrap}.prof-links a{display:inline-flex;align-items:center;padding:8px 11px;border-radius:9px;background:#356b50;color:#fff!important;text-decoration:none!important;font-size:.78rem;font-weight:800}.prof-links a.prof-mail{background:#355b7a}@media(max-width:560px){.prof-contact{align-items:flex-start}.prof-contact img{width:60px;height:60px}.prof-links{flex-direction:column}.prof-links a{width:100%;justify-content:center}}
+</style>
+<section class="prof-contact" aria-label="Contato do professor"><img src="../foto-professor.png" alt="Prof. Junior Pedro Colombo"><div><strong>Prof. Junior Pedro Colombo</strong><span>Contato do professor</span><div class="prof-links"><a class="prof-mail" href="mailto:junio.colombo@cps.sp.gov.br">✉️ junio.colombo@cps.sp.gov.br</a><a href="https://wa.me/5515997451709" target="_blank" rel="noopener noreferrer">💬 WhatsApp: (15) 99745-1709</a></div></div></section>`;
+    html=html.replace('</body>',contato+'\n</body>');
 
     document.open();
     document.write(html);
