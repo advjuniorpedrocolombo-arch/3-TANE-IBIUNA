@@ -3,46 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Tecnologia da Informação Aplicada à Administração — 3º TANE — Extensão Ibiúna">
 <title>TIAA — Tecnologia da Informação Aplicada à Administração</title>
+<style>
+:root{--c:#5c4b8a;--soft:#f2effa;--text:#263238;--muted:#667085;--line:#e1e6eb;--bg:#f4f6f8;--red:#b5121b}*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}a{text-decoration:none;color:inherit}.container{width:min(1120px,calc(100% - 34px));margin:auto}.top{background:#fff;border-bottom:1px solid var(--line)}.topin{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:11px}.logo{width:48px;height:38px;border-radius:10px;background:var(--red);color:#fff;display:grid;place-items:center;font-weight:900;font-size:.75rem}.brand strong,.brand span{display:block}.brand span{font-size:.75rem;color:var(--muted)}.back{font-size:.84rem;font-weight:800;color:var(--c)}.hero{background:#fff;border-bottom:1px solid var(--line)}.heroin{padding:42px 0;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}.code{font-size:.75rem;font-weight:900;color:var(--c);letter-spacing:.1em}.hero h1{margin:5px 0 8px;font-size:clamp(2.1rem,5vw,3.35rem);line-height:1.05}.hero p{margin:0;color:var(--muted);max-width:760px}.icon{width:88px;height:88px;border-radius:22px;background:var(--soft);display:grid;place-items:center;font-size:2.25rem}.intro{padding:28px 0 8px}.box{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 9px 24px rgba(20,32,45,.05)}.box h2{margin:0 0 7px;font-size:1.2rem}.box p{margin:0;color:var(--muted);font-size:.9rem}.prof{margin:24px auto 38px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;align-items:center;gap:16px}.prof img{width:76px;height:76px;border-radius:50%;object-fit:cover}.prof strong{display:block}.prof small{display:block;color:var(--muted);margin:2px 0 8px}.links{display:flex;gap:8px;flex-wrap:wrap}.links a{padding:8px 11px;border-radius:9px;background:#355b7a;color:#fff;font-size:.78rem;font-weight:800}.links a:last-child{background:#245f4b}footer{background:#fff;border-top:1px solid var(--line)}.foot{min-height:70px;display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:.8rem}@media(max-width:650px){.heroin{grid-template-columns:1fr}.icon{display:none}.topin,.foot{flex-direction:column;align-items:flex-start;padding:12px 0}.prof{align-items:flex-start}.links{flex-direction:column}.links a{width:100%;text-align:center}}
+</style>
 </head>
 <body>
-<div id="loader" style="font-family:Arial,sans-serif;padding:32px;text-align:center">Carregando TIAA...</div>
-<script>
-(async()=>{
-  try{
-    const fonte='https://raw.githubusercontent.com/advjuniorpedrocolombo-arch/3-TANE-IBIUNA/2e100a115f16543f41e528878b2bc05f493a0781/tiaa/index.html?ts='+Date.now();
-    const r=await fetch(fonte,{cache:'no-store'});
-    if(!r.ok) throw new Error('HTTP '+r.status);
-    let html=await r.text();
-    html=html.replaceAll('18/09/2026','23/09/2026');
-    const atividadeNova=`
-      <div class="material-card" style="border:2px solid #5c4b8a;background:#faf8ff;margin-bottom:14px;">
-        <div class="material-info">
-          <div class="material-icon">🧩</div>
-          <div class="material-text">
-            <strong>ATD2 — Simulado de Prova</strong>
-            <span>11/09/2026 — Excel VBA • Cadastro de Funcionários com UserForm.</span>
-            <span>Envie o arquivo habilitado para macro em formato .xlsm ou .xltm. Correção manual pelo professor.</span>
-            <span class="material-tag">DISPONÍVEL</span>
-          </div>
-        </div>
-        <a class="material-button" href="https://advjuniorpedrocolombo-arch.github.io/3-TANE-IBIUNA/tiaa/atd2-simulado/">ACESSAR ATD2</a>
-      </div>`;
-    const blocoVazio=/<div class="empty">[\s\S]*?<\/div>\s*<\/section>/;
-    if(blocoVazio.test(html)){
-      html=html.replace(blocoVazio, atividadeNova+'\n      </section>');
-      html=html.replace(/<span class="counter">\s*0\s*<\/span>/,'<span class="counter">1</span>');
-    }
-    const contato=`<section style="width:min(1120px,calc(100% - 34px));margin:24px auto"><div style="background:#fff;border:1px solid #e1e6eb;border-radius:18px;padding:18px;display:flex;gap:16px;align-items:center"><img src="../foto-professor.png" alt="Prof. Junior Pedro Colombo" style="width:82px;height:82px;border-radius:50%;object-fit:cover"><div style="font-family:Arial,sans-serif"><strong style="display:block;font-size:1rem">Prof. Junior Pedro Colombo</strong><a href="mailto:junio.colombo@cps.sp.gov.br" style="display:block;margin-top:5px;color:#355b7a">junio.colombo@cps.sp.gov.br</a><a href="https://wa.me/5515997451709" target="_blank" rel="noopener" style="display:block;margin-top:5px;color:#245f4b">WhatsApp: (15) 99745-1709</a></div></div></section>`;
-    const portal='<scr'+'ipt src="../assets/portal-dinamico.js" data-componente="TIAA"></scr'+'ipt>';
-    html=html.replace('</body>',contato+portal+'</body>');
-    document.open();
-    document.write(html);
-    document.close();
-  }catch(e){
-    document.getElementById('loader').innerHTML='<strong>Erro ao carregar a página de TIAA.</strong><br>'+e.message;
-  }
-})();
-</script>
+<header class="top"><div class="container topin"><div class="brand"><div class="logo">ETEC</div><div><strong>3º TANE — Extensão Ibiúna</strong><span>Portal de Estudos</span></div></div><a class="back" href="../index.html">← Voltar ao 3º TANE</a></div></header>
+<section class="hero"><div class="container heroin"><div><div class="code">TIAA</div><h1>Tecnologia da Informação Aplicada à Administração</h1><p>Materiais, atividades e orientações do componente Tecnologia da Informação Aplicada à Administração.</p></div><div class="icon">💻</div></div></section>
+<main><section class="container intro"><div class="box"><h2>Ambiente atualizado</h2><p>Os conteúdos publicados pelo professor aparecem automaticamente abaixo, sincronizados com o painel administrativo do 3º TANE.</p></div></section></main>
+<section class="container prof"><img src="../foto-professor.png" alt="Prof. Junior Pedro Colombo"><div><strong>Prof. Junior Pedro Colombo</strong><small>Contato do professor</small><div class="links"><a href="mailto:junio.colombo@cps.sp.gov.br">✉️ junio.colombo@cps.sp.gov.br</a><a href="https://wa.me/5515997451709" target="_blank" rel="noopener">💬 WhatsApp: (15) 99745-1709</a></div></div></section>
+<footer><div class="container foot"><span>3º TANE — TIAA</span><span>Extensão Ibiúna</span></div></footer>
+<script src="../assets/portal-dinamico.js" data-componente="TIAA"></script>
 </body>
 </html>
