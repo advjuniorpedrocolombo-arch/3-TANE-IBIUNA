@@ -11,7 +11,7 @@ function carregarLinhasCorrecoes_() {
   const sh=sh_('CORRECOES_IA'),v=sh.getDataRange().getValues();
   if(!v.length)return {sh,h:[],registros:[]};
   const h=v[0].map(String);
-  return {sh,h,registros:v.slice(1).filter(r=>r.some(c=>c!==''&&c!==null)).map((r,i)=>({linha:i+2,registro:Object.fromEntries(h.map((k,j)=>[k,r[j]]))}))};
+  return {sh,h,registros:v.slice(1).map((r,i)=>({linha:i+2,registro:Object.fromEntries(h.map((k,j)=>[k,r[j]]))})).filter(x=>String(x.registro.ID_ENTREGA||'').trim())};
 }
 function detalheCorrecao_(id) {
   const fonte=carregarLinhasCorrecoes_();
